@@ -6,7 +6,6 @@
 
         internal MouseHook()
         {
-            SetHook();
         }
     }
 }

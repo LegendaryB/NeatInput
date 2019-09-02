@@ -1,42 +1,47 @@
 ﻿using NeatInput.Win32;
 
 using System;
+using System.Threading.Tasks;
 
 namespace NeatInput
 {
     public static class InputHookManager
     {
-        private static bool IsMessageLoopRunning;
+        private static bool isMessageLoopRunning;
 
-        public static void SetKeyboardHook(out KeyboardHook hook)
-        {
-            hook = new KeyboardHook();
-            ExecuteMessageLoop();
-        }
+        public static KeyboardHook SetKeyboardHook() =>
+            SetHook(new KeyboardHook());
 
-        public static void SetMouseHook(out MouseHook hook)
+        public static void SetMouseHook() =>
+            SetHook(new MouseHook());
+
+        private static THook SetHook<THook>(THook hook)
+            where THook : InputHookBase
         {
-            hook = new MouseHook();
-            ExecuteMessageLoop();
+            Task.Run(() =>
+            {
+                hook.SetHook();
+                ExecuteMessageLoop();
+            }).ConfigureAwait(false);
+
+            return hook;
         }
 
         private static void ExecuteMessageLoop()
         {
-            if (!IsMessageLoopRunning)
+            if (!isMessageLoopRunning)
             {
                 if (IsRunningAsConsole())
                     RunPrimitiveWindowsMessageLoop();
             }
         }
 
-        private static bool IsRunningAsConsole()
-        {
-            return Kernel32.GetConsoleWindow() != IntPtr.Zero;
-        }
+        private static bool IsRunningAsConsole() =>
+            Kernel32.GetConsoleWindow() != IntPtr.Zero;
 
         private static void RunPrimitiveWindowsMessageLoop()
         {
-            IsMessageLoopRunning = true;
+            isMessageLoopRunning = true;
 
             while (true)
             {

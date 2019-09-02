@@ -39,5 +39,8 @@ namespace NeatInput.Win32
 
         [DllImport("user32.dll")]
         internal static extern IntPtr DispatchMessage([In] ref MSG lpmsg);
+
+        [DllImport("user32.dll")]
+        internal static extern short VkKeyScan(char ch);
     }
 }

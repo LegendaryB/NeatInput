@@ -8,12 +8,11 @@ namespace NeatInput
     public abstract class InputHookBase : IDisposable
     {
         protected abstract int HookID { get; }
-
         protected IntPtr HookHandle { get; private set; }
 
         protected InputHookBase() { }
 
-        protected void SetHook()
+        internal void SetHook()
         {
             using (var process = Process.GetCurrentProcess())
             {
@@ -33,9 +32,6 @@ namespace NeatInput
             IntPtr wParam,
             IntPtr lParam)
         {
-            if (HookHandle == IntPtr.Zero)
-                throw new InvalidOperationException();
-
             return User32.CallNextHookEx(
                 HookHandle,
                 nCode,
