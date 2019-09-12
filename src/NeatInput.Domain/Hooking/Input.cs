@@ -7,19 +7,12 @@ namespace NeatInput.Domain.Hooking
     {
         public VirtualKeyCodes Key { get; set; }
         public KeyState State { get; set; }
-        public DeviceTypes DeviceType { get; }
-        public int X { get; set; }
-        public int Y { get; set;  }
 
-
-
-        public Input(DeviceTypes deviceType)
+        public Input()
         {
-            DeviceType = deviceType;
         }
 
-        public Input(VirtualKeyCodes key, DeviceTypes deviceType)
-            : this(deviceType)
+        public Input(VirtualKeyCodes key)
         {
             Key = key;
         }

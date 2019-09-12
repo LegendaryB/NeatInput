@@ -1,5 +1,4 @@
 ﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain;
 using NeatInput.Domain.Hooking;
 using NeatInput.Hooking;
 
@@ -32,10 +31,11 @@ namespace NeatInput
         {
             InputReceived?.Invoke(input);
 
-            if (input.DeviceType == DeviceTypes.Keyboard)
-                KeyboardInputReceived?.Invoke(input);
-            else
+            if (input.GetType() == typeof(MouseInput))
                 MouseInputReceived?.Invoke(input);
+            else
+                KeyboardInputReceived?.Invoke(input);
+
         }
 
         private void OnAppDomainLifetimeEnded(object s, dynamic e) => Dispose();

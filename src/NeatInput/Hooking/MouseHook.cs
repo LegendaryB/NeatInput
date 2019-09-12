@@ -1,5 +1,4 @@
 ﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain;
 using NeatInput.Domain.Hooking;
 using NeatInput.Domain.Hooking.Enums;
 using NeatInput.Domain.Native.Enums;
@@ -26,7 +25,11 @@ namespace NeatInput.Hooking
 
                 var @struct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
 
-                var input = new Input(DeviceTypes.Mouse);
+                var input = new MouseInput
+                {
+                    X = @struct.pt.X,
+                    Y = @struct.pt.Y
+                };
 
                 switch (msg)
                 {
@@ -87,9 +90,6 @@ namespace NeatInput.Hooking
 
                     #endregion
                 }
-
-                input.X = @struct.pt.X;
-                input.Y = @struct.pt.Y;
 
                 InputReceived?.Invoke(input);
             }
