@@ -89,6 +89,9 @@ namespace NeatInput.Hooking
                         break;
 
                     #endregion
+
+                    #region XBUTTON
+                    #endregion
                 }
 
                 InputReceived?.Invoke(input);

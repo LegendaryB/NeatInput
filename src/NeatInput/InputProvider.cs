@@ -35,7 +35,6 @@ namespace NeatInput
                 MouseInputReceived?.Invoke(input);
             else
                 KeyboardInputReceived?.Invoke(input);
-
         }
 
         private void OnAppDomainLifetimeEnded(object s, dynamic e) => Dispose();

@@ -1,6 +1,5 @@
 ﻿using NeatInput.Domain.Hooking;
 using System;
-using System.Threading;
 
 namespace NeatInput.TestConsoleApp
 {
