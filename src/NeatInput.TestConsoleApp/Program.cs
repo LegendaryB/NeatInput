@@ -9,12 +9,12 @@ namespace NeatInput.TestConsoleApp
         static void Main(string[] args)
         {
             var input = new InputProvider();
-            input.KeyboardInputReceived += Input_KeyboardInputReceived;
+            input.InputReceived += OnInputReceived;
 
             Console.ReadLine();
         }
 
-        private static void Input_KeyboardInputReceived(Input input)
+        private static void OnInputReceived(Input input)
         {
             Console.WriteLine(input.Key);
             return;

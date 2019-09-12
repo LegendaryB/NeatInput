@@ -10,6 +10,7 @@ namespace NeatInput
     public class InputProvider : IDisposable
     {
         public delegate void InputReceivedDelegate(Input input);
+        public event InputReceivedDelegate InputReceived;
         public event InputReceivedDelegate KeyboardInputReceived;
         public event InputReceivedDelegate MouseInputReceived;
 
@@ -29,6 +30,8 @@ namespace NeatInput
 
         private void InputEventReceivedHandler(Input input)
         {
+            InputReceived?.Invoke(input);
+
             if (input.DeviceType == DeviceTypes.Keyboard)
                 KeyboardInputReceived?.Invoke(input);
             else

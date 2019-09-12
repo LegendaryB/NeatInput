@@ -5,6 +5,7 @@ using NeatInput.Domain.Hooking.Enums;
 using NeatInput.Domain.Native.Enums;
 
 using System;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace NeatInput.Hooking
@@ -23,7 +24,9 @@ namespace NeatInput.Hooking
             {
                 var msg = (WindowsMessages)wParam.ToInt32();
 
-                var input = new Input(lParam, DeviceTypes.Keyboard);
+                var input = new Input(
+                    (VirtualKeyCodes)Marshal.ReadInt32(lParam), 
+                    DeviceTypes.Keyboard);
 
                 switch (msg)
                 {
