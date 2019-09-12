@@ -5,12 +5,13 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1804B845-8B89-492A-BF86-1ADD22C5D714}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Domain", "src\NeatInput.Domain\NeatInput.Domain.csproj", "{7FAA1B25-B9DF-4E17-963C-0953320DA578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Domain", "src\NeatInput.Domain\NeatInput.Domain.csproj", "{7FAA1B25-B9DF-4E17-963C-0953320DA578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Application", "src\NeatInput.Application\NeatInput.Application.csproj", "{FCB253A7-A39B-4A30-BC39-4752219807EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Application", "src\NeatInput.Application\NeatInput.Application.csproj", "{FCB253A7-A39B-4A30-BC39-4752219807EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{9BE74E9A-8A17-4B6F-8F16-A4E79836AE90}"
 EndProject
