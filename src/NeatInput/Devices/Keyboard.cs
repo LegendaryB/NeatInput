@@ -1,19 +1,21 @@
-﻿using NeatInput.Application.Devices;
-using NeatInput.Application.Hooking;
+﻿using NeatInput.Application.Hooking;
+using NeatInput.Domain.Hooking;
 using NeatInput.Hooking;
 
 using System;
 
 namespace NeatInput.Devices
 {
-    internal class Keyboard : InputDevice<IKeyboardHook, KeyboardHook>,
-        IKeyboard
+    internal class Keyboard : InputDevice<IKeyboardHook, KeyboardHook>
     {
+        public Action<Input> Callback;
+
         public Keyboard()
         {
             Hook.InputReceived = (input) =>
             {
-                Console.WriteLine($"Key: {input.Key} | State: {input.State}");
+                Callback.Invoke(input);
+                // Console.WriteLine($"Key: {input.Key} | State: {input.State}");
             };
         }
     }

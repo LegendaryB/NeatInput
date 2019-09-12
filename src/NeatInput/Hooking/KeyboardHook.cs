@@ -1,4 +1,5 @@
 ﻿using NeatInput.Application.Hooking;
+using NeatInput.Domain;
 using NeatInput.Domain.Hooking;
 using NeatInput.Domain.Hooking.Enums;
 using NeatInput.Domain.Native.Enums;
@@ -22,7 +23,7 @@ namespace NeatInput.Hooking
             {
                 var msg = (WindowsMessages)wParam.ToInt32();
 
-                var input = new Input(lParam);
+                var input = new Input(lParam, DeviceTypes.Keyboard);
 
                 switch (msg)
                 {
@@ -37,12 +38,7 @@ namespace NeatInput.Hooking
                         break;
                 }
 
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-                Task.Run(async () =>
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
-                {
-                    InputReceived?.Invoke(input);
-                });
+                Task.Run(async () => InputReceived?.Invoke(input));
             }
 
             return base.OnInputReceived(nCode, wParam, lParam);
