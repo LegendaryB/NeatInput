@@ -1,10 +1,9 @@
 ﻿using NeatInput.Application.Hooking;
-using NeatInput.Devices;
 using NeatInput.Domain;
 using NeatInput.Domain.Hooking;
 using NeatInput.Hooking;
+
 using System;
-using System.Threading.Tasks;
 
 namespace NeatInput
 {
@@ -14,14 +13,15 @@ namespace NeatInput
         public event InputReceivedDelegate KeyboardInputReceived;
         public event InputReceivedDelegate MouseInputReceived;
 
-        private readonly Keyboard _keyboard;
+        private readonly InputDevice<IKeyboardHook, KeyboardHook> _keyboard;
+        private readonly InputDevice<IMouseHook, MouseHook> _mouse;
 
         public InputProvider()
         {
-            _keyboard = new Keyboard();
-            _keyboard.Callback = InputEventReceivedHandler;
-            //_keyboard = new InputDevice<IKeyboardHook, KeyboardHook>(InputEventReceivedHandler);
-            //_mouse = new InputDevice<IMouseHook, MouseHook>(InputEventReceivedHandler);
+            _keyboard = new InputDevice<IKeyboardHook, KeyboardHook>();
+            _keyboard.InputReceivedHandler = InputEventReceivedHandler;
+            _mouse = new InputDevice<IMouseHook, MouseHook>();
+            _mouse.InputReceivedHandler = InputEventReceivedHandler;
 
             AppDomain.CurrentDomain.ProcessExit += OnAppDomainLifetimeEnded;
             AppDomain.CurrentDomain.UnhandledException += OnAppDomainLifetimeEnded;
@@ -40,7 +40,7 @@ namespace NeatInput
         public void Dispose()
         {
             _keyboard.Dispose();
-            //_mouse.Dispose();
+            _mouse.Dispose();
         }
     }
 }

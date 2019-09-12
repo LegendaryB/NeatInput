@@ -42,12 +42,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Devices\Keyboard.cs" />
-    <Compile Include="Devices\Mouse.cs" />
     <Compile Include="Hooking\InputHook.cs" />
     <Compile Include="Hooking\KeyboardHook.cs" />
     <Compile Include="Hooking\MouseHook.cs" />
-    <Compile Include="Devices\InputDevice.cs" />
+    <Compile Include="InputDevice.cs" />
     <Compile Include="InputProvider.cs" />
     <Compile Include="Native\User32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
