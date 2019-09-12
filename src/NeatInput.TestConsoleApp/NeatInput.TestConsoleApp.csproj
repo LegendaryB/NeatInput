@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NeatInput.Application\NeatInput.Application.csproj">
+      <Project>{FCB253A7-A39B-4A30-BC39-4752219807EF}</Project>
+      <Name>NeatInput.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeatInput\NeatInput.csproj">
       <Project>{9be74e9a-8a17-4b6f-8f16-a4e79836ae90}</Project>
       <Name>NeatInput</Name>

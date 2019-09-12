@@ -5,19 +5,17 @@ using System;
 
 namespace NeatInput
 {
-    public class Input : IDisposable
+    public class InputProvider : IDisposable
     {
         public IKeyboard Keyboard { get; }
         public IMouse Mouse { get; }
 
         // todo generic on input event
 
-        public Input()
+        public InputProvider()
         {
             Keyboard = new Keyboard();
-            Mouse = new Mouse();
-
-            Keyboard.
+            //Mouse = new Mouse();
 
             AppDomain.CurrentDomain.ProcessExit += OnAppDomainLifetimeEnded;
             AppDomain.CurrentDomain.UnhandledException += OnAppDomainLifetimeEnded;

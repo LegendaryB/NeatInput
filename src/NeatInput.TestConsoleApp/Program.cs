@@ -6,7 +6,7 @@ namespace NeatInput.TestConsoleApp
     {
         static void Main(string[] args)
         {
-            var input = new Input();
+            var input = new InputProvider();
 
 
             Console.ReadLine();

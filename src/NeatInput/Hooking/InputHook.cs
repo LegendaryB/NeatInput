@@ -1,4 +1,5 @@
 ﻿using NeatInput.Application.Hooking;
+using NeatInput.Domain.Hooking;
 using NeatInput.Native;
 
 using System;
@@ -10,15 +11,16 @@ namespace NeatInput.Hooking
 {
     internal abstract class InputHook : IHook
     {
+        public Action<Input> InputReceived { get; set; }
+        public bool IsInstalled { get; private set; }
+
         protected const int WH_KEYBOARD_LL = 13;
         protected const int WH_MOUSE_LL = 14;
-
-        public bool IsInstalled { get; private set; }
 
         protected abstract int HookID { get; }
 
         private IntPtr hhk;
-        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
+        private readonly CancellationTokenSource _cts = new CancellationTokenSource();        
 
         public virtual void Set()
         {
@@ -28,9 +30,9 @@ namespace NeatInput.Hooking
             });
 
             ThreadPool.QueueUserWorkItem(callback, _cts.Token);
-        }       
+        }
 
-        protected virtual IntPtr InputReceived(
+        protected virtual IntPtr OnInputReceived(
             int nCode,
             IntPtr wParam,
             IntPtr lParam)
@@ -56,7 +58,7 @@ namespace NeatInput.Hooking
             {
                 hhk = User32.SetWindowsHookEx(
                     HookID,
-                    InputReceived,
+                    OnInputReceived,
                     process.MainModule.BaseAddress,
                     0);
             }
