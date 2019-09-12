@@ -35,8 +35,10 @@
         WM_XBUTTONDBLCLK = 0x020D,
         WM_NCXBUTTONDBLCLK = 0x00AD,
 
+        WM_MOUSEWHEEL = 0x020A,
+        WM_MOUSEHWHEEL = 0x020E,
+
         WM_MOUSEMOVE = 0x0200,
-        WM_NCSMOUSEMOVE = 0x00A0,
-        WM_MOUSEWHEEL = 0x020A        
+        WM_NCSMOUSEMOVE = 0x00A0             
     }
 }

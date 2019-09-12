@@ -4,7 +4,6 @@
     {
         None,
         Up,
-        Down,
-        Pressed
+        Down
     }
 }

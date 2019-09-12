@@ -47,7 +47,6 @@ namespace NeatInput.Hooking
 
                     case WindowsMessages.WM_LBUTTONDBLCLK:
                     case WindowsMessages.WM_NCLBUTTONDBLCLK:
-                        input.State = KeyState.Pressed;
                         break;
 
                     #endregion
@@ -66,7 +65,6 @@ namespace NeatInput.Hooking
 
                     case WindowsMessages.WM_RBUTTONDBLCLK:
                     case WindowsMessages.WM_NCRBUTTONDBLCLK:
-                        input.State = KeyState.Pressed;
                         break;
 
                     #endregion
@@ -85,12 +83,42 @@ namespace NeatInput.Hooking
 
                     case WindowsMessages.WM_MBUTTONDBLCLK:
                     case WindowsMessages.WM_NCMBUTTONDBLCLK:
-                        input.State = KeyState.Pressed;
                         break;
 
                     #endregion
 
                     #region XBUTTON
+
+                    case WindowsMessages.WM_XBUTTONDOWN:                        
+                    case WindowsMessages.WM_NCXBUTTONDOWN:
+                        input.State = KeyState.Down;
+                        break;
+
+                    case WindowsMessages.WM_XBUTTONUP:
+                    case WindowsMessages.WM_NCXBUTTONUP:
+                        input.State = KeyState.Up;
+                        break;
+
+                    case WindowsMessages.WM_XBUTTONDBLCLK:
+                    case WindowsMessages.WM_NCXBUTTONDBLCLK:
+                        break;
+
+                    #endregion
+
+                    #region MOUSE WHEEL
+
+                    case WindowsMessages.WM_MOUSEWHEEL:
+                    case WindowsMessages.WM_MOUSEHWHEEL:
+                        break;
+
+                    #endregion
+
+                    #region MOUSE MOVE
+
+                    case WindowsMessages.WM_MOUSEMOVE:
+                    case WindowsMessages.WM_NCSMOUSEMOVE:
+                        break;
+
                     #endregion
                 }
 
