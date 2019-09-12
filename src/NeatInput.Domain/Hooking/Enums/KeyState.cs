@@ -2,9 +2,9 @@
 {
     public enum KeyState
     {
-        Undefined,
+        None,
         Up,
-        Down
-        // Pressed
+        Down,
+        Pressed
     }
 }

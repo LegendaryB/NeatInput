@@ -16,7 +16,7 @@ namespace NeatInput.TestConsoleApp
 
         private static void OnInputReceived(Input input)
         {
-            Console.WriteLine(input.Key);
+            Console.WriteLine($"X: {input.X} | Y: {input.Y}");
             return;
         }
     }

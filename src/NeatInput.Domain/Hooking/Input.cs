@@ -11,6 +11,8 @@ namespace NeatInput.Domain.Hooking
         public int X { get; set; }
         public int Y { get; set;  }
 
+
+
         public Input(DeviceTypes deviceType)
         {
             DeviceType = deviceType;

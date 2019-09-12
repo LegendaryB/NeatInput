@@ -6,7 +6,6 @@ using NeatInput.Domain.Native.Enums;
 
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace NeatInput.Hooking
 {
@@ -41,7 +40,7 @@ namespace NeatInput.Hooking
                         break;
                 }
 
-                Task.Run(async () => InputReceived?.Invoke(input));
+                InputReceived?.Invoke(input);
             }
 
             return base.OnInputReceived(nCode, wParam, lParam);
