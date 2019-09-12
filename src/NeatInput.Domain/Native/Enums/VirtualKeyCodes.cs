@@ -1,4 +1,4 @@
-﻿namespace NeatInput.Win32.Enums
+﻿namespace NeatInput.Domain.Native.Enums
 {
     /// <summary>
     /// From: https://gist.github.com/alekseynemiro/dbb869443239b435b48ea767456e343a

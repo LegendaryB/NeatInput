@@ -4,18 +4,12 @@ namespace NeatInput.TestConsoleApp
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            var hook = InputHookManager.SetKeyboardHook();
-            hook.InputReceived += Hook_InputReceived;
+            var input = new Input();
+
 
             Console.ReadLine();
-        }
-
-        private static void Hook_InputReceived(KeyboardInput input)
-        {
-            if (input.IsPressed)
-                Console.WriteLine(input.Key);
         }
     }
 }

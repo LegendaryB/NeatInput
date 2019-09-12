@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB977F97-652B-450C-80B9-641D245A66D7}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>NeatInput.TestConsoleApp</RootNamespace>
-    <AssemblyName>NeatInput.TestConsoleApp</AssemblyName>
+    <ProjectGuid>{4509B241-F135-43F1-A0E9-D7BD25084080}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeatInput.Infrastructure</RootNamespace>
+    <AssemblyName>NeatInput.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,16 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Hooking\InputHook.cs" />
+    <Compile Include="Hooking\KeyboardHook.cs" />
+    <Compile Include="Hooking\MouseHook.cs" />
+    <Compile Include="InputReceiverWindow.cs" />
+    <Compile Include="Native\User32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NeatInput\NeatInput.csproj">
-      <Project>{9be74e9a-8a17-4b6f-8f16-a4e79836ae90}</Project>
-      <Name>NeatInput</Name>
+    <ProjectReference Include="..\NeatInput.Application\NeatInput.Application.csproj">
+      <Project>{fcb253a7-a39b-4a30-bc39-4752219807ef}</Project>
+      <Name>NeatInput.Application</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
