@@ -5,8 +5,10 @@ using NeatInput.Native.SafeHandles;
 
 using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Interop;
+using static NeatInput.Native.User32;
 
 namespace NeatInput.Hooking
 {
@@ -19,12 +21,16 @@ namespace NeatInput.Hooking
 
         protected abstract int HookID { get; }
 
+        private HookProc _hookProc;
         private SetWindowsHookExSafeHandle setWindowsHookExSafeHandle;
-        private readonly IntPtr _mainModuleHandle;
+
+        private readonly object _lock;
         private readonly CancellationTokenSource _cts;
+        private readonly IntPtr _mainModuleHandle;        
 
         public InputHook()
         {
+            _lock = new object();
             _cts = new CancellationTokenSource();
 
             using (var process = Process.GetCurrentProcess())
@@ -36,10 +42,13 @@ namespace NeatInput.Hooking
 
         public virtual void Set()
         {
-            var thread = new Thread(() => SetHookAndRunMessageLoop());
-            thread.IsBackground = true;
-            thread.Priority = ThreadPriority.Highest;
-            thread.Start();
+            lock (_lock)
+            {
+                var thread = new Thread(() => SetHookAndRunMessageLoop());
+                thread.IsBackground = true;
+                thread.Priority = ThreadPriority.Highest;
+                thread.Start();
+            }
         }
 
         protected virtual IntPtr OnInputReceived(
@@ -63,15 +72,17 @@ namespace NeatInput.Hooking
 
         private void SetHookAndRunMessageLoop()
         {
-            setWindowsHookExSafeHandle = User32.SetWindowsHookEx(
+            _hookProc = OnInputReceived;
+
+            setWindowsHookExSafeHandle = SetWindowsHookEx(
                 HookID,
-                OnInputReceived,
+                Marshal.GetFunctionPointerForDelegate(_hookProc),
                 _mainModuleHandle,
                 0);
 
             var msg = new MSG();
 
-            while (User32.GetMessage(ref msg, IntPtr.Zero, 0, 0))
+            while (GetMessage(ref msg, IntPtr.Zero, 0, 0))
             {
             }
         }

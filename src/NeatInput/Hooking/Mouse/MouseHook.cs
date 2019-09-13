@@ -4,7 +4,10 @@ using NeatInput.Domain.Native.Structures;
 using NeatInput.Hooking.Mouse.Processing;
 
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NeatInput.Hooking
 {
@@ -25,7 +28,7 @@ namespace NeatInput.Hooking
             if (InputReceived == null)
                 return base.OnInputReceived(nCode, wParam, lParam);
 
-            if (nCode >= 0 && lParam != IntPtr.Zero)
+            if (nCode >= 0 && lParam != IntPtr.Zero && wParam != IntPtr.Zero)
             {
                 var msg = (WindowsMessages)wParam.ToInt32();
                 var msllhookstruct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);

@@ -17,7 +17,7 @@ namespace NeatInput.Native
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern SetWindowsHookExSafeHandle SetWindowsHookEx(
             int idHook,
-            HookProc lpfn,
+            IntPtr lpfn,
             IntPtr hMod,
             uint dwThreadId);
 
