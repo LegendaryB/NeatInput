@@ -51,6 +51,7 @@
     <Compile Include="InputDevice.cs" />
     <Compile Include="InputProvider.cs" />
     <Compile Include="Native\User32.cs" />
+    <Compile Include="Native\Wrappers\SetWindowsHookExSafeHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

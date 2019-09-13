@@ -1,6 +1,7 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Hooking;
 using NeatInput.Native;
+using NeatInput.Native.Wrappers;
 
 using System;
 using System.Diagnostics;
@@ -12,14 +13,13 @@ namespace NeatInput.Hooking
     internal abstract class InputHook : IHook
     {
         public Action<Input> InputReceived { get; set; }
-        public bool IsInstalled { get; private set; }
 
         protected const int WH_KEYBOARD_LL = 13;
         protected const int WH_MOUSE_LL = 14;
 
         protected abstract int HookID { get; }
 
-        private IntPtr hhk;
+        private SetWindowsHookExSafeHandle hhk;
         private readonly IntPtr _mainModuleHandle;
         private readonly CancellationTokenSource _cts;
 
@@ -48,7 +48,7 @@ namespace NeatInput.Hooking
             IntPtr lParam)
         {
             return User32.CallNextHookEx(
-                hhk,
+                hhk.DangerousGetHandle(),
                 nCode,
                 wParam,
                 lParam);
@@ -58,19 +58,16 @@ namespace NeatInput.Hooking
         {
             _cts.Cancel();
             _cts.Dispose();
-
-            IsInstalled = User32.UnhookWindowsHookEx(hhk);
+            hhk.Dispose();
         }
 
         private void SetHookAndRunMessageLoop()
         {
-            hhk = User32.SetWindowsHookEx(
+            hhk = new SetWindowsHookExSafeHandle(User32.SetWindowsHookEx(
                 HookID,
                 OnInputReceived,
                 _mainModuleHandle,
-                0);
-
-            IsInstalled = hhk != IntPtr.Zero;
+                0));
 
             var msg = new MSG();
 
