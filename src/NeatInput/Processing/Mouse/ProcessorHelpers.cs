@@ -1,4 +1,4 @@
-﻿namespace NeatInput.Hooking.Mouse.Processing
+﻿namespace NeatInput.Processing.Mouse
 {
     internal static class ProcessorHelpers
     {

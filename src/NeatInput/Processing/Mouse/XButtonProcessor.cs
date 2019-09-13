@@ -3,7 +3,7 @@ using NeatInput.Domain.Hooking.Mouse.Processing;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 
-namespace NeatInput.Hooking.Mouse.Processing
+namespace NeatInput.Processing.Mouse
 {
     internal class XButtonProcessor :
         IMouseInputProcessor

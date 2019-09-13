@@ -1,7 +1,7 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
-using NeatInput.Hooking.Mouse.Processing;
+using NeatInput.Processing.Mouse;
 
 using System;
 using System.Runtime.InteropServices;

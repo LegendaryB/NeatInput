@@ -7,7 +7,7 @@ using NeatInput.Domain.Native.Structures;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeatInput.Hooking.Mouse.Processing
+namespace NeatInput.Processing.Mouse
 {
     internal class StateProcessor :
         IMouseInputProcessor
