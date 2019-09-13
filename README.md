@@ -1,4 +1,4 @@
-# WORK IN PROGRESS
+<h1 align="center"> WORK IN PROGRESS</h1>
 
 <h1 align="center">NeatInput</h1>
 <div align="center">
