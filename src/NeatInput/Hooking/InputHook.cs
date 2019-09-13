@@ -1,7 +1,7 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Hooking;
 using NeatInput.Native;
-using NeatInput.Native.Wrappers;
+using NeatInput.Native.SafeHandles;
 
 using System;
 using System.Diagnostics;
@@ -19,7 +19,7 @@ namespace NeatInput.Hooking
 
         protected abstract int HookID { get; }
 
-        private SetWindowsHookExSafeHandle hhk;
+        private SetWindowsHookExSafeHandle setWindowsHookExSafeHandle;
         private readonly IntPtr _mainModuleHandle;
         private readonly CancellationTokenSource _cts;
 
@@ -48,7 +48,7 @@ namespace NeatInput.Hooking
             IntPtr lParam)
         {
             return User32.CallNextHookEx(
-                hhk.DangerousGetHandle(),
+                setWindowsHookExSafeHandle.DangerousGetHandle(),
                 nCode,
                 wParam,
                 lParam);
@@ -58,16 +58,16 @@ namespace NeatInput.Hooking
         {
             _cts.Cancel();
             _cts.Dispose();
-            hhk.Dispose();
+            setWindowsHookExSafeHandle.Dispose();
         }
 
         private void SetHookAndRunMessageLoop()
         {
-            hhk = new SetWindowsHookExSafeHandle(User32.SetWindowsHookEx(
+            setWindowsHookExSafeHandle = User32.SetWindowsHookEx(
                 HookID,
                 OnInputReceived,
                 _mainModuleHandle,
-                0));
+                0);
 
             var msg = new MSG();
 

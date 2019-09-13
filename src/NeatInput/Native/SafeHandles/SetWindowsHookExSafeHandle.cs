@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Runtime.ConstrainedExecution;
-
+using System.Security.Permissions;
 using Microsoft.Win32.SafeHandles;
 
-namespace NeatInput.Native.Wrappers
+namespace NeatInput.Native.SafeHandles
 {
+    [SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]
+    [SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
     public class SetWindowsHookExSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
     {
-        public SetWindowsHookExSafeHandle(IntPtr handle)
+        private SetWindowsHookExSafeHandle()
             : base(true)
         {
-            SetHandle(handle);
         }
 
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
