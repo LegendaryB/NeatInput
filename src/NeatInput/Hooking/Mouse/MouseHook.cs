@@ -4,10 +4,7 @@ using NeatInput.Domain.Native.Structures;
 using NeatInput.Hooking.Mouse.Processing;
 
 using System;
-using System.IO;
 using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace NeatInput.Hooking
 {
