@@ -14,12 +14,63 @@ Useful and clean .NET Standard library to monitor keyboard and mouse input.
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
 
-* [Getting started](#getting-started)
+## Getting started
 
-<br>
+### Monitoring mouse and keyboard input
+To monitor mouse and keyboard input you need to attach to the OnInputReceived event handler:
 
-# Getting started
-TBD
+```csharp
+private static void Main()
+{
+    var inputProvider = new InputProvider();
+    inputProvider.InputReceived += OnInputReceived;
+
+    Console.ReadLine();
+}
+
+private void OnInputReceived(Input input)
+{
+    Console.WriteLine($"Key: {input.Key} | State: {input.State}");
+}
+```
+
+### Monitoring mouse input
+To monitor mouse input you need to attach to the OnMouseInputReceived event handler:
+
+```csharp
+private static void Main()
+{
+    var inputProvider = new InputProvider();
+    inputProvider.MouseInputReceived += OnMouseInputReceived;
+
+    Console.ReadLine();
+}
+
+private void OnMouseInputReceived(Input input)
+{
+    var mouseInput = input as MouseInput;
+
+    Console.WriteLine($"Key: {mouseInput.Key} | State: {mouseInput.State} | X: {mouseInput.X} | Y: {mouseInput.Y}");
+}
+```
+
+### Monitoring keyboard input
+To monitor keyboard input you need to attach to the OnKeyboardInputReceived event handler:
+
+```csharp
+private static void Main()
+{
+    var inputProvider = new InputProvider();
+    inputProvider.KeyboardInputReceived += OnKeyboardInputReceived;
+
+    Console.ReadLine();
+}
+
+private void OnKeyboardInputReceived(Input input)
+{
+    Console.WriteLine($"Key: {input.Key} | State: {input.State}");
+}
+```
 
 ## Contributing
 
