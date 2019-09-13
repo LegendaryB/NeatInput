@@ -21,12 +21,10 @@ namespace NeatInput.Hooking
 
         private IntPtr hhk;
         private readonly IntPtr _mainModuleHandle;
-        private readonly object _lock;
         private readonly CancellationTokenSource _cts;
 
         public InputHook()
         {
-            _lock = new object();
             _cts = new CancellationTokenSource();
 
             using (var process = Process.GetCurrentProcess())
@@ -38,13 +36,10 @@ namespace NeatInput.Hooking
 
         public virtual void Set()
         {
-            lock (_lock)
-            {
-                var thread = new Thread(() => SetHookAndRunMessageLoop());
-                thread.IsBackground = true;
-                thread.Priority = ThreadPriority.Highest;
-                thread.Start();
-            }
+            var thread = new Thread(() => SetHookAndRunMessageLoop());
+            thread.IsBackground = true;
+            thread.Priority = ThreadPriority.Highest;
+            thread.Start();
         }
 
         protected virtual IntPtr OnInputReceived(
