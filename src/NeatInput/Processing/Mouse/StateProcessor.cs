@@ -11,15 +11,14 @@ namespace NeatInput.Processing.Mouse
     internal class StateProcessor :
         IMouseInputProcessor
     {
-        private readonly Dictionary<KeyState, List<WindowsMessages>> _stateMessagesMap;
+        private readonly Dictionary<MouseState, List<WindowsMessages>> _stateMessagesMap;
 
         public StateProcessor()
         {
-            _stateMessagesMap = new Dictionary<KeyState, List<WindowsMessages>>();
+            _stateMessagesMap = new Dictionary<MouseState, List<WindowsMessages>>();
 
             RegisterDownStateMessages();
             RegisterUpStateMessages();
-            RegisterPressedStateMessages();
             RegisterMoveStateMessages();
         }
 
@@ -31,7 +30,7 @@ namespace NeatInput.Processing.Mouse
             input.State = GetState(msg);
         }
 
-        private KeyState GetState(WindowsMessages msg)
+        private MouseState GetState(WindowsMessages msg)
         {
             return _stateMessagesMap
                 .FirstOrDefault(kvp => kvp.Value.Contains(msg))
@@ -52,7 +51,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCXBUTTONDOWN
             };
 
-            _stateMessagesMap.Add(KeyState.Down, messages);
+            _stateMessagesMap.Add(MouseState.KeyDown, messages);
         }
 
         private void RegisterUpStateMessages()
@@ -69,18 +68,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCXBUTTONUP
             };
 
-            _stateMessagesMap.Add(KeyState.Up, messages);
-        }
-
-        private void RegisterPressedStateMessages()
-        {
-            var messages = new List<WindowsMessages>
-            {
-                WindowsMessages.WM_MOUSEWHEEL,
-                WindowsMessages.WM_MOUSEHWHEEL
-            };
-
-            _stateMessagesMap.Add(KeyState.Pressed, messages);
+            _stateMessagesMap.Add(MouseState.KeyUp, messages);
         }
 
         private void RegisterMoveStateMessages()
@@ -91,7 +79,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCSMOUSEMOVE
             };
 
-            _stateMessagesMap.Add(KeyState.Move, messages);
+            _stateMessagesMap.Add(MouseState.Moving, messages);
         }
     }
 }

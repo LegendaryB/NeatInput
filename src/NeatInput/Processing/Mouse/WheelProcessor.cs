@@ -18,9 +18,9 @@ namespace NeatInput.Processing.Mouse
                 return;
 
             if (ProcessorHelpers.HIWORD(hookStruct.mouseData) > 0)
-                input.State = KeyState.Up;
+                input.State = MouseState.KeyUp;
             else
-                input.State = KeyState.Down;
+                input.State = MouseState.KeyDown;
         }
     }
 }
