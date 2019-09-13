@@ -2,23 +2,25 @@
 using NeatInput.Domain.Hooking.Mouse;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
+
 using System.Collections.Generic;
 using System.Linq;
 
 namespace NeatInput.Hooking.Mouse
 {
-    internal class MouseKeyProcessor :
+    internal class KeyProcessor :
         IMouseInputProcessor
     {
         private readonly Dictionary<VirtualKeyCodes, List<WindowsMessages>> _buttonMessagesMap;
 
-        public MouseKeyProcessor()
+        public KeyProcessor()
         {
             _buttonMessagesMap = new Dictionary<VirtualKeyCodes, List<WindowsMessages>>();
 
             RegisterLeftButtonMessages();
             RegisterRightButtonMessages();
             RegisterMiddleButtonMessages();
+            RegisterXButtonMessages();
         }
 
         public void Process(
@@ -73,6 +75,19 @@ namespace NeatInput.Hooking.Mouse
             };
 
             _buttonMessagesMap.Add(VirtualKeyCodes.MBUTTON, messages);
+        }
+
+        private void RegisterXButtonMessages()
+        {
+            var messages = new List<WindowsMessages>
+            {
+                WindowsMessages.WM_XBUTTONDOWN,
+                WindowsMessages.WM_XBUTTONUP,
+                WindowsMessages.WM_NCXBUTTONDOWN,
+                WindowsMessages.WM_NCXBUTTONUP
+            };
+
+            _buttonMessagesMap.Add(VirtualKeyCodes.XBUTTON1, messages);
         }
     }
 }

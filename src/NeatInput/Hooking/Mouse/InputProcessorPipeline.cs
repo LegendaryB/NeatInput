@@ -7,16 +7,17 @@ using System.Collections.Generic;
 
 namespace NeatInput.Hooking.Mouse
 {
-    internal class MouseInputProcessorPipeline
+    internal class InputProcessorPipeline
     {
         private readonly List<IMouseInputProcessor> _processors;
 
-        public MouseInputProcessorPipeline()
+        public InputProcessorPipeline()
         {
             _processors = new List<IMouseInputProcessor>
             {
-                new MouseKeyProcessor(),
-                new MouseStateProcessor()
+                new KeyProcessor(),
+                new StateProcessor(),
+                new XButtonProcessor()
             };
         }
 

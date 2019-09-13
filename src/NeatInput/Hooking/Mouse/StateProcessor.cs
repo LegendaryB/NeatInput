@@ -9,12 +9,12 @@ using System.Linq;
 
 namespace NeatInput.Hooking.Mouse
 {
-    internal class MouseStateProcessor :
+    internal class StateProcessor :
         IMouseInputProcessor
     {
         private readonly Dictionary<KeyState, List<WindowsMessages>> _stateMessagesMap;
 
-        public MouseStateProcessor()
+        public StateProcessor()
         {
             _stateMessagesMap = new Dictionary<KeyState, List<WindowsMessages>>();
 
