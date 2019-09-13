@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Domain", "src\Nea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Application", "src\NeatInput.Application\NeatInput.Application.csproj", "{FCB253A7-A39B-4A30-BC39-4752219807EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.ConsoleSample", "samples\NeatInput.ConsoleSample\NeatInput.ConsoleSample.csproj", "{1571E74D-2CE8-4241-8967-319867990A76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.ConsoleSample", "samples\NeatInput.ConsoleSample\NeatInput.ConsoleSample.csproj", "{1571E74D-2CE8-4241-8967-319867990A76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{46079F5F-1CE6-4E00-9B79-67F4711B6276}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1571E74D-2CE8-4241-8967-319867990A76} = {46079F5F-1CE6-4E00-9B79-67F4711B6276}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EF9ED7D-6CB6-491B-A31B-3AF9377FD560}
