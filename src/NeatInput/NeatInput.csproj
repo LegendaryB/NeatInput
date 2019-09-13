@@ -44,7 +44,10 @@
   <ItemGroup>
     <Compile Include="Hooking\InputHook.cs" />
     <Compile Include="Hooking\KeyboardHook.cs" />
-    <Compile Include="Hooking\MouseHook.cs" />
+    <Compile Include="Hooking\Mouse\MouseHook.cs" />
+    <Compile Include="Hooking\Mouse\MouseKeyProcessor.cs" />
+    <Compile Include="Hooking\Mouse\MouseInputProcessorPipeline.cs" />
+    <Compile Include="Hooking\Mouse\MouseStateProcessor.cs" />
     <Compile Include="InputDevice.cs" />
     <Compile Include="InputProvider.cs" />
     <Compile Include="Native\User32.cs" />

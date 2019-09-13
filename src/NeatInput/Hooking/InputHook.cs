@@ -20,16 +20,31 @@ namespace NeatInput.Hooking
         protected abstract int HookID { get; }
 
         private IntPtr hhk;
-        private readonly CancellationTokenSource _cts = new CancellationTokenSource();        
+        private readonly IntPtr _mainModuleHandle;
+        private readonly object _lock;
+        private readonly CancellationTokenSource _cts;
+
+        public InputHook()
+        {
+            _lock = new object();
+            _cts = new CancellationTokenSource();
+
+            using (var process = Process.GetCurrentProcess())
+            {
+                process.PriorityClass = ProcessPriorityClass.RealTime;
+                _mainModuleHandle = process.MainModule.BaseAddress;
+            }
+        }
 
         public virtual void Set()
         {
-            var callback = new WaitCallback((stateInfo) =>
+            lock (_lock)
             {
-                SetHookAndRunMessageLoop();
-            });
-
-            ThreadPool.QueueUserWorkItem(callback, _cts.Token);
+                var thread = new Thread(() => SetHookAndRunMessageLoop());
+                thread.IsBackground = true;
+                thread.Priority = ThreadPriority.Highest;
+                thread.Start();
+            }
         }
 
         protected virtual IntPtr OnInputReceived(
@@ -54,14 +69,11 @@ namespace NeatInput.Hooking
 
         private void SetHookAndRunMessageLoop()
         {
-            using (var process = Process.GetCurrentProcess())
-            {
-                hhk = User32.SetWindowsHookEx(
-                    HookID,
-                    OnInputReceived,
-                    process.MainModule.BaseAddress,
-                    0);
-            }
+            hhk = User32.SetWindowsHookEx(
+                HookID,
+                OnInputReceived,
+                _mainModuleHandle,
+                0);
 
             IsInstalled = hhk != IntPtr.Zero;
 

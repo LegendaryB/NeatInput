@@ -15,6 +15,7 @@ namespace NeatInput.TestConsoleApp
 
         private static void OnInputReceived(Input input)
         {
+            Console.WriteLine($"Key: {input.Key} | State: {input.State}");
             return;
         }
     }

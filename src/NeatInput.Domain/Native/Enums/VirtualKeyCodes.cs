@@ -5,6 +5,8 @@
     /// </summary>
     public enum VirtualKeyCodes
     {
+        Undefined = -1,
+
         /// <summary>
         /// Left mouse button.
         /// </summary>
