@@ -1,9 +1,9 @@
-﻿using NeatInput.Native.SafeHandles;
+﻿using NeatInput.Domain.Native.Structures;
+using NeatInput.Native.SafeHandles;
 
 using System;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
-using System.Windows.Interop;
 
 namespace NeatInput.Native
 {

@@ -2,6 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Product>NeatInput</Product>
+    <Company>Daniel Belz</Company>
+    <Authors>Daniel Belz</Authors>
+    <Copyright>Copyright © Daniel Belz 2019</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/LegendaryB/NeatInput</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LegendaryB/NeatInput</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

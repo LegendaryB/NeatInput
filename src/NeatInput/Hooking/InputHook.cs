@@ -1,5 +1,6 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Hooking;
+using NeatInput.Domain.Native.Structures;
 using NeatInput.Native;
 using NeatInput.Native.SafeHandles;
 
@@ -7,7 +8,6 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Windows.Interop;
 using static NeatInput.Native.User32;
 
 namespace NeatInput.Hooking

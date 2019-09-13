@@ -1,71 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BE74E9A-8A17-4B6F-8F16-A4E79836AE90}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NeatInput</RootNamespace>
-    <AssemblyName>NeatInput</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Daniel Belz</Authors>
+    <Company>Daniel Belz</Company>
+    <Copyright>Copyright © Daniel Belz 2019</Copyright>
+    <PackageProjectUrl>https://github.com/LegendaryB/NeatInput</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LegendaryB/NeatInput</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>Useful and clean library to monitor keyboard and/or mouse input.</Description>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
+    <ProjectReference Include="..\NeatInput.Application\NeatInput.Application.csproj" />
+    <ProjectReference Include="..\NeatInput.Domain\NeatInput.Domain.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Hooking\InputHook.cs" />
-    <Compile Include="Hooking\KeyboardHook.cs" />
-    <Compile Include="Hooking\Mouse\MouseHook.cs" />
-    <Compile Include="Hooking\Mouse\Processing\KeyProcessor.cs" />
-    <Compile Include="Hooking\Mouse\Processing\InputProcessorPipeline.cs" />
-    <Compile Include="Hooking\Mouse\Processing\ProcessorHelpers.cs" />
-    <Compile Include="Hooking\Mouse\Processing\WheelProcessor.cs" />
-    <Compile Include="Hooking\Mouse\Processing\StateProcessor.cs" />
-    <Compile Include="Hooking\Mouse\Processing\XButtonProcessor.cs" />
-    <Compile Include="InputDevice.cs" />
-    <Compile Include="InputProvider.cs" />
-    <Compile Include="Native\User32.cs" />
-    <Compile Include="Native\SafeHandles\SetWindowsHookExSafeHandle.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NeatInput.Application\NeatInput.Application.csproj">
-      <Project>{FCB253A7-A39B-4A30-BC39-4752219807EF}</Project>
-      <Name>NeatInput.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NeatInput.Domain\NeatInput.Domain.csproj">
-      <Project>{7FAA1B25-B9DF-4E17-963C-0953320DA578}</Project>
-      <Name>NeatInput.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
