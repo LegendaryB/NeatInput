@@ -9,7 +9,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
 [![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
 
-Useful and clean .NET Standard library to monitor keyboard and mouse input.
+Useful and clean .NET Standard library to monitor keyboard and mouse input on Windows.
 
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
