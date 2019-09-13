@@ -46,11 +46,9 @@ private static void Main()
     Console.ReadLine();
 }
 
-private void OnMouseInputReceived(Input input)
+private void OnMouseInputReceived(MouseInput input)
 {
-    var mouseInput = input as MouseInput;
-
-    Console.WriteLine($"Key: {mouseInput.Key} | State: {mouseInput.State} | X: {mouseInput.X} | Y: {mouseInput.Y}");
+    Console.WriteLine($"Key: {input.Key} | State: {input.State} | X: {input.X} | Y: {input.Y}");
 }
 ```
 

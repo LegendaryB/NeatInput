@@ -9,9 +9,11 @@ namespace NeatInput
     public class InputProvider : IDisposable
     {
         public delegate void InputReceivedDelegate(Input input);
+        public delegate void MouseInputReceivedDelegate(MouseInput input);
+
         public event InputReceivedDelegate InputReceived;
         public event InputReceivedDelegate KeyboardInputReceived;
-        public event InputReceivedDelegate MouseInputReceived;
+        public event MouseInputReceivedDelegate MouseInputReceived;
 
         private readonly InputDevice<IKeyboardHook, KeyboardHook> _keyboard;
         private readonly InputDevice<IMouseHook, MouseHook> _mouse;
@@ -32,7 +34,7 @@ namespace NeatInput
             InputReceived?.Invoke(input);
 
             if (input.GetType() == typeof(MouseInput))
-                MouseInputReceived?.Invoke(input);
+                MouseInputReceived?.Invoke(input as MouseInput);
             else
                 KeyboardInputReceived?.Invoke(input);
         }
