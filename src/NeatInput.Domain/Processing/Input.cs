@@ -1,7 +1,7 @@
-﻿using NeatInput.Domain.Hooking.Enums;
-using NeatInput.Domain.Native.Enums;
+﻿using NeatInput.Domain.Native.Enums;
+using NeatInput.Domain.Processing.Keyboard;
 
-namespace NeatInput.Domain.Hooking
+namespace NeatInput.Domain.Processing
 {
     public class Input
     {

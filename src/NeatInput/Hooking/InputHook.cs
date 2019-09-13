@@ -1,6 +1,6 @@
 ﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Hooking;
 using NeatInput.Domain.Native.Structures;
+using NeatInput.Domain.Processing;
 using NeatInput.Native;
 using NeatInput.Native.SafeHandles;
 

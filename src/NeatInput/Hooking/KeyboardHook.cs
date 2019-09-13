@@ -1,8 +1,7 @@
 ﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Hooking;
-using NeatInput.Domain.Hooking.Enums;
 using NeatInput.Domain.Native.Enums;
-
+using NeatInput.Domain.Processing;
+using NeatInput.Domain.Processing.Keyboard;
 using System;
 using System.Runtime.InteropServices;
 

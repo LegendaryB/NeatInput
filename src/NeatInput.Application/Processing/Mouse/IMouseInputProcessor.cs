@@ -1,7 +1,8 @@
 ﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
+using NeatInput.Domain.Processing.Mouse;
 
-namespace NeatInput.Domain.Hooking.Mouse.Processing
+namespace NeatInput.Application.Processing.Mouse
 {
     public interface IMouseInputProcessor
     {

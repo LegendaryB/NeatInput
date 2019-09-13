@@ -1,8 +1,7 @@
-﻿using NeatInput.Domain.Hooking;
-using NeatInput.Domain.Hooking.Mouse.Processing;
+﻿using NeatInput.Application.Processing.Mouse;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
-
+using NeatInput.Domain.Processing.Mouse;
 using System.Collections.Generic;
 using System.Linq;
 

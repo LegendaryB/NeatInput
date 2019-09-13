@@ -1,4 +1,4 @@
-﻿using NeatInput.Domain.Hooking;
+﻿using NeatInput.Domain.Processing;
 
 using System;
 

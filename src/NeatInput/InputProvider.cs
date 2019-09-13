@@ -1,5 +1,6 @@
 ﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Hooking;
+using NeatInput.Domain.Processing;
+using NeatInput.Domain.Processing.Mouse;
 using NeatInput.Hooking;
 
 using System;

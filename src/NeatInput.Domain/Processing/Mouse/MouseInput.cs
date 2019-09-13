@@ -1,7 +1,4 @@
-﻿using NeatInput.Domain.Hooking.Enums;
-using NeatInput.Domain.Native.Enums;
-
-namespace NeatInput.Domain.Hooking
+﻿namespace NeatInput.Domain.Processing.Mouse
 {
     public class MouseInput : Input
     {

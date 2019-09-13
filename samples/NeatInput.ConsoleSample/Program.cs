@@ -1,5 +1,5 @@
-﻿using NeatInput.Domain.Hooking;
-
+﻿using NeatInput.Domain.Processing;
+using NeatInput.Domain.Processing.Mouse;
 using System;
 
 namespace NeatInput.ConsoleSample

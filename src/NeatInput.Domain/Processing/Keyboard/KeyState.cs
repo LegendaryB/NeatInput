@@ -1,4 +1,4 @@
-﻿namespace NeatInput.Domain.Hooking.Enums
+﻿namespace NeatInput.Domain.Processing.Keyboard
 {
     public enum KeyState
     {
