@@ -1,12 +1,12 @@
 ﻿using NeatInput.Domain.Hooking;
-using NeatInput.Domain.Hooking.Mouse;
+using NeatInput.Domain.Hooking.Mouse.Processing;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NeatInput.Hooking.Mouse
+namespace NeatInput.Hooking.Mouse.Processing
 {
     internal class KeyProcessor :
         IMouseInputProcessor
