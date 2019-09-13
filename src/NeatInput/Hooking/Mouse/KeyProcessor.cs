@@ -21,6 +21,7 @@ namespace NeatInput.Hooking.Mouse
             RegisterRightButtonMessages();
             RegisterMiddleButtonMessages();
             RegisterXButtonMessages();
+            RegisterWheelMessages();
         }
 
         public void Process(
@@ -88,6 +89,17 @@ namespace NeatInput.Hooking.Mouse
             };
 
             _buttonMessagesMap.Add(VirtualKeyCodes.XBUTTON1, messages);
+        }
+
+        private void RegisterWheelMessages()
+        {
+            var messages = new List<WindowsMessages>
+            {
+                WindowsMessages.WM_MOUSEWHEEL,
+                WindowsMessages.WM_MOUSEHWHEEL
+            };
+
+            _buttonMessagesMap.Add(VirtualKeyCodes.SCROLL, messages);
         }
     }
 }

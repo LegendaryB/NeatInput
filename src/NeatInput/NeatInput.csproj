@@ -47,6 +47,8 @@
     <Compile Include="Hooking\Mouse\MouseHook.cs" />
     <Compile Include="Hooking\Mouse\KeyProcessor.cs" />
     <Compile Include="Hooking\Mouse\InputProcessorPipeline.cs" />
+    <Compile Include="Hooking\Mouse\ProcessorHelpers.cs" />
+    <Compile Include="Hooking\Mouse\WheelProcessor.cs" />
     <Compile Include="Hooking\Mouse\StateProcessor.cs" />
     <Compile Include="Hooking\Mouse\XButtonProcessor.cs" />
     <Compile Include="InputDevice.cs" />

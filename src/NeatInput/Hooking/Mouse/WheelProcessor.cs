@@ -1,23 +1,26 @@
 ﻿using NeatInput.Domain.Hooking;
+using NeatInput.Domain.Hooking.Enums;
 using NeatInput.Domain.Hooking.Mouse;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 
 namespace NeatInput.Hooking.Mouse
 {
-    internal class XButtonProcessor :
+    internal class WheelProcessor :
         IMouseInputProcessor
     {
         public void Process(
             ref MouseInput input, 
-            WindowsMessages windowsMessage, 
+            WindowsMessages windowsMessage,
             MSLLHOOKSTRUCT hookStruct)
         {
-            if (input.Key != VirtualKeyCodes.XBUTTON1)
+            if (input.Key != VirtualKeyCodes.SCROLL)
                 return;
 
-            if (ProcessorHelpers.HIWORD(hookStruct.mouseData) == 0x2)
-                input.Key = VirtualKeyCodes.XBUTTON2;
+            if (ProcessorHelpers.HIWORD(hookStruct.mouseData) > 0)
+                input.State = KeyState.Up;
+            else
+                input.State = KeyState.Down;
         }
     }
 }

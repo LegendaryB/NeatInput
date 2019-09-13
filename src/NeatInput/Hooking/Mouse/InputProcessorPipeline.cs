@@ -17,7 +17,8 @@ namespace NeatInput.Hooking.Mouse
             {
                 new KeyProcessor(),
                 new StateProcessor(),
-                new XButtonProcessor()
+                new XButtonProcessor(),
+                new WheelProcessor()
             };
         }
 
