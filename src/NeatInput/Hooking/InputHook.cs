@@ -56,7 +56,7 @@ namespace NeatInput.Hooking
             IntPtr lParam)
         {
             return CallNextHookEx(
-                setWindowsHookExSafeHandle.DangerousGetHandle(),
+                setWindowsHookExSafeHandle,
                 nCode,
                 wParam,
                 lParam);
