@@ -1,5 +1,4 @@
-﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Processing;
+﻿using NeatInput.Domain.Processing;
 using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
 using NeatInput.Hooking;
@@ -18,14 +17,14 @@ namespace NeatInput
         public event KeyboardInputReceivedDelegate KeyboardInputReceived;
         public event MouseInputReceivedDelegate MouseInputReceived;
 
-        private readonly InputDevice<IKeyboardHook, KeyboardHook> _keyboard;
-        private readonly InputDevice<IMouseHook, MouseHook> _mouse;
+        private readonly InputDevice<KeyboardHook> _keyboard;
+        private readonly InputDevice<MouseHook> _mouse;
 
         public InputProvider()
         {
-            _keyboard = new InputDevice<IKeyboardHook, KeyboardHook>();
+            _keyboard = new InputDevice<KeyboardHook>();
             _keyboard.InputReceivedHandler = InputEventReceivedHandler;
-            _mouse = new InputDevice<IMouseHook, MouseHook>();
+            _mouse = new InputDevice<MouseHook>();
             _mouse.InputReceivedHandler = InputEventReceivedHandler;
 
             AppDomain.CurrentDomain.ProcessExit += OnAppDomainLifetimeEnded;

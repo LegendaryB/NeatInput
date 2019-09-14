@@ -5,17 +5,16 @@ using System;
 
 namespace NeatInput
 {
-    internal class InputDevice<TInputSourceInterface, TInputHookImplementation> : IDisposable
-        where TInputSourceInterface : class, IHook
-        where TInputHookImplementation : class, TInputSourceInterface, new()
+    internal class InputDevice<TInputHook> : IDisposable
+        where TInputHook : class, IHook, new()
     {
-        private readonly TInputSourceInterface _hook;
+        private readonly TInputHook _hook;
 
         internal Action<Input> InputReceivedHandler { get; set; }
 
         internal InputDevice()
         {
-            _hook = new TInputHookImplementation();
+            _hook = new TInputHook();
             _hook.Set();
 
             _hook.InputReceived = ForwardInput;
