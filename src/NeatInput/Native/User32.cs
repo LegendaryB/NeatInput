@@ -2,7 +2,6 @@
 using NeatInput.Native.SafeHandles;
 
 using System;
-using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 
 namespace NeatInput.Native
