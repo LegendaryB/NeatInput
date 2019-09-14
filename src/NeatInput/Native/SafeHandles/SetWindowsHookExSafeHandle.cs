@@ -14,7 +14,6 @@ namespace NeatInput.Native.SafeHandles
         {
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         protected override bool ReleaseHandle()
         {
             return User32.UnhookWindowsHookEx(handle);
