@@ -64,7 +64,7 @@ private static void Main()
     Console.ReadLine();
 }
 
-private void OnKeyboardInputReceived(Input input)
+private void OnKeyboardInputReceived(KeyboardInput input)
 {
     Console.WriteLine($"Key: {input.Key} | State: {input.State}");
 }
