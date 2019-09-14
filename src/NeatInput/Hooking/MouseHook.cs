@@ -1,5 +1,4 @@
-﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Native.Enums;
+﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Processing.Mouse;
 
@@ -8,8 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace NeatInput.Hooking
 {
-    internal class MouseHook : InputHook,
-        IMouseHook
+    internal class MouseHook : InputHook
     {
         protected override int HookID => WH_MOUSE_LL;
 

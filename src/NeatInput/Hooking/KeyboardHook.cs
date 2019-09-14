@@ -1,5 +1,4 @@
-﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Native.Enums;
+﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Keyboard.Enums;
 
@@ -8,8 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace NeatInput.Hooking
 {
-    internal class KeyboardHook : InputHook,
-        IKeyboardHook
+    internal class KeyboardHook : InputHook
     {
         protected override int HookID => WH_KEYBOARD_LL;
 
