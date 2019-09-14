@@ -11,6 +11,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>neat input win32 hook keyboard mouse keyboardhook mousehook global globalhook library net standard netstandard csharp clean</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
