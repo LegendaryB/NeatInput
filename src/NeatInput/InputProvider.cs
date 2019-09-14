@@ -1,5 +1,6 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Processing;
+using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
 using NeatInput.Hooking;
 
@@ -10,10 +11,11 @@ namespace NeatInput
     public class InputProvider : IDisposable
     {
         public delegate void InputReceivedDelegate(Input input);
+        public delegate void KeyboardInputReceivedDelegate(KeyboardInput input);
         public delegate void MouseInputReceivedDelegate(MouseInput input);
 
         public event InputReceivedDelegate InputReceived;
-        public event InputReceivedDelegate KeyboardInputReceived;
+        public event KeyboardInputReceivedDelegate KeyboardInputReceived;
         public event MouseInputReceivedDelegate MouseInputReceived;
 
         private readonly InputDevice<IKeyboardHook, KeyboardHook> _keyboard;
@@ -37,7 +39,7 @@ namespace NeatInput
             if (input.GetType() == typeof(MouseInput))
                 MouseInputReceived?.Invoke(input as MouseInput);
             else
-                KeyboardInputReceived?.Invoke(input);
+                KeyboardInputReceived?.Invoke(input as KeyboardInput);
         }
 
         private void OnAppDomainLifetimeEnded(object s, dynamic e) => Dispose();

@@ -2,6 +2,8 @@
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
+using NeatInput.Domain.Processing.Mouse.Enums;
+
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,17 +12,18 @@ namespace NeatInput.Processing.Mouse
     internal class KeyProcessor :
         IMouseInputProcessor
     {
-        private readonly Dictionary<VirtualKeyCodes, List<WindowsMessages>> _buttonMessagesMap;
+        private readonly Dictionary<MouseKeys, List<WindowsMessages>> _buttonMessagesMap;
 
         public KeyProcessor()
         {
-            _buttonMessagesMap = new Dictionary<VirtualKeyCodes, List<WindowsMessages>>();
+            _buttonMessagesMap = new Dictionary<MouseKeys, List<WindowsMessages>>();
 
             RegisterLeftButtonMessages();
             RegisterRightButtonMessages();
             RegisterMiddleButtonMessages();
             RegisterXButtonMessages();
             RegisterWheelMessages();
+            RegisterScanningDeviceMessages();
         }
 
         public void Process(
@@ -31,7 +34,7 @@ namespace NeatInput.Processing.Mouse
             input.Key = GetKey(msg);
         }
 
-        private VirtualKeyCodes GetKey(WindowsMessages msg)
+        private MouseKeys GetKey(WindowsMessages msg)
         {
             return _buttonMessagesMap
                 .FirstOrDefault(kvp => kvp.Value.Contains(msg))
@@ -48,7 +51,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCLBUTTONUP
             };
 
-            _buttonMessagesMap.Add(VirtualKeyCodes.LBUTTON, messages);
+            _buttonMessagesMap.Add(MouseKeys.LBUTTON, messages);
         }
 
         private void RegisterRightButtonMessages()
@@ -61,7 +64,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCRBUTTONUP
             };
 
-            _buttonMessagesMap.Add(VirtualKeyCodes.RBUTTON, messages);
+            _buttonMessagesMap.Add(MouseKeys.RBUTTON, messages);
         }
 
         private void RegisterMiddleButtonMessages()
@@ -74,7 +77,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCMBUTTONUP
             };
 
-            _buttonMessagesMap.Add(VirtualKeyCodes.MBUTTON, messages);
+            _buttonMessagesMap.Add(MouseKeys.MBUTTON, messages);
         }
 
         private void RegisterXButtonMessages()
@@ -87,7 +90,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCXBUTTONUP
             };
 
-            _buttonMessagesMap.Add(VirtualKeyCodes.XBUTTON1, messages);
+            _buttonMessagesMap.Add(MouseKeys.XBUTTON1, messages);
         }
 
         private void RegisterWheelMessages()
@@ -98,7 +101,18 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_MOUSEHWHEEL
             };
 
-            _buttonMessagesMap.Add(VirtualKeyCodes.SCROLL, messages);
+            _buttonMessagesMap.Add(MouseKeys.WHEEL, messages);
+        }
+
+        private void RegisterScanningDeviceMessages()
+        {
+            var messages = new List<WindowsMessages>
+            {
+                WindowsMessages.WM_MOUSEMOVE,
+                WindowsMessages.WM_NCSMOUSEMOVE
+            };
+
+            _buttonMessagesMap.Add(MouseKeys.SCANNINGDEVICE, messages);
         }
     }
 }

@@ -2,6 +2,7 @@
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
+
 using System.Collections.Generic;
 
 namespace NeatInput.Processing.Mouse

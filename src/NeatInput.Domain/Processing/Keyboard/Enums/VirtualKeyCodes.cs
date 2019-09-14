@@ -1,36 +1,14 @@
-﻿namespace NeatInput.Domain.Native.Enums
+﻿namespace NeatInput.Domain.Processing.Keyboard.Enums
 {
     /// <summary>
     /// From: https://gist.github.com/alekseynemiro/dbb869443239b435b48ea767456e343a
     /// </summary>
-    public enum VirtualKeyCodes
+    public enum KeyCodes
     {
-        Undefined = -1,
-
-        /// <summary>
-        /// Left mouse button.
-        /// </summary>
-        LBUTTON = 0x01,
-        /// <summary>
-        /// Right mouse button.
-        /// </summary>
-        RBUTTON = 0x02,
         /// <summary>
         /// Control-break processing.
         /// </summary>
         CANCEL = 0x03,
-        /// <summary>
-        /// Middle mouse button (three-button mouse).
-        /// </summary>
-        MBUTTON = 0x04,
-        /// <summary>
-        /// Windows 2000/XP: X1 mouse button.
-        /// </summary>
-        XBUTTON1 = 0x05,
-        /// <summary>
-        /// Windows 2000/XP: X2 mouse button.
-        /// </summary>
-        XBUTTON2 = 0x06,
         // 0x07 - Undefined.
         /// <summary>
         /// BACKSPACE key.

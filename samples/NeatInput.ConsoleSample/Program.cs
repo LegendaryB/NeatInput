@@ -1,5 +1,6 @@
-﻿using NeatInput.Domain.Processing;
+﻿using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
+
 using System;
 
 namespace NeatInput.ConsoleSample
@@ -20,7 +21,7 @@ namespace NeatInput.ConsoleSample
             Console.WriteLine($"MOUSE => Key: {input.Key}, State: {input.State}, X: {input.X}, Y: {input.Y}");
         }
 
-        private static void OnKeyboardInputReceived(Input input)
+        private static void OnKeyboardInputReceived(KeyboardInput input)
         {
             Console.WriteLine($"KEYBOARD => Key: {input.Key}, State: {input.State}");
         }

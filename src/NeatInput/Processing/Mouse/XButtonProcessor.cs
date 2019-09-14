@@ -2,6 +2,7 @@
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
+using NeatInput.Domain.Processing.Mouse.Enums;
 
 namespace NeatInput.Processing.Mouse
 {
@@ -13,11 +14,11 @@ namespace NeatInput.Processing.Mouse
             WindowsMessages windowsMessage, 
             MSLLHOOKSTRUCT hookStruct)
         {
-            if (input.Key != VirtualKeyCodes.XBUTTON1)
+            if (input.Key != MouseKeys.XBUTTON1)
                 return;
 
             if (ProcessorHelpers.HIWORD(hookStruct.mouseData) == 0x2)
-                input.Key = VirtualKeyCodes.XBUTTON2;
+                input.Key = MouseKeys.XBUTTON2;
         }
     }
 }

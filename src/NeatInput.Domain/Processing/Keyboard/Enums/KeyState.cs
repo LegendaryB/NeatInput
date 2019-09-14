@@ -1,11 +1,9 @@
-﻿namespace NeatInput.Domain.Processing.Keyboard
+﻿namespace NeatInput.Domain.Processing.Keyboard.Enums
 {
     public enum KeyState
     {
-        Undefined,
         Up,
         Down,
-        Move,
         Pressed
     }
 }

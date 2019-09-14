@@ -1,7 +1,6 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing;
-using NeatInput.Native;
 using NeatInput.Native.SafeHandles;
 
 using System;
@@ -56,7 +55,7 @@ namespace NeatInput.Hooking
             IntPtr wParam,
             IntPtr lParam)
         {
-            return User32.CallNextHookEx(
+            return CallNextHookEx(
                 setWindowsHookExSafeHandle.DangerousGetHandle(),
                 nCode,
                 wParam,

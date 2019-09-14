@@ -1,8 +1,9 @@
 ﻿using NeatInput.Application.Processing.Mouse;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
-using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
+using NeatInput.Domain.Processing.Mouse.Enums;
+
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,11 +12,11 @@ namespace NeatInput.Processing.Mouse
     internal class StateProcessor :
         IMouseInputProcessor
     {
-        private readonly Dictionary<MouseState, List<WindowsMessages>> _stateMessagesMap;
+        private readonly Dictionary<MouseStates, List<WindowsMessages>> _stateMessagesMap;
 
         public StateProcessor()
         {
-            _stateMessagesMap = new Dictionary<MouseState, List<WindowsMessages>>();
+            _stateMessagesMap = new Dictionary<MouseStates, List<WindowsMessages>>();
 
             RegisterDownStateMessages();
             RegisterUpStateMessages();
@@ -30,7 +31,7 @@ namespace NeatInput.Processing.Mouse
             input.State = GetState(msg);
         }
 
-        private MouseState GetState(WindowsMessages msg)
+        private MouseStates GetState(WindowsMessages msg)
         {
             return _stateMessagesMap
                 .FirstOrDefault(kvp => kvp.Value.Contains(msg))
@@ -51,7 +52,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCXBUTTONDOWN
             };
 
-            _stateMessagesMap.Add(MouseState.KeyDown, messages);
+            _stateMessagesMap.Add(MouseStates.KeyDown, messages);
         }
 
         private void RegisterUpStateMessages()
@@ -68,7 +69,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCXBUTTONUP
             };
 
-            _stateMessagesMap.Add(MouseState.KeyUp, messages);
+            _stateMessagesMap.Add(MouseStates.KeyUp, messages);
         }
 
         private void RegisterMoveStateMessages()
@@ -79,7 +80,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCSMOUSEMOVE
             };
 
-            _stateMessagesMap.Add(MouseState.Moving, messages);
+            _stateMessagesMap.Add(MouseStates.Move, messages);
         }
     }
 }

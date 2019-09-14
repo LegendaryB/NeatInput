@@ -1,5 +1,6 @@
 ﻿using NeatInput.Application.Hooking;
 using NeatInput.Domain.Processing;
+
 using System;
 
 namespace NeatInput
