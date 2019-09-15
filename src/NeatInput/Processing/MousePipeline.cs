@@ -23,6 +23,9 @@ namespace NeatInput.Processing
                 Y = @struct.pt.Y
             };
 
+            if (@struct.flags == MSLLHOOKSTRUCTFlags.LLMHF_INJECTED || @struct.flags == MSLLHOOKSTRUCTFlags.LLMHF_LOWER_IL_INJECTED)
+                input.IsSimulated = true;
+
             foreach (var _pipelineElement in _pipeline)
             {
                 _pipelineElement.Process(
