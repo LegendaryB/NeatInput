@@ -1,9 +1,8 @@
 ﻿namespace NeatInput.Domain.Processing.Keyboard.Enums
 {
-    public enum KeyState
+    public enum KeyStates
     {
         Up,
-        Down,
-        Pressed
+        Down
     }
 }

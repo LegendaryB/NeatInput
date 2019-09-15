@@ -1,6 +1,6 @@
 ﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
-using NeatInput.Processing.Mouse;
+using NeatInput.Processing;
 
 using System;
 using System.Runtime.InteropServices;

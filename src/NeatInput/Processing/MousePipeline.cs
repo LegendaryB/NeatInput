@@ -1,8 +1,9 @@
 ﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
+using NeatInput.Processing.Mouse;
 
-namespace NeatInput.Processing.Mouse
+namespace NeatInput.Processing
 {
     internal class MousePipeline : Pipeline<MouseInput, MSLLHOOKSTRUCT>
     {

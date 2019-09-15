@@ -13,7 +13,7 @@ namespace NeatInput.Processing.Mouse
     {
         private readonly Dictionary<MouseKeys, List<WindowsMessages>> _buttonMessagesMap;
 
-        public KeyProcessor()
+        internal KeyProcessor()
         {
             _buttonMessagesMap = new Dictionary<MouseKeys, List<WindowsMessages>>();
 

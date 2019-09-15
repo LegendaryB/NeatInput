@@ -13,7 +13,7 @@ namespace NeatInput.Processing.Mouse
     {
         private readonly Dictionary<MouseStates, List<WindowsMessages>> _stateMessagesMap;
 
-        public StateProcessor()
+        internal StateProcessor()
         {
             _stateMessagesMap = new Dictionary<MouseStates, List<WindowsMessages>>();
 
