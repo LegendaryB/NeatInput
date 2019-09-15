@@ -1,5 +1,4 @@
-﻿using NeatInput.Domain.Native.Enums;
-using NeatInput.Domain.Processing.Keyboard.Enums;
+﻿using NeatInput.Domain.Processing.Keyboard.Enums;
 
 namespace NeatInput.Domain.Processing.Keyboard
 {
@@ -7,11 +6,6 @@ namespace NeatInput.Domain.Processing.Keyboard
         Input
     {
         public KeyCodes Key { get; set; }
-        public KeyState State { get; set; }
-
-        public KeyboardInput(KeyCodes key)
-        {
-            Key = key;
-        }
+        public KeyStates State { get; set; }
     }
 }

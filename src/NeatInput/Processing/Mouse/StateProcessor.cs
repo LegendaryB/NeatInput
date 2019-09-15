@@ -1,4 +1,4 @@
-﻿using NeatInput.Application.Processing.Mouse;
+﻿using NeatInput.Application.Processing;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
@@ -9,12 +9,11 @@ using System.Linq;
 
 namespace NeatInput.Processing.Mouse
 {
-    internal class StateProcessor :
-        IMouseInputProcessor
+    internal class StateProcessor : IInputProcessor<MouseInput, MSLLHOOKSTRUCT>
     {
         private readonly Dictionary<MouseStates, List<WindowsMessages>> _stateMessagesMap;
 
-        public StateProcessor()
+        internal StateProcessor()
         {
             _stateMessagesMap = new Dictionary<MouseStates, List<WindowsMessages>>();
 

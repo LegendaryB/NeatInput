@@ -23,6 +23,6 @@
         /// </summary>
         XBUTTON2 = 0x06,
         WHEEL,
-        SCANNINGDEVICE
+        SCANDEVICE
     }
 }

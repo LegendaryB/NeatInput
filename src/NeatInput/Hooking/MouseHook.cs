@@ -1,6 +1,6 @@
 ﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
-using NeatInput.Processing.Mouse;
+using NeatInput.Processing;
 
 using System;
 using System.Runtime.InteropServices;
@@ -11,11 +11,11 @@ namespace NeatInput.Hooking
     {
         protected override int HookID => WH_MOUSE_LL;
 
-        private readonly InputProcessorPipeline _processorPipeline;
+        private readonly MousePipeline _processingPipeline;
 
         public MouseHook()
         {
-            _processorPipeline = new InputProcessorPipeline();
+            _processingPipeline = new MousePipeline();
         }
 
         protected override IntPtr OnInputReceived(int nCode, IntPtr wParam, IntPtr lParam)
@@ -26,11 +26,9 @@ namespace NeatInput.Hooking
             if (nCode >= 0 && lParam != IntPtr.Zero && wParam != IntPtr.Zero)
             {
                 var msg = (WindowsMessages)wParam.ToInt32();
-                var msllhookstruct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
+                var @struct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
 
-                var input = _processorPipeline.Process(
-                    msg,
-                    msllhookstruct);
+                var input = _processingPipeline.Process(msg, @struct);
 
                 InputReceived?.Invoke(input);
             }

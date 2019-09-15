@@ -1,6 +1,6 @@
 ﻿using NeatInput.Domain.Native.Enums;
-using NeatInput.Domain.Processing.Keyboard;
-using NeatInput.Domain.Processing.Keyboard.Enums;
+using NeatInput.Domain.Native.Structures;
+using NeatInput.Processing;
 
 using System;
 using System.Runtime.InteropServices;
@@ -11,35 +11,29 @@ namespace NeatInput.Hooking
     {
         protected override int HookID => WH_KEYBOARD_LL;
 
+        private readonly KeyboardPipeline _processingPipeline;
+
+        public KeyboardHook()
+        {
+            _processingPipeline = new KeyboardPipeline();
+        }
+
         protected override IntPtr OnInputReceived(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (InputReceived == null)
                 return base.OnInputReceived(nCode, wParam, lParam);
 
-            if (nCode >= 0)
+            if (nCode >= 0 && lParam != IntPtr.Zero && wParam != IntPtr.Zero)
             {
                 var msg = (WindowsMessages)wParam.ToInt32();
+                var @struct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(lParam);
 
-                var input = new KeyboardInput((KeyCodes)Marshal.ReadInt32(lParam));
-
-                switch (msg)
-                {
-                    case WindowsMessages.WM_KEYDOWN:
-                    case WindowsMessages.WM_SYSKEYDOWN:
-                        input.State = KeyState.Down;
-                        break;
-
-                    case WindowsMessages.WM_KEYUP:
-                    case WindowsMessages.WM_SYSKEYUP:
-                        input.State = KeyState.Up;
-                        break;
-                }
+                var input = _processingPipeline.Process(msg, @struct);
 
                 InputReceived?.Invoke(input);
             }
 
             return base.OnInputReceived(nCode, wParam, lParam);
         }
-
     }
 }
