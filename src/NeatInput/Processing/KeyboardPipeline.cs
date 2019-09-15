@@ -19,7 +19,7 @@ namespace NeatInput.Processing
         {
             var input = new KeyboardInput
             {
-                IsSimulated = @struct.flags == KBDLLHOOKSTRUCTFlags.LLKHF_INJECTED,
+                WasSimulated = @struct.flags == KBDLLHOOKSTRUCTFlags.LLKHF_INJECTED,
                 Key = (KeyCodes)@struct.vkCode
             };
 

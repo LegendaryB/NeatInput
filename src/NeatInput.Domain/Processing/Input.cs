@@ -2,6 +2,6 @@
 {
     public abstract class Input
     {   
-        public bool IsSimulated { get; set; }
+        public bool WasSimulated { get; set; }
     }
 }

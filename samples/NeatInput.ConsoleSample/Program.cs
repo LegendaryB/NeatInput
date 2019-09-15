@@ -18,12 +18,12 @@ namespace NeatInput.ConsoleSample
 
         private static void OnMouseInputReceived(MouseInput input)
         {
-            Console.WriteLine($"MOUSE => Key: {input.Key}, State: {input.State}, X: {input.X}, Y: {input.Y}, Simulated: {input.IsSimulated}");
+            Console.WriteLine($"MOUSE => Key: {input.Key}, State: {input.State}, X: {input.X}, Y: {input.Y}, Simulated: {input.WasSimulated}");
         }
 
         private static void OnKeyboardInputReceived(KeyboardInput input)
         {
-            Console.WriteLine($"KEYBOARD => Key: {input.Key}, State: {input.State}, Simulated: {input.IsSimulated}");
+            Console.WriteLine($"KEYBOARD => Key: {input.Key}, State: {input.State}, Simulated: {input.WasSimulated}");
         }
     }
 }
