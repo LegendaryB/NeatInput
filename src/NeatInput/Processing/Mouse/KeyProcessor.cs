@@ -1,4 +1,4 @@
-﻿using NeatInput.Application.Processing.Mouse;
+﻿using NeatInput.Application.Processing;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
@@ -9,8 +9,7 @@ using System.Linq;
 
 namespace NeatInput.Processing.Mouse
 {
-    internal class KeyProcessor :
-        IMouseInputProcessor
+    internal class KeyProcessor : IInputProcessor<MouseInput, MSLLHOOKSTRUCT>
     {
         private readonly Dictionary<MouseKeys, List<WindowsMessages>> _buttonMessagesMap;
 
@@ -112,7 +111,7 @@ namespace NeatInput.Processing.Mouse
                 WindowsMessages.WM_NCSMOUSEMOVE
             };
 
-            _buttonMessagesMap.Add(MouseKeys.SCANNINGDEVICE, messages);
+            _buttonMessagesMap.Add(MouseKeys.SCANDEVICE, messages);
         }
     }
 }

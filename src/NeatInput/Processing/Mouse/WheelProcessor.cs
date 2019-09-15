@@ -1,4 +1,4 @@
-﻿using NeatInput.Application.Processing.Mouse;
+﻿using NeatInput.Application.Processing;
 using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing.Mouse;
@@ -6,8 +6,7 @@ using NeatInput.Domain.Processing.Mouse.Enums;
 
 namespace NeatInput.Processing.Mouse
 {
-    internal class WheelProcessor :
-        IMouseInputProcessor
+    internal class WheelProcessor : IInputProcessor<MouseInput, MSLLHOOKSTRUCT>
     {
         public void Process(
             ref MouseInput input, 
