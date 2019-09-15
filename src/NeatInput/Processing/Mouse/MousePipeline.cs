@@ -14,10 +14,13 @@ namespace NeatInput.Processing.Mouse
             _pipeline.Add(new WheelProcessor());
         }
 
-        public override void Process(ref MouseInput input, WindowsMessages msg, MSLLHOOKSTRUCT @struct)
+        public override MouseInput Process(WindowsMessages msg, MSLLHOOKSTRUCT @struct)
         {
-            input.X = @struct.pt.X;
-            input.Y = @struct.pt.Y;
+            var input = new MouseInput
+            {
+                X = @struct.pt.X,
+                Y = @struct.pt.Y
+            };
 
             foreach (var _pipelineElement in _pipeline)
             {
@@ -26,6 +29,8 @@ namespace NeatInput.Processing.Mouse
                     msg,
                     @struct);
             }
+
+            return input;
         }
     }
 }

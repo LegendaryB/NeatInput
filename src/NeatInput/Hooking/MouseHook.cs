@@ -1,6 +1,5 @@
 ﻿using NeatInput.Domain.Native.Enums;
 using NeatInput.Domain.Native.Structures;
-using NeatInput.Domain.Processing.Mouse;
 using NeatInput.Processing.Mouse;
 
 using System;
@@ -29,12 +28,7 @@ namespace NeatInput.Hooking
                 var msg = (WindowsMessages)wParam.ToInt32();
                 var @struct = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
 
-                var input = new MouseInput();
-
-                _processingPipeline.Process(
-                    ref input,
-                    msg,
-                    @struct);
+                var input = _processingPipeline.Process(msg, @struct);
 
                 InputReceived?.Invoke(input);
             }

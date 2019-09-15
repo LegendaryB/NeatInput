@@ -6,15 +6,14 @@ using System.Collections.Generic;
 
 namespace NeatInput.Processing
 {
-    internal abstract class Pipeline<TInput, TInputStruct> : IInputProcessor<TInput, TInputStruct>
+    internal abstract class Pipeline<TInput, TInputStruct> : IInputProcessingPipeline<TInput, TInputStruct>
         where TInput : Input
         where TInputStruct : struct
     {
         protected readonly List<IInputProcessor<TInput, TInputStruct>> _pipeline =
             new List<IInputProcessor<TInput, TInputStruct>>();
 
-        public abstract void Process(
-            ref TInput input,
+        public abstract TInput Process(
             WindowsMessages msg, 
             TInputStruct @struct);
     }

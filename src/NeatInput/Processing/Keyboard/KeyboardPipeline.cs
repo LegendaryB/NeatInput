@@ -11,7 +11,7 @@ namespace NeatInput.Processing.Keyboard
 
         }
 
-        public override void Process(ref KeyboardInput input, WindowsMessages msg, KBDLLHOOKSTRUCT @struct)
+        public override KeyboardInput Process(WindowsMessages msg, KBDLLHOOKSTRUCT @struct)
         {
             throw new System.NotImplementedException();
         }
