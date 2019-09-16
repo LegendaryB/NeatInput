@@ -7,7 +7,7 @@ namespace NeatInput.Processing
 {
     internal class MouseInputPipeline : InputPipeline<MouseInput, MSLLHOOKSTRUCT>
     {
-        internal MouseInputPipeline()
+        public MouseInputPipeline()
         {
             _pipeline.Add(new KeyProcessor());
             _pipeline.Add(new StateProcessor());

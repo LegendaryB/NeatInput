@@ -1,4 +1,6 @@
-﻿using NeatInput.Domain.Native.Structures;
+﻿using NeatInput.Application.Processing;
+using NeatInput.Domain.Native.Enums;
+using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing;
 using NeatInput.Native.SafeHandles;
 
@@ -10,25 +12,25 @@ using static NeatInput.Native.User32;
 
 namespace NeatInput.Hooking
 {
-    internal abstract class InputHook
+    internal abstract class InputHook<TInput, TInputStruct, TInputPipeline>
+        where TInput : Input
+        where TInputStruct : struct
+        where TInputPipeline : IInputPipeline<TInput, TInputStruct>, new()
     {
-        public Action<Input> InputReceived { get; set; }
-
-        protected const int WH_KEYBOARD_LL = 13;
-        protected const int WH_MOUSE_LL = 14;
+        public Action<TInput> InputReceived { get; set; }
 
         protected abstract int HookID { get; }
 
         private HookProc _hookProc;
         private SetWindowsHookExSafeHandle setWindowsHookExSafeHandle;
 
-        private readonly object _lock;
+        private readonly TInputPipeline _pipeline;
         private readonly CancellationTokenSource _cts;
         private readonly IntPtr _mainModuleHandle;        
 
         public InputHook()
         {
-            _lock = new object();
+            _pipeline = new TInputPipeline();
             _cts = new CancellationTokenSource();
 
             using (var process = Process.GetCurrentProcess())
@@ -40,13 +42,10 @@ namespace NeatInput.Hooking
 
         public virtual void Set()
         {
-            lock (_lock)
-            {
-                var thread = new Thread(() => SetHookAndRunMessageLoop());
-                thread.IsBackground = true;
-                thread.Priority = ThreadPriority.Highest;
-                thread.Start();
-            }
+            var thread = new Thread(() => SetHookAndRunMessageLoop());
+            thread.IsBackground = true;
+            thread.Priority = ThreadPriority.Highest;
+            thread.Start();
         }
 
         protected virtual IntPtr OnInputReceived(
@@ -54,6 +53,19 @@ namespace NeatInput.Hooking
             IntPtr wParam,
             IntPtr lParam)
         {
+            if (InputReceived != null)
+            {
+                if (nCode >= 0 && lParam != IntPtr.Zero && wParam != IntPtr.Zero)
+                {
+                    var msg = (WindowsMessages)wParam.ToInt32();
+                    var @struct = Marshal.PtrToStructure<TInputStruct>(lParam);
+
+                    var input = _pipeline.Process(msg, @struct);
+
+                    InputReceived?.Invoke(input);
+                }
+            }
+
             return CallNextHookEx(
                 setWindowsHookExSafeHandle,
                 nCode,
@@ -65,6 +77,7 @@ namespace NeatInput.Hooking
         {
             _cts.Cancel();
             _cts.Dispose();
+
             setWindowsHookExSafeHandle.Dispose();
         }
 

@@ -8,7 +8,7 @@ namespace NeatInput.Processing
 {
     internal class KeyboardInputPipeline : InputPipeline<KeyboardInput, KBDLLHOOKSTRUCT>
     {
-        internal KeyboardInputPipeline()
+        public KeyboardInputPipeline()
         {
             _pipeline.Add(new StateProcessor());
         }

@@ -1,8 +1,9 @@
-﻿using NeatInput.Domain.Processing;
+﻿using NeatInput.Domain.Native.Structures;
+using NeatInput.Domain.Processing;
 using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
 using NeatInput.Hooking;
-
+using NeatInput.Processing;
 using System;
 
 namespace NeatInput
@@ -17,14 +18,14 @@ namespace NeatInput
         public event KeyboardInputReceivedDelegate KeyboardInputReceived;
         public event MouseInputReceivedDelegate MouseInputReceived;
 
-        private readonly KeyboardHook _keyboard;
-        private readonly MouseHook _mouse;
+        private readonly Keyboard _keyboard;
+        private readonly Mouse _mouse;
 
         public InputProvider()
         {
-            _keyboard = new KeyboardHook();
+            _keyboard = new Keyboard();
             _keyboard.InputReceived = InputEventReceivedHandler;
-            _mouse = new MouseHook();
+            _mouse = new Mouse();
             _mouse.InputReceived = InputEventReceivedHandler;
 
             _keyboard.Set();
