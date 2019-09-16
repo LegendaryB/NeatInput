@@ -11,7 +11,7 @@ using static NeatInput.Native.User32;
 
 namespace NeatInput.Hooking
 {
-    internal abstract class InputHook : IHook
+    internal abstract class InputHook
     {
         public Action<Input> InputReceived { get; set; }
 

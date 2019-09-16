@@ -17,15 +17,18 @@ namespace NeatInput
         public event KeyboardInputReceivedDelegate KeyboardInputReceived;
         public event MouseInputReceivedDelegate MouseInputReceived;
 
-        private readonly InputDevice<KeyboardHook> _keyboard;
-        private readonly InputDevice<MouseHook> _mouse;
+        private readonly KeyboardHook _keyboard;
+        private readonly MouseHook _mouse;
 
         public InputProvider()
         {
-            _keyboard = new InputDevice<KeyboardHook>();
-            _keyboard.InputReceivedHandler = InputEventReceivedHandler;
-            _mouse = new InputDevice<MouseHook>();
-            _mouse.InputReceivedHandler = InputEventReceivedHandler;
+            _keyboard = new KeyboardHook();
+            _keyboard.InputReceived = InputEventReceivedHandler;
+            _mouse = new MouseHook();
+            _mouse.InputReceived = InputEventReceivedHandler;
+
+            _keyboard.Set();
+            _mouse.Set();
 
             AppDomain.CurrentDomain.ProcessExit += OnAppDomainLifetimeEnded;
             AppDomain.CurrentDomain.UnhandledException += OnAppDomainLifetimeEnded;
