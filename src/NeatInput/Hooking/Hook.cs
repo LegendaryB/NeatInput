@@ -12,7 +12,7 @@ using static NeatInput.Native.User32;
 
 namespace NeatInput.Hooking
 {
-    internal abstract class InputHook<TInput, TInputStruct, TInputPipeline>
+    internal abstract class Hook<TInput, TInputStruct, TInputPipeline>
         where TInput : Input
         where TInputStruct : struct
         where TInputPipeline : IInputPipeline<TInput, TInputStruct>, new()
@@ -28,7 +28,7 @@ namespace NeatInput.Hooking
         private readonly CancellationTokenSource _cts;
         private readonly IntPtr _mainModuleHandle;        
 
-        public InputHook()
+        public Hook()
         {
             _pipeline = new TInputPipeline();
             _cts = new CancellationTokenSource();
