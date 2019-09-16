@@ -4,13 +4,11 @@ using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Keyboard.Enums;
 using NeatInput.Processing.Keyboard;
 
-using System.Runtime.InteropServices;
-
 namespace NeatInput.Processing
 {
-    internal class KeyboardPipeline : Pipeline<KeyboardInput, KBDLLHOOKSTRUCT>
+    internal class KeyboardInputPipeline : InputPipeline<KeyboardInput, KBDLLHOOKSTRUCT>
     {
-        internal KeyboardPipeline()
+        public KeyboardInputPipeline()
         {
             _pipeline.Add(new StateProcessor());
         }
