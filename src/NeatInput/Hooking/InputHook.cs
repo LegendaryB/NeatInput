@@ -1,5 +1,4 @@
-﻿using NeatInput.Application.Hooking;
-using NeatInput.Domain.Native.Structures;
+﻿using NeatInput.Domain.Native.Structures;
 using NeatInput.Domain.Processing;
 using NeatInput.Native.SafeHandles;
 
