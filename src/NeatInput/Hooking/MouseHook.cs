@@ -11,11 +11,11 @@ namespace NeatInput.Hooking
     {
         protected override int HookID => WH_MOUSE_LL;
 
-        private readonly MousePipeline _processingPipeline;
+        private readonly MouseInputPipeline _processingPipeline;
 
         public MouseHook()
         {
-            _processingPipeline = new MousePipeline();
+            _processingPipeline = new MouseInputPipeline();
         }
 
         protected override IntPtr OnInputReceived(int nCode, IntPtr wParam, IntPtr lParam)

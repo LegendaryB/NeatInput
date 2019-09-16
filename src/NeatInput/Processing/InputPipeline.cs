@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace NeatInput.Processing
 {
-    internal abstract class Pipeline<TInput, TInputStruct> : IInputProcessingPipeline<TInput, TInputStruct>
+    internal abstract class InputPipeline<TInput, TInputStruct> : IInputPipeline<TInput, TInputStruct>
         where TInput : Input
         where TInputStruct : struct
     {

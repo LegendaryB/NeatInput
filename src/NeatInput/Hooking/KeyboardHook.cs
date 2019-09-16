@@ -11,11 +11,11 @@ namespace NeatInput.Hooking
     {
         protected override int HookID => WH_KEYBOARD_LL;
 
-        private readonly KeyboardPipeline _processingPipeline;
+        private readonly KeyboardInputPipeline _processingPipeline;
 
         public KeyboardHook()
         {
-            _processingPipeline = new KeyboardPipeline();
+            _processingPipeline = new KeyboardInputPipeline();
         }
 
         protected override IntPtr OnInputReceived(int nCode, IntPtr wParam, IntPtr lParam)

@@ -3,7 +3,7 @@ using NeatInput.Domain.Processing;
 
 namespace NeatInput.Application.Processing
 {
-    public interface IInputProcessingPipeline<TInput, TInputStruct>
+    public interface IInputPipeline<TInput, TInputStruct>
         where TInput : Input
         where TInputStruct : struct
     {

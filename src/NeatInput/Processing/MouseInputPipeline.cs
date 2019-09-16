@@ -5,9 +5,9 @@ using NeatInput.Processing.Mouse;
 
 namespace NeatInput.Processing
 {
-    internal class MousePipeline : Pipeline<MouseInput, MSLLHOOKSTRUCT>
+    internal class MouseInputPipeline : InputPipeline<MouseInput, MSLLHOOKSTRUCT>
     {
-        internal MousePipeline()
+        internal MouseInputPipeline()
         {
             _pipeline.Add(new KeyProcessor());
             _pipeline.Add(new StateProcessor());
