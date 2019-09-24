@@ -6,8 +6,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/blob/master/LICENSE.md)
 [![Nuget](https://img.shields.io/nuget/v/NeatInput.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput/)
-[![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
-[![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/alphadaniel)
 
 Useful and clean .NET Standard library to monitor keyboard and mouse input on Windows.
 
