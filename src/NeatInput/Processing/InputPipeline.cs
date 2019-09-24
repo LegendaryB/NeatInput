@@ -7,14 +7,25 @@ using System.Collections.Generic;
 namespace NeatInput.Processing
 {
     internal abstract class InputPipeline<TInput, TInputStruct> : IInputPipeline<TInput, TInputStruct>
-        where TInput : Input
+        where TInput : Input, new()
         where TInputStruct : struct
     {
         protected readonly List<IInputProcessor<TInput, TInputStruct>> _pipeline =
             new List<IInputProcessor<TInput, TInputStruct>>();
 
-        public abstract TInput Process(
-            WindowsMessages msg, 
-            TInputStruct @struct);
+        public virtual TInput Process(WindowsMessages msg, TInputStruct @struct)
+        {
+            var input = new TInput();
+
+            foreach (var _pipelineElement in _pipeline)
+            {
+                _pipelineElement.Process(
+                    ref input,
+                    msg,
+                    @struct);
+            }
+
+            return input;
+        }
     }
 }
