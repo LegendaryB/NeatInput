@@ -5,26 +5,21 @@ using NeatInput.Processing.Mouse;
 
 namespace NeatInput.Processing
 {
-    internal class MouseInputPipeline : InputPipeline<MouseInput, MSLLHOOKSTRUCT>
+    internal class MousePipeline : InputPipeline<MouseInput, MSLLHOOKSTRUCT>
     {
-        public MouseInputPipeline()
+        public MousePipeline()
         {
             _pipeline.Add(new KeyProcessor());
             _pipeline.Add(new StateProcessor());
             _pipeline.Add(new XButtonProcessor());
             _pipeline.Add(new WheelProcessor());
+            _pipeline.Add(new CoordinatesProcessor());
+            _pipeline.Add(new InjectedFlagProcessor());            
         }
 
         public override MouseInput Process(WindowsMessages msg, MSLLHOOKSTRUCT @struct)
         {
-            var input = new MouseInput
-            {
-                X = @struct.pt.X,
-                Y = @struct.pt.Y
-            };
-
-            if (@struct.flags == MSLLHOOKSTRUCTFlags.LLMHF_INJECTED || @struct.flags == MSLLHOOKSTRUCTFlags.LLMHF_LOWER_IL_INJECTED)
-                input.WasSimulated = true;
+            var input = new MouseInput();
 
             foreach (var _pipelineElement in _pipeline)
             {
