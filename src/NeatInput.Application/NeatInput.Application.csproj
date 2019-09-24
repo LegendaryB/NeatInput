@@ -5,7 +5,7 @@
     <Authors>Daniel Belz</Authors>
     <Product>NeatInput</Product>
     <Copyright>Copyright © Daniel Belz 2019</Copyright>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/LegendaryB/NeatInput</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LegendaryB/NeatInput</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\LICENSE">
+    <None Include="..\..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
