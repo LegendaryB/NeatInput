@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Daniel Belz</Authors>
     <Product>NeatInput</Product>
     <Copyright>Copyright © Daniel Belz 2019</Copyright>
