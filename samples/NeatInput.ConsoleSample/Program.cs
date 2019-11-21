@@ -1,6 +1,6 @@
 ﻿using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
-
+using NeatInput.Windows.Native.Window;
 using System;
 
 namespace NeatInput.ConsoleSample
@@ -9,9 +9,12 @@ namespace NeatInput.ConsoleSample
     {
         private static void Main()
         {
-            var inputProvider = new InputProvider();
-            inputProvider.KeyboardInputReceived += OnKeyboardInputReceived;
-            inputProvider.MouseInputReceived += OnMouseInputReceived;
+            var x = new NativeWindow(null);
+            x.StartMessageLoop();
+
+            //var inputProvider = new InputProvider();
+            //inputProvider.KeyboardInputReceived += OnKeyboardInputReceived;
+            //inputProvider.MouseInputReceived += OnMouseInputReceived;
 
             Console.ReadLine();
         }

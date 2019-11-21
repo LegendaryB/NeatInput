@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Native.Flags;
+﻿using NeatInput.Windows.Native.Structures;
+
 using System;
 using System.Runtime.InteropServices;
 
@@ -7,32 +8,33 @@ namespace NeatInput.Windows.Native
     public static class User32
     {
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr CreateWindow(
-            string lpClassName, 
-            string lpWindowName, 
-            int dwStyle,
-            int x, 
-            int y, 
-            int nWidth, 
+        public static extern IntPtr CreateWindowExW(
+            uint dwExStyle,
+            [MarshalAs(UnmanagedType.LPWStr)]
+            string lpClassName,
+            [MarshalAs(UnmanagedType.LPWStr)]
+            string lpWindowName,
+            uint dwStyle,
+            int x,
+            int y,
+            int nWidth,
             int nHeight,
             IntPtr hWndParent,
             IntPtr hMenu,
             IntPtr hInstance,
             IntPtr lpParam);
 
-        // todo use safe handles instead!
-        [DllImport("user32.dll", EntryPoint = "SetWindowLong", SetLastError = true)]
-        private static extern int SetWindowLong32(IntPtr hWnd, WindowLongFlags nIndex, int dwNewLong);
+        [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern bool GetMessage(ref MSG message, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax);
 
-        [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr", SetLastError = true)]
-        private static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, WindowLongFlags nIndex, IntPtr dwNewLong);
+        [DllImport("user32.dll")]
+        public static extern bool TranslateMessage([In] ref MSG lpMsg);
 
-        public static IntPtr SetWindowLongPtr(IntPtr hWnd, WindowLongFlags nIndex, IntPtr dwNewLong)
-        {
-            if (IntPtr.Size == 8)
-                return SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
-            else
-                return new IntPtr(SetWindowLong32(hWnd, nIndex, dwNewLong.ToInt32()));
-        }
+        [DllImport("user32.dll")]
+        public static extern IntPtr DispatchMessage([In] ref MSG lpmsg);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.U2)]
+        public static extern short RegisterClassEx([In] ref WNDCLASSEX lpwcx);
     }
 }

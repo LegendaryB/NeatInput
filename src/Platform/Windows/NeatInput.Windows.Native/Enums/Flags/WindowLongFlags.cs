@@ -1,4 +1,4 @@
-﻿namespace NeatInput.Windows.Native.Flags
+﻿namespace NeatInput.Windows.Native.Enums.Flags
 {
     public enum WindowLongFlags : int
     {

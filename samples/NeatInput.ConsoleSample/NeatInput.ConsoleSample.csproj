@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\NeatInput\NeatInput.csproj" />
+    <ProjectReference Include="..\..\src\Platform\Windows\NeatInput.Windows.Native.Window\NeatInput.Windows.Native.Window.csproj" />
   </ItemGroup>
 
 </Project>
