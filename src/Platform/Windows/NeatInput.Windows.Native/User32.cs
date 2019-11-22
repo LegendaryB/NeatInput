@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Native.Structures;
+﻿using NeatInput.Windows.Native.Enums;
+using NeatInput.Windows.Native.Structures;
 
 using System;
 using System.Runtime.InteropServices;
@@ -7,12 +8,10 @@ namespace NeatInput.Windows.Native
 {
     public static class User32
     {
-        [DllImport("user32.dll", SetLastError = true)]
+        [DllImport("user32.dll", SetLastError = true, EntryPoint = "CreateWindowExW")]
         public static extern IntPtr CreateWindowExW(
             uint dwExStyle,
-            [MarshalAs(UnmanagedType.LPWStr)]
             string lpClassName,
-            [MarshalAs(UnmanagedType.LPWStr)]
             string lpWindowName,
             uint dwStyle,
             int x,
@@ -33,8 +32,10 @@ namespace NeatInput.Windows.Native
         [DllImport("user32.dll")]
         public static extern IntPtr DispatchMessage([In] ref MSG lpmsg);
 
-        [DllImport("user32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.U2)]
-        public static extern short RegisterClassEx([In] ref WNDCLASSEX lpwcx);
+        [DllImport("user32.dll", SetLastError = true, EntryPoint = "RegisterClassExW")]
+        public static extern ushort RegisterClassExW(ref WNDCLASSEX lpwcx);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr DefWindowProc(IntPtr hWnd, WindowsMessages uMsg, IntPtr wParam, IntPtr lParam);
     }
 }

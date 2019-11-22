@@ -9,7 +9,7 @@ namespace NeatInput.ConsoleSample
     {
         private static void Main()
         {
-            var x = new NativeWindow(null);
+            var x = new NativeWindow(WndProc);
             x.StartMessageLoop();
 
             //var inputProvider = new InputProvider();
@@ -17,6 +17,12 @@ namespace NeatInput.ConsoleSample
             //inputProvider.MouseInputReceived += OnMouseInputReceived;
 
             Console.ReadLine();
+        }
+
+        // todo wrap
+        public static void WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+        {
+
         }
 
         private static void OnMouseInputReceived(MouseInput input)

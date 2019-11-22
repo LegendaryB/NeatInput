@@ -1,49 +1,66 @@
-﻿using NeatInput.Windows.Native.Structures;
+﻿using NeatInput.Windows.Native.Enums;
+using NeatInput.Windows.Native.Structures;
 
 using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace NeatInput.Windows.Native.Window
 {
     public class NativeWindow : IDisposable
     {
-        public IntPtr Handle { get; private set; }
-
         public delegate IntPtr WndProcDelegate(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
-        public NativeWindow(Action messageReceivedHandler)
-        {
+        // todo: weak reference
+        private readonly Action<IntPtr, uint, IntPtr, IntPtr> _wndProcSubscriber;
 
+        public IntPtr Handle { get; private set; }
+
+        private bool isDisposing;
+
+        public NativeWindow(Action<IntPtr, uint, IntPtr, IntPtr> wndProcSubscriber)
+        {
+            if (wndProcSubscriber == null)
+                throw new ArgumentNullException(nameof(wndProcSubscriber));
+
+            _wndProcSubscriber = wndProcSubscriber;
         }
 
         public void StartMessageLoop()
         {
             CreateWindow();
 
-            var msg = new MSG();
-
-            while (User32.GetMessage(ref msg, IntPtr.Zero, 0, 0))
+            var thread = new Thread(() =>
             {
-                User32.TranslateMessage(ref msg);
-                User32.DispatchMessage(ref msg);
-            }
+                var msg = new MSG();
+
+                while (!isDisposing && User32.GetMessage(ref msg, Handle, 0, 0))
+                {
+                    User32.TranslateMessage(ref msg);
+                    User32.DispatchMessage(ref msg);
+                }
+            });
+
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
 
         public void Dispose()
         {
-            // stop loop etc.
+            isDisposing = true;
         }
 
         private void CreateWindow()
         {
-            var wndProcPtr = Marshal.GetFunctionPointerForDelegate<WndProcDelegate>(WndProc);
-            Handle = User32Wrapper.CreateWindow(wndProcPtr);
+            Handle = User32Wrapper.CreateWindow(
+                Marshal.GetFunctionPointerForDelegate<WndProcDelegate>(WndProc));
         }
 
         public IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
+            _wndProcSubscriber?.Invoke(hWnd, msg, wParam, lParam);
 
-            return default;
+            return User32.DefWindowProc(hWnd, (WindowsMessages)msg, wParam, lParam);
         }
     }
 }

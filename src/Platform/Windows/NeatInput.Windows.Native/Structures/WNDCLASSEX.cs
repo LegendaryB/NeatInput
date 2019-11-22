@@ -3,12 +3,10 @@ using System.Runtime.InteropServices;
 
 namespace NeatInput.Windows.Native.Structures
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    [StructLayout(LayoutKind.Sequential)]
     public struct WNDCLASSEX
     {
-        [MarshalAs(UnmanagedType.U4)]
-        public int cbSize;
-        [MarshalAs(UnmanagedType.U4)]
+        public uint cbSize;
         public int style;
         public IntPtr lpfnWndProc; // not WndProc
         public int cbClsExtra;
@@ -20,13 +18,5 @@ namespace NeatInput.Windows.Native.Structures
         public string lpszMenuName;
         public string lpszClassName;
         public IntPtr hIconSm;
-
-        public static WNDCLASSEX Build()
-        {
-            return new WNDCLASSEX
-            {
-                cbSize = Marshal.SizeOf(typeof(WNDCLASSEX))
-            };
-        }
     }
 }
