@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{A2A12FD4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Linux", "src\Platform\Linux\NeatInput.Linux\NeatInput.Linux.csproj", "{1A0EE784-49C8-4A05-AC44-821EE56BA839}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Linux.Native", "src\Platform\Linux\NeatInput.Linux.Native\NeatInput.Linux.Native.csproj", "{5A131022-E2A0-49BB-AD75-5D904139830D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A131022-E2A0-49BB-AD75-5D904139830D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A131022-E2A0-49BB-AD75-5D904139830D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A131022-E2A0-49BB-AD75-5D904139830D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A131022-E2A0-49BB-AD75-5D904139830D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{096CF368-B7ED-4284-8172-2DB633CF2B54} = {8D1B5EB6-B6FF-43B4-9449-6940FBB955AE}
 		{A2A12FD4-A953-4DE1-A116-90F34F001638} = {837F77DF-1EDF-49F5-81ED-4EABFD40F8F1}
 		{1A0EE784-49C8-4A05-AC44-821EE56BA839} = {A2A12FD4-A953-4DE1-A116-90F34F001638}
+		{5A131022-E2A0-49BB-AD75-5D904139830D} = {A2A12FD4-A953-4DE1-A116-90F34F001638}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EF9ED7D-6CB6-491B-A31B-3AF9377FD560}
