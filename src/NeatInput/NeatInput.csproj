@@ -13,7 +13,7 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Description>Useful and clean library to monitor keyboard and/or mouse input.</Description>
     <PackageTags>neat input win32 hook keyboard mouse keyboardhook mousehook global globalhook library net standard netstandard csharp clean</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,12 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Daniel Belz</Authors>
+    <Product>NeatInput</Product>
+    <Version>1.1.0</Version>
+    <Copyright>Copyright © Daniel Belz 2019</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/LegendaryB/NeatInput</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/LegendaryB/NeatInput</RepositoryUrl>
+    <PackageTags>neat input win32 hook keyboard mouse keyboardhook mousehook global globalhook library net standard netstandard csharp clean</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\NeatInput.Application\NeatInput.Application.csproj" />
     <ProjectReference Include="..\NeatInput.Windows.Native.Window\NeatInput.Windows.Native.Window.csproj" />
     <ProjectReference Include="..\NeatInput.Windows.Native\NeatInput.Windows.Native.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
-﻿using NeatInput.Domain.Native.Enums;
+﻿using NeatInput.Windows.Native.Enums.Flags;
 
 using System;
 using System.Runtime.InteropServices;
 
-namespace NeatInput.Domain.Native.Structures
+namespace NeatInput.Windows.Native.Structures
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct KBDLLHOOKSTRUCT
