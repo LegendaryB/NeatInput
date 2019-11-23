@@ -8,7 +8,7 @@ namespace NeatInput.Windows.Native.Structures
     {
         public uint cbSize;
         public int style;
-        public IntPtr lpfnWndProc; // not WndProc
+        public IntPtr lpfnWndProc;
         public int cbClsExtra;
         public int cbWndExtra;
         public IntPtr hInstance;

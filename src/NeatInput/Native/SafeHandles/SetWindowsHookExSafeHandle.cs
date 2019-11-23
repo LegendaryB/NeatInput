@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32.SafeHandles;
 
-using System.Runtime.ConstrainedExecution;
 using System.Security.Permissions;
 
 namespace NeatInput.Native.SafeHandles

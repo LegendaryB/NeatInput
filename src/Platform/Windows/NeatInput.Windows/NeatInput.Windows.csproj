@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\NeatInput.Application\NeatInput.Application.csproj" />
+    <ProjectReference Include="..\NeatInput.Windows.Native.Window\NeatInput.Windows.Native.Window.csproj" />
     <ProjectReference Include="..\NeatInput.Windows.Native\NeatInput.Windows.Native.csproj" />
   </ItemGroup>
 

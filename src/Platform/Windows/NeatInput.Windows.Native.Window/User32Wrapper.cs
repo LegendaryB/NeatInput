@@ -17,7 +17,7 @@ namespace NeatInput.Windows.Native.Window
             {
                 cbSize = WNDCLASSEX_SIZE,
                 lpfnWndProc = lpfnWndProc,
-                lpszClassName = Guid.NewGuid().ToString(),
+                lpszClassName = Guid.NewGuid().ToString().Replace("-", string.Empty),
                 hInstance = Process.GetCurrentProcess().Handle
             };
 

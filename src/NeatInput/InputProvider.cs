@@ -1,9 +1,8 @@
-﻿using NeatInput.Domain.Native.Structures;
-using NeatInput.Domain.Processing;
+﻿using NeatInput.Domain.Processing;
 using NeatInput.Domain.Processing.Keyboard;
 using NeatInput.Domain.Processing.Mouse;
 using NeatInput.Hooking;
-using NeatInput.Processing;
+
 using System;
 
 namespace NeatInput

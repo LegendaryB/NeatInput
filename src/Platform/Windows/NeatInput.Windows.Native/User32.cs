@@ -23,19 +23,35 @@ namespace NeatInput.Windows.Native
             IntPtr hInstance,
             IntPtr lpParam);
 
-        [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern bool GetMessage(ref MSG message, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax);
-
-        [DllImport("user32.dll")]
-        public static extern bool TranslateMessage([In] ref MSG lpMsg);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr DispatchMessage([In] ref MSG lpmsg);
-
         [DllImport("user32.dll", SetLastError = true, EntryPoint = "RegisterClassExW")]
-        public static extern ushort RegisterClassExW(ref WNDCLASSEX lpwcx);
+        public static extern ushort RegisterClassExW(
+            ref WNDCLASSEX lpwcx);
+
+        [DllImport("user32.dll", EntryPoint = "UnregisterClassW")]
+        public static extern bool UnregisterClassW(
+            string lpClassName,
+            IntPtr hInstance);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr DefWindowProc(IntPtr hWnd, WindowsMessages uMsg, IntPtr wParam, IntPtr lParam);
+        public static extern IntPtr DefWindowProc(
+            IntPtr hWnd,
+            WindowsMessages uMsg,
+            IntPtr wParam,
+            IntPtr lParam);
+
+        [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern bool GetMessage(
+            ref MSG message, 
+            IntPtr hWnd, 
+            uint wMsgFilterMin, 
+            uint wMsgFilterMax);
+
+        [DllImport("user32.dll")]
+        public static extern bool TranslateMessage(
+            [In] ref MSG lpMsg);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr DispatchMessage(
+            [In] ref MSG lpmsg);
     }
 }
