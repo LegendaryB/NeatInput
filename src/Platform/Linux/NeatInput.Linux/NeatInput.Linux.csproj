@@ -21,4 +21,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NeatInput.Application\NeatInput.Application.csproj" />
+  </ItemGroup>
+
 </Project>
