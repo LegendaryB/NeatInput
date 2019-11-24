@@ -1,4 +1,4 @@
-﻿using NeatInput.Windows.Native.Enums;
+﻿using NeatInput.Windows.Native.Enumerations;
 using NeatInput.Windows.Native.Structures;
 
 using System;
@@ -41,6 +41,8 @@ namespace NeatInput.Windows.Native.Window
                 }
             });
 
+            thread.IsBackground = true;
+            thread.Priority = ThreadPriority.Highest;
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }

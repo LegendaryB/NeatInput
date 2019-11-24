@@ -1,4 +1,4 @@
-﻿using NeatInput.Windows.Native.Enums.Flags;
+﻿using NeatInput.Windows.Native.Enumerations.Flags;
 
 using System;
 using System.Runtime.InteropServices;

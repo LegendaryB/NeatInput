@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NeatInput.Windows.Native.Enums.Flags
+namespace NeatInput.Windows.Native.Enumerations.Flags
 {
     [Flags]
     public enum MSLLHOOKSTRUCTFlags : uint

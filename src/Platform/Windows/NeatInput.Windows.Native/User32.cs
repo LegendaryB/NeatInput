@@ -1,4 +1,4 @@
-﻿using NeatInput.Windows.Native.Enums;
+﻿using NeatInput.Windows.Native.Enumerations;
 using NeatInput.Windows.Native.SafeHandles;
 using NeatInput.Windows.Native.Structures;
 

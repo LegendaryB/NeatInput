@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NeatInput.Windows.Native.Enums
+namespace NeatInput.Windows.Native.Enumerations
 {
     public enum WindowsMessages : uint
     {

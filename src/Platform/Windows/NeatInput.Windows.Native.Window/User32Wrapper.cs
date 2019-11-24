@@ -1,5 +1,4 @@
-﻿using NeatInput.Windows.Native.Constants;
-using NeatInput.Windows.Native.Structures;
+﻿using NeatInput.Windows.Native.Structures;
 
 using System;
 using System.Diagnostics;
@@ -9,13 +8,13 @@ namespace NeatInput.Windows.Native.Window
 {
     internal static class User32Wrapper
     {
-        private static readonly uint WNDCLASSEX_SIZE = (uint)Marshal.SizeOf<WNDCLASSEX>();
+        public static readonly IntPtr HWND_MESSAGE = (IntPtr)(-3);
 
         internal static IntPtr CreateWindow(IntPtr lpfnWndProc)
         {
             var wx = new WNDCLASSEX
             {
-                cbSize = WNDCLASSEX_SIZE,
+                cbSize = (uint)Marshal.SizeOf<WNDCLASSEX>(),
                 lpfnWndProc = lpfnWndProc,
                 lpszClassName = Guid.NewGuid().ToString().Replace("-", string.Empty),
                 hInstance = Process.GetCurrentProcess().Handle
@@ -26,8 +25,9 @@ namespace NeatInput.Windows.Native.Window
 
             var handle = User32.CreateWindowExW(0,
                 wx.lpszClassName,
-                string.Empty, 0, 0, 0, 0, 0,
-                WindowConstants.HWND_MESSAGE,
+                string.Empty, 
+                0, 0, 0, 0, 0,
+                HWND_MESSAGE,
                 IntPtr.Zero,
                 wx.hInstance,
                 IntPtr.Zero);

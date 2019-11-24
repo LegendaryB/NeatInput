@@ -15,12 +15,29 @@ namespace NeatInput
 
         public InputSource()
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                _instance = new WindowsInputSource();
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                _instance = new LinuxInputSource();
-            else
-                throw new InvalidOperationException();
+            _instance = GetPlatformImplementation();
+
+            AppDomain.CurrentDomain.ProcessExit += OnAppDomainLifetimeEnded;
+            AppDomain.CurrentDomain.UnhandledException += OnAppDomainLifetimeEnded;
+        }        
+
+        public void Dispose()
+        {
+            _instance.Dispose();
+
+            AppDomain.CurrentDomain.ProcessExit -= OnAppDomainLifetimeEnded;
+            AppDomain.CurrentDomain.UnhandledException -= OnAppDomainLifetimeEnded;
         }
+        private IInputSource GetPlatformImplementation()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return new WindowsInputSource();
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                return new LinuxInputSource();
+            else
+                throw new InvalidOperationException("This library is only available for windows and linux systems!");
+        }
+
+        private void OnAppDomainLifetimeEnded(object s, object e) => Dispose();
     }
 }
