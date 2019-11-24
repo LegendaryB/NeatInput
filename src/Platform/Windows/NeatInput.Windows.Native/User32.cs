@@ -55,13 +55,8 @@ namespace NeatInput.Windows.Native
         public static extern IntPtr DispatchMessage(
             [In] ref MSG lpmsg);
 
-        internal delegate IntPtr HookProc(
-            int nCode,
-            IntPtr wParam,
-            IntPtr lParam);
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern SetWindowsHookExSafeHandle SetWindowsHookEx(
+        public static extern SetWindowsHookExSafeHandle SetWindowsHookEx(
             int idHook,
             IntPtr lpfn,
             IntPtr hMod,
@@ -69,10 +64,10 @@ namespace NeatInput.Windows.Native
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool UnhookWindowsHookEx(IntPtr hhk);
+        public static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        internal static extern IntPtr CallNextHookEx(
+        public static extern IntPtr CallNextHookEx(
             SetWindowsHookExSafeHandle hhk,
             int nCode,
             IntPtr wParam,
