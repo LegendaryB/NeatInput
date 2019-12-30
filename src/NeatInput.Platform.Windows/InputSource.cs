@@ -1,6 +1,8 @@
 ﻿using NeatInput.Abstractions;
 using NeatInput.Platform.Windows.Hooking;
 
+using FluentAssertions;
+
 using System;
 using System.Threading;
 
@@ -16,9 +18,7 @@ namespace NeatInput.Platform.Windows
             IKeyboardReceiver keyboardReceiver = null,
             IMouseReceiver mouseReceiver = null)
         {
-            // todo: replace with essentials
-            if (hModule == IntPtr.Zero)
-                throw new ArgumentException();
+            hModule.Should().NotBeEquivalentTo(IntPtr.Zero);
 
             if (keyboardReceiver == null && mouseReceiver == null)
                 throw new InvalidOperationException();

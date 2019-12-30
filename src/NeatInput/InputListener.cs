@@ -1,6 +1,6 @@
 ﻿using NeatInput.Abstractions;
 
-using LegendaryB.Essentials.ArgumentValidation;
+using FluentAssertions;
 
 using System;
 using System.Diagnostics;
@@ -20,9 +20,7 @@ namespace NeatInput
 
         public InputListener(IInputReceiver receiver)
         {
-            Argument.NotNull(
-                receiver, 
-                nameof(receiver));
+            receiver.Should().NotBeNull();
 
             _keyboardReceiver = receiver;
             _mouseReceiver = receiver;
@@ -31,9 +29,7 @@ namespace NeatInput
 
         public InputListener(IKeyboardReceiver keyboardReceiver)
         {
-            Argument.NotNull(
-                keyboardReceiver,
-                nameof(keyboardReceiver));
+            keyboardReceiver.Should().NotBeNull();
 
             _keyboardReceiver = keyboardReceiver;
             _source = ResolvePlatformImplementation();
@@ -41,9 +37,7 @@ namespace NeatInput
 
         public InputListener(IMouseReceiver mouseReceiver)
         {
-            Argument.NotNull(
-                mouseReceiver,
-                nameof(mouseReceiver));
+            mouseReceiver.Should().NotBeNull();
 
             _mouseReceiver = mouseReceiver;
             _source = ResolvePlatformImplementation();
