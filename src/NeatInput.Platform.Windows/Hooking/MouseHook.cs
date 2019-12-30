@@ -10,7 +10,11 @@ namespace NeatInput.Platform.Windows.Hooking
     {
         protected override HookType Type => HookType.WH_MOUSE_LL;
 
-        protected override void ProcessInput(WindowsMessages msg, IntPtr lParam)
+        internal MouseHook(IntPtr hMod) : base(hMod)
+        {
+        }
+
+        protected override void Process(WindowsMessages msg, IntPtr lParam)
         {
             var data = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
         }
