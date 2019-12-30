@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Native.Enumerations;
+﻿using LegendaryB.Essentials.ArgumentValidation;
+using NeatInput.Windows.Native.Enumerations;
 using NeatInput.Windows.Native.Structures;
 
 using System;
@@ -11,6 +12,8 @@ namespace NeatInput.Windows.Native.Window
     {
         public delegate IntPtr WndProcDelegate(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
+        //private readonly WeakReference
+
         // todo: weak reference
         private readonly Action<IntPtr, uint, IntPtr, IntPtr> _wndProcSubscriber;
 
@@ -20,8 +23,8 @@ namespace NeatInput.Windows.Native.Window
 
         public NativeWindow(Action<IntPtr, uint, IntPtr, IntPtr> wndProcSubscriber)
         {
-            if (wndProcSubscriber == null)
-                throw new ArgumentNullException(nameof(wndProcSubscriber));
+            //if (wndProcSubscriber == null)
+            //    throw new ArgumentNullException(nameof(wndProcSubscriber));
 
             _wndProcSubscriber = wndProcSubscriber;
         }

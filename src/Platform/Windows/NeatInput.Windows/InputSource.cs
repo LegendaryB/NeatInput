@@ -1,4 +1,4 @@
-﻿using NeatInput.Application;
+﻿using NeatInput.Abstractions;
 using NeatInput.Windows.Native.Window;
 
 namespace NeatInput.Windows

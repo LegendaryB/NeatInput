@@ -9,10 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Domain", "src\NeatInput.Domain\NeatInput.Domain.csproj", "{7FAA1B25-B9DF-4E17-963C-0953320DA578}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Application", "src\NeatInput.Application\NeatInput.Application.csproj", "{FCB253A7-A39B-4A30-BC39-4752219807EF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{837F77DF-1EDF-49F5-81ED-4EABFD40F8F1}"
@@ -31,20 +27,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Linux", "src\Plat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Linux.Native", "src\Platform\Linux\NeatInput.Linux.Native\NeatInput.Linux.Native.csproj", "{5A131022-E2A0-49BB-AD75-5D904139830D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.ConsoleApp", "samples\NeatInput.ConsoleApp\NeatInput.ConsoleApp.csproj", "{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Abstractions", "src\NeatInput.Abstractions\NeatInput.Abstractions.csproj", "{1DAB95B6-021D-4BC4-8546-34E7FC24657F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7FAA1B25-B9DF-4E17-963C-0953320DA578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FAA1B25-B9DF-4E17-963C-0953320DA578}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FAA1B25-B9DF-4E17-963C-0953320DA578}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FAA1B25-B9DF-4E17-963C-0953320DA578}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FCB253A7-A39B-4A30-BC39-4752219807EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCB253A7-A39B-4A30-BC39-4752219807EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCB253A7-A39B-4A30-BC39-4752219807EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCB253A7-A39B-4A30-BC39-4752219807EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +61,14 @@ Global
 		{5A131022-E2A0-49BB-AD75-5D904139830D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A131022-E2A0-49BB-AD75-5D904139830D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A131022-E2A0-49BB-AD75-5D904139830D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

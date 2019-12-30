@@ -17,8 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NeatInput.Application\NeatInput.Application.csproj" />
-    <ProjectReference Include="..\NeatInput.Domain\NeatInput.Domain.csproj" />
+    <ProjectReference Include="..\NeatInput.Abstractions\NeatInput.Abstractions.csproj" />
     <ProjectReference Include="..\Platform\Linux\NeatInput.Linux\NeatInput.Linux.csproj" />
     <ProjectReference Include="..\Platform\Windows\NeatInput.Windows\NeatInput.Windows.csproj" />
   </ItemGroup>

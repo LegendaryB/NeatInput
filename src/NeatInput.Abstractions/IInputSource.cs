@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NeatInput.Application
+namespace NeatInput.Abstractions
 {
     public interface IInputSource : IDisposable
     {

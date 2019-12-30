@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\NeatInput.Application\NeatInput.Application.csproj" />
+    <ProjectReference Include="..\..\..\NeatInput.Abstractions\NeatInput.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

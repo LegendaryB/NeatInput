@@ -1,11 +1,10 @@
-﻿using NeatInput.Application;
+﻿using NeatInput.Abstractions;
 
 using WindowsInputSource = NeatInput.Windows.InputSource;
 using LinuxInputSource = NeatInput.Linux.InputSource;
 
 using System;
 using System.Runtime.InteropServices;
-
 
 namespace NeatInput
 {

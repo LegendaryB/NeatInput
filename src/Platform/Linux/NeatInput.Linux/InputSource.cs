@@ -1,4 +1,4 @@
-﻿using NeatInput.Application;
+﻿using NeatInput.Abstractions;
 
 namespace NeatInput.Linux
 {

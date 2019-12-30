@@ -1,4 +1,4 @@
-﻿namespace NeatInput.Domain
+﻿namespace NeatInput
 {
     public abstract class Input
     {
