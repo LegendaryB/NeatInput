@@ -1,33 +1,14 @@
-﻿using NeatInput.Windows.Native.Enumerations;
-using NeatInput.Windows.Native.SafeHandles;
-using NeatInput.Windows.Native.Structures;
+﻿using NeatInput.Windows.Win32.Enums;
+using NeatInput.Windows.Win32.SafeHandles;
+using NeatInput.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;
 
-namespace NeatInput.Windows.Native
+namespace NeatInput.Windows.Win32
 {
     public static class User32
     {
-        [DllImport("user32.dll", SetLastError = true, EntryPoint = "CreateWindowExW")]
-        public static extern IntPtr CreateWindowExW(
-            uint dwExStyle,
-            string lpClassName,
-            string lpWindowName,
-            uint dwStyle,
-            int x,
-            int y,
-            int nWidth,
-            int nHeight,
-            IntPtr hWndParent,
-            IntPtr hMenu,
-            IntPtr hInstance,
-            IntPtr lpParam);
-
-        [DllImport("user32.dll", SetLastError = true, EntryPoint = "RegisterClassExW")]
-        public static extern ushort RegisterClassExW(
-            ref WNDCLASSEX lpwcx);
-
         [DllImport("user32.dll", EntryPoint = "UnregisterClassW")]
         public static extern bool UnregisterClassW(
             string lpClassName,

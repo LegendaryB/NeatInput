@@ -1,4 +1,4 @@
-﻿namespace NeatInput.Windows.Native.Enumerations
+﻿namespace NeatInput.Windows.Win32.Enums
 {
     public enum HookType : int
     {

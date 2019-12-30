@@ -1,8 +1,8 @@
-﻿using NeatInput.Windows.Native.Enumerations.Flags;
+﻿using NeatInput.Windows.Win32.Enums.Flags;
 
 using System;
 
-namespace NeatInput.Windows.Native.Structures
+namespace NeatInput.Windows.Win32.Structs
 {
     public struct MSLLHOOKSTRUCT
     {

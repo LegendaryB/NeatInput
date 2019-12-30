@@ -1,5 +1,4 @@
-﻿using NeatInput.Windows.Native.Window;
-using System;
+﻿using System;
 
 namespace NeatInput.ConsoleApp
 {
@@ -7,8 +6,7 @@ namespace NeatInput.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var x = new NativeWindow(null);
-            x.StartMessageLoop();
+            var input = new InputSource();
 
             Console.ReadLine();
         }

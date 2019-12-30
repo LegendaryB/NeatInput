@@ -2,7 +2,7 @@
 
 using System.Security.Permissions;
 
-namespace NeatInput.Windows.Native.SafeHandles
+namespace NeatInput.Windows.Win32.SafeHandles
 {
     [SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]
     [SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]

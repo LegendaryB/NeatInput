@@ -1,7 +1,6 @@
 ﻿using NeatInput.Abstractions;
 
 using WindowsInputSource = NeatInput.Windows.InputSource;
-using LinuxInputSource = NeatInput.Linux.InputSource;
 
 using System;
 using System.Runtime.InteropServices;
@@ -18,7 +17,7 @@ namespace NeatInput
 
             AppDomain.CurrentDomain.ProcessExit += OnAppDomainLifetimeEnded;
             AppDomain.CurrentDomain.UnhandledException += OnAppDomainLifetimeEnded;
-        }        
+        }
 
         public void Dispose()
         {
@@ -31,10 +30,10 @@ namespace NeatInput
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 return new WindowsInputSource();
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                return new LinuxInputSource();
+            //else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            //    return new LinuxInputSource();
             else
-                throw new InvalidOperationException("This library is only available for windows and linux systems!");
+                throw new InvalidOperationException("This library is only available for windows systems!");
         }
 
         private void OnAppDomainLifetimeEnded(object s, object e) => Dispose();

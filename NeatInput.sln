@@ -11,25 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{837F77DF-1EDF-49F5-81ED-4EABFD40F8F1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{8D1B5EB6-B6FF-43B4-9449-6940FBB955AE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows.Native.Window", "src\Platform\Windows\NeatInput.Windows.Native.Window\NeatInput.Windows.Native.Window.csproj", "{33AFA6FD-2678-4B0D-B36D-1D338BA784C2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows.Native", "src\Platform\Windows\NeatInput.Windows.Native\NeatInput.Windows.Native.csproj", "{6EB1D08B-8F8C-4F20-90FF-9161E57ED8B2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows", "src\Platform\Windows\NeatInput.Windows\NeatInput.Windows.csproj", "{096CF368-B7ED-4284-8172-2DB633CF2B54}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{A2A12FD4-A953-4DE1-A116-90F34F001638}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Linux", "src\Platform\Linux\NeatInput.Linux\NeatInput.Linux.csproj", "{1A0EE784-49C8-4A05-AC44-821EE56BA839}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Linux.Native", "src\Platform\Linux\NeatInput.Linux.Native\NeatInput.Linux.Native.csproj", "{5A131022-E2A0-49BB-AD75-5D904139830D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.ConsoleApp", "samples\NeatInput.ConsoleApp\NeatInput.ConsoleApp.csproj", "{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Abstractions", "src\NeatInput.Abstractions\NeatInput.Abstractions.csproj", "{1DAB95B6-021D-4BC4-8546-34E7FC24657F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows", "src\NeatInput.Windows\NeatInput.Windows.csproj", "{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,26 +27,6 @@ Global
 		{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33AFA6FD-2678-4B0D-B36D-1D338BA784C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33AFA6FD-2678-4B0D-B36D-1D338BA784C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33AFA6FD-2678-4B0D-B36D-1D338BA784C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33AFA6FD-2678-4B0D-B36D-1D338BA784C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EB1D08B-8F8C-4F20-90FF-9161E57ED8B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EB1D08B-8F8C-4F20-90FF-9161E57ED8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EB1D08B-8F8C-4F20-90FF-9161E57ED8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EB1D08B-8F8C-4F20-90FF-9161E57ED8B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{096CF368-B7ED-4284-8172-2DB633CF2B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{096CF368-B7ED-4284-8172-2DB633CF2B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{096CF368-B7ED-4284-8172-2DB633CF2B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{096CF368-B7ED-4284-8172-2DB633CF2B54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A0EE784-49C8-4A05-AC44-821EE56BA839}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A131022-E2A0-49BB-AD75-5D904139830D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A131022-E2A0-49BB-AD75-5D904139830D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A131022-E2A0-49BB-AD75-5D904139830D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A131022-E2A0-49BB-AD75-5D904139830D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,18 +35,13 @@ Global
 		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8D1B5EB6-B6FF-43B4-9449-6940FBB955AE} = {837F77DF-1EDF-49F5-81ED-4EABFD40F8F1}
-		{33AFA6FD-2678-4B0D-B36D-1D338BA784C2} = {8D1B5EB6-B6FF-43B4-9449-6940FBB955AE}
-		{6EB1D08B-8F8C-4F20-90FF-9161E57ED8B2} = {8D1B5EB6-B6FF-43B4-9449-6940FBB955AE}
-		{096CF368-B7ED-4284-8172-2DB633CF2B54} = {8D1B5EB6-B6FF-43B4-9449-6940FBB955AE}
-		{A2A12FD4-A953-4DE1-A116-90F34F001638} = {837F77DF-1EDF-49F5-81ED-4EABFD40F8F1}
-		{1A0EE784-49C8-4A05-AC44-821EE56BA839} = {A2A12FD4-A953-4DE1-A116-90F34F001638}
-		{5A131022-E2A0-49BB-AD75-5D904139830D} = {A2A12FD4-A953-4DE1-A116-90F34F001638}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EF9ED7D-6CB6-491B-A31B-3AF9377FD560}

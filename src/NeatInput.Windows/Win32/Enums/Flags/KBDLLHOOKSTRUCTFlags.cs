@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NeatInput.Windows.Native.Enumerations.Flags
+namespace NeatInput.Windows.Win32.Enums.Flags
 {
     [Flags]
     public enum KBDLLHOOKSTRUCTFlags : uint

@@ -4,18 +4,18 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Daniel Belz</Authors>
     <Product>NeatInput</Product>
+    <Version>1.1.0</Version>
     <Copyright>Copyright © Daniel Belz 2019</Copyright>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/LegendaryB/NeatInput</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/LegendaryB/NeatInput</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/LegendaryB/NeatInput</RepositoryUrl>
     <PackageTags>neat input win32 hook keyboard mouse keyboardhook mousehook global globalhook library net standard netstandard csharp clean</PackageTags>
-    <Version>1.1.0</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NeatInput.Windows.Native\NeatInput.Windows.Native.csproj" />
+    <ProjectReference Include="..\NeatInput.Abstractions\NeatInput.Abstractions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,10 +23,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="LegendaryB.Essentials" Version="0.0.1" />
   </ItemGroup>
 
 </Project>

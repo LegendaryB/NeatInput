@@ -1,6 +1,6 @@
-﻿using NeatInput.Windows.Native;
-using NeatInput.Windows.Native.Enumerations;
-using NeatInput.Windows.Native.SafeHandles;
+﻿using NeatInput.Windows.Win32;
+using NeatInput.Windows.Win32.Enums;
+using NeatInput.Windows.Win32.SafeHandles;
 
 using System;
 using System.Diagnostics;
@@ -49,7 +49,6 @@ namespace NeatInput.Windows.Hooking
             var lpfnPtr = Marshal.GetFunctionPointerForDelegate(lpfn);
             var hMod = Process.GetCurrentProcess().MainModule.BaseAddress;
 
-            // todo: research about parameters (thread id etc.)
             hhk = User32.SetWindowsHookEx(Type, lpfnPtr, hMod, 0);
         }
     }

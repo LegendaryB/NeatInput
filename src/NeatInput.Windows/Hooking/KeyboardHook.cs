@@ -1,5 +1,5 @@
-﻿using NeatInput.Windows.Native.Enumerations;
-using NeatInput.Windows.Native.Structures;
+﻿using NeatInput.Windows.Win32.Enums;
+using NeatInput.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;

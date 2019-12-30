@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace NeatInput.Windows.Native.Structures
+namespace NeatInput.Windows.Win32.Structs
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct POINT

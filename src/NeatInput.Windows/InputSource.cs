@@ -1,20 +1,17 @@
 ﻿using NeatInput.Abstractions;
-using NeatInput.Windows.Native.Window;
+using NeatInput.Windows.Hooking;
 
 namespace NeatInput.Windows
 {
     public class InputSource : IInputSource
     {
-        private readonly NativeWindow _window;
-
         public InputSource()
         {
-
+            //var x = new KeyboardHook();           
         }
 
         public void Dispose()
         {
-            _window.Dispose();
         }
     }
 }
