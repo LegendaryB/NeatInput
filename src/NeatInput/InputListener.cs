@@ -49,8 +49,7 @@ namespace NeatInput
             _source = ResolvePlatformImplementation();
         }
 
-        public void Listen() => 
-            _source.Capture();
+        public void Listen() => _source.Capture();
 
         private IInputSource ResolvePlatformImplementation()
         {
