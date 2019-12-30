@@ -2,14 +2,16 @@
 
 namespace NeatInput.Platform.Windows
 {
-    public class InputSourceWindows : IInputSource
+    public class InputSource : IInputSource
     {
-        public InputSourceWindows()
+        public InputSource()
         {         
         }
 
         public void Dispose()
         {
         }
+
+        ~InputSource() => Dispose();
     }
 }
