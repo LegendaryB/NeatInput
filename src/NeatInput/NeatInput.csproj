@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NeatInput.Abstractions\NeatInput.Abstractions.csproj" />
-    <ProjectReference Include="..\NeatInput.Windows\NeatInput.Windows.csproj" />
+    <ProjectReference Include="..\NeatInput.Platform.Windows\NeatInput.Platform.Windows.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,5 @@
 ﻿using NeatInput.Abstractions;
-
-using WindowsInputSource = NeatInput.Windows.InputSource;
+using NeatInput.Platform.Windows;
 
 using System;
 using System.Runtime.InteropServices;
@@ -23,7 +22,7 @@ namespace NeatInput
         private IInputSource GetPlatformImplementation()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                return new WindowsInputSource();
+                return new InputSourceWindows();
             else
                 throw new InvalidOperationException("This library is only available for windows systems!");
         }

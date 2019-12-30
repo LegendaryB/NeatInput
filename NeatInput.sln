@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{7B1A4414-C541-428D-AA4B-9D7D0E7F5A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.ConsoleApp", "samples\NeatInput.ConsoleApp\NeatInput.ConsoleApp.csproj", "{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.ConsoleApp", "samples\NeatInput.ConsoleApp\NeatInput.ConsoleApp.csproj", "{52A4DEEA-58DB-4B9B-A243-1CA5E0E3E50F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Abstractions", "src\NeatInput.Abstractions\NeatInput.Abstractions.csproj", "{1DAB95B6-021D-4BC4-8546-34E7FC24657F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Abstractions", "src\NeatInput.Abstractions\NeatInput.Abstractions.csproj", "{1DAB95B6-021D-4BC4-8546-34E7FC24657F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows", "src\NeatInput.Windows\NeatInput.Windows.csproj", "{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Platform.Windows", "src\NeatInput.Platform.Windows\NeatInput.Platform.Windows.csproj", "{2788EE67-A2A3-48D7-902B-49F333BF760A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DAB95B6-021D-4BC4-8546-34E7FC24657F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E3D2AC4-AF45-42D0-9662-F02B0FE044C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2788EE67-A2A3-48D7-902B-49F333BF760A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2788EE67-A2A3-48D7-902B-49F333BF760A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2788EE67-A2A3-48D7-902B-49F333BF760A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2788EE67-A2A3-48D7-902B-49F333BF760A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

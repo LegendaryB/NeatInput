@@ -1,12 +1,12 @@
-﻿using NeatInput.Windows.Win32;
-using NeatInput.Windows.Win32.Enums;
-using NeatInput.Windows.Win32.SafeHandles;
+﻿using NeatInput.Platform.Windows.Win32;
+using NeatInput.Platform.Windows.Win32.Enums;
+using NeatInput.Platform.Windows.Win32.SafeHandles;
 
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace NeatInput.Windows.Hooking
+namespace NeatInput.Platform.Windows.Hooking
 {
     internal abstract class Hook : IDisposable
     {

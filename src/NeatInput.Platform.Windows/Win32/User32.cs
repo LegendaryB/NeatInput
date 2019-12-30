@@ -1,11 +1,11 @@
-﻿using NeatInput.Windows.Win32.Enums;
-using NeatInput.Windows.Win32.SafeHandles;
-using NeatInput.Windows.Win32.Structs;
+﻿using NeatInput.Platform.Windows.Win32.Enums;
+using NeatInput.Platform.Windows.Win32.SafeHandles;
+using NeatInput.Platform.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;
 
-namespace NeatInput.Windows.Win32
+namespace NeatInput.Platform.Windows.Win32
 {
     public static class User32
     {

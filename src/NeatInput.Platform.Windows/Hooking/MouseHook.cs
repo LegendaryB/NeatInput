@@ -1,10 +1,10 @@
-﻿using NeatInput.Windows.Win32.Enums;
-using NeatInput.Windows.Win32.Structs;
+﻿using NeatInput.Platform.Windows.Win32.Enums;
+using NeatInput.Platform.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;
 
-namespace NeatInput.Windows.Hooking
+namespace NeatInput.Platform.Windows.Hooking
 {
     internal class MouseHook : Hook
     {
