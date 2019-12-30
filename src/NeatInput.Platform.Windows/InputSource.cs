@@ -10,14 +10,14 @@ namespace NeatInput.Platform.Windows
         private readonly KeyboardHook keyboardHook;
         private readonly MouseHook mouseHook;
 
-        public InputSource(IntPtr hMod)
+        public InputSource(IntPtr hModule)
         {
             // todo: replace with essentials
-            if (hMod == IntPtr.Zero)
+            if (hModule == IntPtr.Zero)
                 throw new ArgumentException();
 
-            keyboardHook = new KeyboardHook(hMod);
-            mouseHook = new MouseHook(hMod);
+            keyboardHook = new KeyboardHook(hModule);
+            mouseHook = new MouseHook(hModule);
         }
 
         public void Dispose()

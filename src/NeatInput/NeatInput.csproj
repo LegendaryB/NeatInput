@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LegendaryB.Essentials" Version="0.0.1" />
     <PackageReference Include="Paipurain" Version="1.0.4" />
   </ItemGroup>
 

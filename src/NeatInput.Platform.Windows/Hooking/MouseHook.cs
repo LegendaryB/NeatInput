@@ -10,7 +10,7 @@ namespace NeatInput.Platform.Windows.Hooking
     {
         protected override HookType Type => HookType.WH_MOUSE_LL;
 
-        internal MouseHook(IntPtr hMod) : base(hMod)
+        internal MouseHook(IntPtr hModule) : base(hModule)
         {
         }
 

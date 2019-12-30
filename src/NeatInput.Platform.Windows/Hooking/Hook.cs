@@ -16,13 +16,13 @@ namespace NeatInput.Platform.Windows.Hooking
             IntPtr wParam,
             IntPtr lParam);
 
-        private readonly IntPtr _hMod;
+        private readonly IntPtr _hModule;
         private InputHookProcedure lpfn;
         private SetWindowsHookExSafeHandle hhk;
 
-        internal Hook(IntPtr hMod)
+        internal Hook(IntPtr hModule)
         {
-            _hMod = hMod;
+            _hModule = hModule;
         }    
 
         protected abstract void Process(WindowsMessages msg, IntPtr lParam);
@@ -43,7 +43,7 @@ namespace NeatInput.Platform.Windows.Hooking
             lpfn = OnReceived;
             var lpfnPtr = Marshal.GetFunctionPointerForDelegate(lpfn);
 
-            hhk = User32.SetWindowsHookEx(Type, lpfnPtr, _hMod, 0);
+            hhk = User32.SetWindowsHookEx(Type, lpfnPtr, _hModule, 0);
         }
 
         public void Dispose()

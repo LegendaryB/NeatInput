@@ -10,7 +10,7 @@ namespace NeatInput.Platform.Windows.Hooking
     {
         protected override HookType Type => HookType.WH_KEYBOARD_LL;
 
-        internal KeyboardHook(IntPtr hMod) : base(hMod)
+        internal KeyboardHook(IntPtr hModule) : base(hModule)
         {
         }
 
