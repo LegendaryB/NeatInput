@@ -1,6 +1,7 @@
 ﻿using NeatInput.Platform.Windows.Win32;
 using NeatInput.Platform.Windows.Win32.Enums;
 using NeatInput.Platform.Windows.Win32.SafeHandles;
+using NeatInput.Platform.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;
@@ -19,6 +20,8 @@ namespace NeatInput.Platform.Windows.Hooking
         private readonly IntPtr _hModule;
         private InputHookProcedure lpfn;
         private SetWindowsHookExSafeHandle hhk;
+
+        private bool disposing;
 
         internal Hook(IntPtr hModule)
         {
@@ -44,10 +47,19 @@ namespace NeatInput.Platform.Windows.Hooking
             var lpfnPtr = Marshal.GetFunctionPointerForDelegate(lpfn);
 
             hhk = User32.SetWindowsHookEx(Type, lpfnPtr, _hModule, 0);
+
+            MSG msg = new MSG();
+
+            while(User32.GetMessage(ref msg, IntPtr.Zero, 0, 0) && !disposing)
+            {
+                User32.TranslateMessage(ref msg);
+                User32.DispatchMessage(ref msg);
+            }
         }
 
         public void Dispose()
         {
+            disposing = true;
             hhk.Dispose();
         }
 

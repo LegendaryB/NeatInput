@@ -16,6 +16,9 @@ namespace NeatInput.Platform.Windows.Hooking
 
         protected override void Process(WindowsMessages msg, IntPtr lParam)
         {
+            // todo: debug only remove
+            Console.WriteLine(msg);
+
             var data = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
         }
     }

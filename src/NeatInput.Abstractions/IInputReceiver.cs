@@ -1,6 +1,7 @@
 ﻿namespace NeatInput.Abstractions
 {
-    public interface IInputReceiver : IKeyboardReceiver,
+    public interface IInputReceiver : 
+        IKeyboardReceiver,
         IMouseReceiver
     {
     }
