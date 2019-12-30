@@ -9,18 +9,6 @@ namespace NeatInput.Windows.Win32
 {
     public static class User32
     {
-        [DllImport("user32.dll", EntryPoint = "UnregisterClassW")]
-        public static extern bool UnregisterClassW(
-            string lpClassName,
-            IntPtr hInstance);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr DefWindowProc(
-            IntPtr hWnd,
-            WindowsMessages uMsg,
-            IntPtr wParam,
-            IntPtr lParam);
-
         [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool GetMessage(
             ref MSG message, 
