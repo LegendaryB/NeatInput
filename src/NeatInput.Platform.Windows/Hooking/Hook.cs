@@ -5,6 +5,7 @@ using NeatInput.Platform.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace NeatInput.Platform.Windows.Hooking
 {
@@ -28,7 +29,7 @@ namespace NeatInput.Platform.Windows.Hooking
             _hModule = hModule;
         }    
 
-        protected abstract void Process(WindowsMessages msg, IntPtr lParam);
+        protected abstract Task Process(WindowsMessages msg, IntPtr lParam);
 
         protected IntPtr OnReceived(
             int nCode,
