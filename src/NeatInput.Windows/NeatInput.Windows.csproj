@@ -12,8 +12,4 @@
     <PackageReference Include="Paipurain" Version="1.0.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NeatInput.Abstractions\NeatInput.Abstractions.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,9 +1,9 @@
-﻿using NeatInput.Abstractions;
+﻿using NeatInput.Windows;
 using System;
 
 namespace NeatInput.ConsoleApp
 {
-    class Test : IInputReceiver
+    class Test : IKeyboardEventReceiver
     {
 
     }
@@ -12,8 +12,8 @@ namespace NeatInput.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var input = new InputListener(new Test());
-            input.Listen();
+            var input = new InputSource(new Test(), null);
+            input.Capture();
 
             Console.ReadLine();
         }

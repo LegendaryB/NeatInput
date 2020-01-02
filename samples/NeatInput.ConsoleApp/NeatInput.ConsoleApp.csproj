@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NeatInput\NeatInput.csproj" />
+    <ProjectReference Include="..\..\src\NeatInput.Windows\NeatInput.Windows.csproj" />
   </ItemGroup>
 
 </Project>

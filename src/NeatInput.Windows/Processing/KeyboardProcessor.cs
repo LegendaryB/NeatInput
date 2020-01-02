@@ -5,7 +5,7 @@ using Paipurain.Handler;
 
 namespace NeatInput.Windows.Processing
 {
-    internal class KeyboardProcessor : Builder<ProcessingValueWrapper>
+    internal class KeyboardProcessor : Builder<ValueWrapper>
     {
         internal KeyboardProcessor()
         {

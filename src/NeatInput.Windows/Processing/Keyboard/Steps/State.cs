@@ -3,13 +3,12 @@ using NeatInput.Windows.Win32.Enums;
 
 using Paipurain.Application.Handler;
 
-using System;
 using System.Linq;
 using System.Collections.Generic;
 
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {
-    internal class State : IHandler<ProcessingValueWrapper>
+    internal class State : IHandler<ValueWrapper>
     {
         private readonly Dictionary<KeyStates, List<WindowsMessages>> _stateMessagesMap;
 
@@ -21,9 +20,11 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
             RegisterUpStateMessages();
         }
 
-        public ProcessingValueWrapper Handle(ProcessingValueWrapper item)
+        public ValueWrapper Handle(ValueWrapper item)
         {
-            Console.WriteLine(GetState(item.Message));
+            item.Output.State = GetState(item.Message);
+
+            System.Console.WriteLine(item.Output.Key + " | " + item.Output.State);
 
             return item;
         }

@@ -1,23 +1,27 @@
-﻿using NeatInput.Abstractions;
-using NeatInput.Windows.Hooking;
+﻿using NeatInput.Windows.Hooking;
 
 using System;
+using System.Diagnostics;
 using System.Threading;
 
-namespace NeatInput.Platform.Windows
+namespace NeatInput.Windows
 {
-    public class InputSource : IInputSource
+    public class InputSource : IDisposable
     {
         private readonly KeyboardHook keyboardHook;
         private readonly MouseHook mouseHook;
 
+
         public InputSource(
-            IntPtr hModule,
-            IKeyboardReceiver keyboardReceiver = null,
-            IMouseReceiver mouseReceiver = null)
+            IKeyboardEventReceiver keyboardReceiver = null,
+            IMouseEventReceiver mouseReceiver = null)
         {
             if (keyboardReceiver == null && mouseReceiver == null)
                 throw new InvalidOperationException();
+
+            var hModule = Process.GetCurrentProcess()
+                .MainModule
+                .BaseAddress;
 
             if (keyboardReceiver != null)
                 keyboardHook = new KeyboardHook(hModule);

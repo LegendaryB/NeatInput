@@ -24,10 +24,11 @@ namespace NeatInput.Windows.Hooking
         {            
             var data = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(lParam);
 
-            await _processor.ExecuteAsync(new ProcessingValueWrapper()
+            await _processor.ExecuteAsync(new ValueWrapper()
             {
                 Message = msg,
-                InputStruct = data
+                InputStruct = data,
+                Output = new KeyboardEvent()
             });
         }
     }

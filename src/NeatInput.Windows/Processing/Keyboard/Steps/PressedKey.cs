@@ -1,14 +1,14 @@
-﻿using Paipurain.Application.Handler;
+﻿using NeatInput.Windows.Processing.Keyboard.Enums;
 
-using System;
+using Paipurain.Application.Handler;
 
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {
-    internal class PressedKey : IHandler<ProcessingValueWrapper>
+    internal class PressedKey : IHandler<ValueWrapper>
     {
-        public ProcessingValueWrapper Handle(ProcessingValueWrapper item)
+        public ValueWrapper Handle(ValueWrapper item)
         {
-            //Console.WriteLine(item.InputStruct.vkCode);
+            item.Output.Key = (KeyCodes)item.InputStruct.vkCode;
 
             return item;
         }

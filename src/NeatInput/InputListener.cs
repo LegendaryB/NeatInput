@@ -15,8 +15,8 @@ namespace NeatInput
         private readonly IInputSource _source;
 
         // todo: weak reference!
-        private readonly IKeyboardReceiver _keyboardReceiver;
-        private readonly IMouseReceiver _mouseReceiver;
+        private readonly IKeyboardEventReceiver _keyboardReceiver;
+        private readonly IMouseEventReceiver _mouseReceiver;
 
         public InputListener(IInputReceiver receiver)
         {
@@ -29,7 +29,7 @@ namespace NeatInput
             _source = ResolvePlatformImplementation();
         }
 
-        public InputListener(IKeyboardReceiver keyboardReceiver)
+        public InputListener(IKeyboardEventReceiver keyboardReceiver)
         {
             Argument.NotNull(
                 keyboardReceiver,
@@ -39,7 +39,7 @@ namespace NeatInput
             _source = ResolvePlatformImplementation();
         }
 
-        public InputListener(IMouseReceiver mouseReceiver)
+        public InputListener(IMouseEventReceiver mouseReceiver)
         {
             Argument.NotNull(
                 mouseReceiver,

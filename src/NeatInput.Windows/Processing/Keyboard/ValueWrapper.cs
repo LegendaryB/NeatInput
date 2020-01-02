@@ -3,9 +3,10 @@ using NeatInput.Windows.Win32.Structs;
 
 namespace NeatInput.Windows.Processing.Keyboard
 {
-    internal class ProcessingValueWrapper
+    internal class ValueWrapper
     {
         internal WindowsMessages Message { get; set; }
         internal KBDLLHOOKSTRUCT InputStruct { get; set; }
+        internal KeyboardEvent Output { get; set; }
     }
 }
