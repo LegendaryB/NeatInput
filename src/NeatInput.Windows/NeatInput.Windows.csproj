@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Processing\Mouse\Steps\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Paipurain" Version="1.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NeatInput.Abstractions\NeatInput.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
