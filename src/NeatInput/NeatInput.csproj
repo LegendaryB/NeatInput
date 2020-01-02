@@ -28,8 +28,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="5.9.0" />
-  </ItemGroup>
-
 </Project>

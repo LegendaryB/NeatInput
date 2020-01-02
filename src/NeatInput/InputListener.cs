@@ -1,6 +1,6 @@
 ﻿using NeatInput.Abstractions;
 
-using FluentAssertions;
+using FluentValidation;
 
 using System;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 namespace NeatInput
 {
-    public class InputListener : 
+    public class InputListener :
         IInputListener,
         IInputReceiver
     {
@@ -20,6 +20,8 @@ namespace NeatInput
 
         public InputListener(IInputReceiver receiver)
         {
+            //RuleFor
+
             receiver.Should().NotBeNull();
 
             _keyboardReceiver = receiver;
