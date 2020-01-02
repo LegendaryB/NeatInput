@@ -1,8 +1,6 @@
 ﻿using NeatInput.Abstractions;
 using NeatInput.Platform.Windows.Hooking;
 
-using FluentAssertions;
-
 using System;
 using System.Threading;
 
@@ -18,8 +16,6 @@ namespace NeatInput.Platform.Windows
             IKeyboardReceiver keyboardReceiver = null,
             IMouseReceiver mouseReceiver = null)
         {
-            hModule.Should().NotBeEquivalentTo(IntPtr.Zero);
-
             if (keyboardReceiver == null && mouseReceiver == null)
                 throw new InvalidOperationException();
 

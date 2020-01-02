@@ -28,4 +28,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="LegendaryB.Essentials" Version="0.0.1" />
+  </ItemGroup>
+
 </Project>
