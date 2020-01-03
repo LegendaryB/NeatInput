@@ -3,7 +3,7 @@ using System;
 
 namespace NeatInput.ConsoleApp
 {
-    class Test : IKeyboardEventReceiver
+    class Test : IKeyboardEventReceiver<KeyboardEvent>
     {
 
     }
@@ -13,7 +13,7 @@ namespace NeatInput.ConsoleApp
         static void Main(string[] args)
         {
             var input = new InputSource(new Test(), null);
-            input.Capture();
+            input.Listen();
 
             Console.ReadLine();
         }

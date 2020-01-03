@@ -11,10 +11,9 @@ namespace NeatInput.Windows
         private readonly KeyboardHook keyboardHook;
         private readonly MouseHook mouseHook;
 
-
         public InputSource(
-            IKeyboardEventReceiver keyboardReceiver = null,
-            IMouseEventReceiver mouseReceiver = null)
+            IKeyboardEventReceiver<KeyboardEvent> keyboardReceiver = null,
+            IMouseEventReceiver<MouseEvent> mouseReceiver = null)
         {
             if (keyboardReceiver == null && mouseReceiver == null)
                 throw new InvalidOperationException();
@@ -30,7 +29,7 @@ namespace NeatInput.Windows
                 mouseHook = new MouseHook(hModule);
         }
 
-        public void Capture()
+        public void Listen()
         {
             ExecuteInNewThread(keyboardHook);
             ExecuteInNewThread(mouseHook);

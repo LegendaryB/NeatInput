@@ -2,7 +2,7 @@
 
 namespace NeatInput.Windows
 {
-    public class KeyboardEvent
+    public class KeyboardEvent : IInput
     {
         public KeyCodes Key { get; set; }
         public KeyStates State { get; set; }
