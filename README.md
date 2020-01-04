@@ -24,7 +24,7 @@ breaking changes. The old NeatInput NuGet package is obsolete and not supported 
 The entire api of the library has changed so you need to make some adjustments when upgrading to 2. 
 
 ## Documentation
-The documentation can be found in the wiki.
+The documentation can be found in the [wiki](https://github.com/LegendaryB/NeatInput/wiki).
 
 ## Contributing
 
