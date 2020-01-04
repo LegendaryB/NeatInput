@@ -9,6 +9,7 @@ namespace NeatInput.Windows.Processing
         internal MouseProcessor()
         {
             ProcessingSteps.Add(new Key());
+            ProcessingSteps.Add(new Simulated());
         }
     }
 }
