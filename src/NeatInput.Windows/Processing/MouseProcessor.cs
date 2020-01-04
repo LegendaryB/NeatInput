@@ -10,6 +10,7 @@ namespace NeatInput.Windows.Processing
         {
             ProcessingSteps.Add(new Key());
             ProcessingSteps.Add(new State());
+            ProcessingSteps.Add(new Position());
             ProcessingSteps.Add(new Simulated());
         }
     }
