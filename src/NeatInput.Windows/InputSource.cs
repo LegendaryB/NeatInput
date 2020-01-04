@@ -14,7 +14,9 @@ namespace NeatInput.Windows
         private readonly WeakReference<IKeyboardEventReceiver> keyboardEventReceiverRef;
         private readonly WeakReference<IMouseEventReceiver> mouseEventReceiverRef;
 
-        public InputSource(IKeyboardEventReceiver keyboardEventReceiver = null, IMouseEventReceiver mouseEventReceiver = null)
+        public InputSource(
+            IKeyboardEventReceiver keyboardEventReceiver = null, 
+            IMouseEventReceiver mouseEventReceiver = null)
         {
             if (keyboardEventReceiver == null && mouseEventReceiver == null)
                 throw new InvalidOperationException();
@@ -42,11 +44,10 @@ namespace NeatInput.Windows
 
         private void OnRawKeyboardInputProcessed(KeyboardEvent @event)
         {
-            Console.WriteLine(@event.Key + " | " + @event.State);
-            //if (!keyboardEventReceiverRef.TryGetTarget(out var receiver))
-            //    return;
+            if (!keyboardEventReceiverRef.TryGetTarget(out var receiver))
+                return;
 
-            //await receiver.HandleEvent(@event);
+            receiver.Receive(@event);
         }
 
         private void OnRawMouseInputProcessed(MouseEvent @event)
@@ -54,7 +55,7 @@ namespace NeatInput.Windows
             if (!mouseEventReceiverRef.TryGetTarget(out var receiver))
                 return;
 
-            receiver.HandleEvent(@event);
+            receiver.Receive(@event);
         }
 
         private void ExecuteInNewThread<THook>(THook hook)

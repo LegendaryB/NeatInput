@@ -2,16 +2,14 @@
 using NeatInput.Windows.Events;
 
 using System;
-using System.Threading.Tasks;
 
 namespace NeatInput.ConsoleApp
 {
     class Test : IKeyboardEventReceiver
     {
-        public Task HandleEvent(KeyboardEvent @event)
+        public void Receive(KeyboardEvent @event)
         {
             Console.WriteLine(@event.Key + " | " + @event.State);
-            return Task.CompletedTask;
         }
     }
 
