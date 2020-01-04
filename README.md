@@ -5,70 +5,26 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-grammas-recipe.svg)](https://forthebadge.com)
 
 [![GitHub license](https://img.shields.io/github/license/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/blob/master/LICENSE.md)
-[![Nuget](https://img.shields.io/nuget/v/NeatInput.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput/)
+[![Nuget](https://img.shields.io/nuget/v/NeatInput.Windows.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
 [![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
 
-Useful and clean .NET Standard library to monitor keyboard and mouse input on Windows.
+A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux.
 
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
 
-## Getting started
+## Important
+* Currently only windows is supported.
 
-### Monitoring mouse and keyboard input
-To monitor mouse and keyboard input you need to attach to the OnInputReceived event handler:
+### Switching from version < 2
+This is version 2.0 of the library. I decided to increase the version of the library directly from 1.0.4 to 2.0.0 because it brings
+breaking changes. The old NeatInput NuGet package is obsolete and not supported anymore.
 
-```csharp
-private static void Main()
-{
-    var inputProvider = new InputProvider();
-    inputProvider.InputReceived += OnInputReceived;
+The entire api of the library has changed so you need to make some adjustments when upgrading to 2. 
 
-    Console.ReadLine();
-}
-
-private void OnInputReceived(Input input)
-{
-    Console.WriteLine($"Key: {input.Key} | State: {input.State}");
-}
-```
-
-### Monitoring mouse input
-To monitor mouse input you need to attach to the OnMouseInputReceived event handler:
-
-```csharp
-private static void Main()
-{
-    var inputProvider = new InputProvider();
-    inputProvider.MouseInputReceived += OnMouseInputReceived;
-
-    Console.ReadLine();
-}
-
-private void OnMouseInputReceived(MouseInput input)
-{
-    Console.WriteLine($"Key: {input.Key} | State: {input.State} | X: {input.X} | Y: {input.Y}");
-}
-```
-
-### Monitoring keyboard input
-To monitor keyboard input you need to attach to the OnKeyboardInputReceived event handler:
-
-```csharp
-private static void Main()
-{
-    var inputProvider = new InputProvider();
-    inputProvider.KeyboardInputReceived += OnKeyboardInputReceived;
-
-    Console.ReadLine();
-}
-
-private void OnKeyboardInputReceived(KeyboardInput input)
-{
-    Console.WriteLine($"Key: {input.Key} | State: {input.State}");
-}
-```
+## Documentation
+The documentation can be found in the wiki.
 
 ## Contributing
 
