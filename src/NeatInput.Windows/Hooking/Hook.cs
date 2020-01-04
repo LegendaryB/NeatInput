@@ -4,6 +4,7 @@ using NeatInput.Windows.Win32.SafeHandles;
 using NeatInput.Windows.Win32.Structs;
 
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
@@ -24,12 +25,14 @@ namespace NeatInput.Windows.Hooking
 
         private bool disposing;
 
-        internal Hook(IntPtr hModule)
+        internal Hook()
         {
-            _hModule = hModule;
-        }    
+            _hModule = Process.GetCurrentProcess()
+                .MainModule
+                .BaseAddress;
+        }
 
-        protected abstract Task Process(WindowsMessages msg, IntPtr lParam);
+        protected abstract void ProcessRawInput(WindowsMessages msg, IntPtr lParam);
 
         protected IntPtr OnReceived(
             int nCode,
@@ -37,7 +40,7 @@ namespace NeatInput.Windows.Hooking
             IntPtr lParam)
         {
             if (nCode >= 0 && wParam != default && lParam != default)
-                Process((WindowsMessages)wParam, lParam);
+                ProcessRawInput((WindowsMessages)wParam, lParam);
 
             return User32.CallNextHookEx(hhk, nCode, wParam, lParam);
         }

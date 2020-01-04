@@ -1,14 +1,12 @@
 ﻿using NeatInput.Windows.Processing.Keyboard.Enums;
 using NeatInput.Windows.Win32.Enums;
 
-using Paipurain.Application.Handler;
-
 using System.Linq;
 using System.Collections.Generic;
 
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {
-    internal class State : IHandler<ValueWrapper>
+    internal class State : IProcessingStep
     {
         private readonly Dictionary<KeyStates, List<WindowsMessages>> _stateMessagesMap;
 
@@ -20,11 +18,9 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
             RegisterUpStateMessages();
         }
 
-        public ValueWrapper Handle(ValueWrapper item)
+        public ValueWrapper Process(ValueWrapper item)
         {
             item.Output.State = GetState(item.Message);
-
-            System.Console.WriteLine(item.Output.Key + " | " + item.Output.State);
 
             return item;
         }

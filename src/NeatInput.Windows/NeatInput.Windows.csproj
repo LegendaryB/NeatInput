@@ -8,12 +8,4 @@
     <Folder Include="Processing\Mouse\Steps\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Paipurain" Version="1.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\NeatInput\NeatInput.csproj" />
-  </ItemGroup>
-
 </Project>

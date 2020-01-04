@@ -1,8 +1,8 @@
 ﻿using NeatInput.Windows.Processing.Keyboard.Enums;
 
-namespace NeatInput.Windows
+namespace NeatInput.Windows.Events
 {
-    public class KeyboardEvent : IInput
+    public class KeyboardEvent
     {
         public KeyCodes Key { get; set; }
         public KeyStates State { get; set; }

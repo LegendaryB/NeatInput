@@ -1,12 +1,10 @@
 ﻿using NeatInput.Windows.Processing.Keyboard.Enums;
 
-using Paipurain.Application.Handler;
-
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {
-    internal class PressedKey : IHandler<ValueWrapper>
+    internal class PressedKey : IProcessingStep
     {
-        public ValueWrapper Handle(ValueWrapper item)
+        public ValueWrapper Process(ValueWrapper item)
         {
             item.Output.Key = (KeyCodes)item.InputStruct.vkCode;
 

@@ -1,5 +1,5 @@
-﻿using NeatInput.Windows.Processing;
-using NeatInput.Windows.Processing.Keyboard;
+﻿using NeatInput.Windows.Events;
+using NeatInput.Windows.Processing;
 using NeatInput.Windows.Win32.Enums;
 using NeatInput.Windows.Win32.Structs;
 
@@ -11,25 +11,17 @@ namespace NeatInput.Windows.Hooking
 {
     internal class KeyboardHook : Hook
     {
+        internal event Action<KeyboardEvent> RawInputProcessed;
+
         private readonly KeyboardProcessor _processor = new KeyboardProcessor();
 
         protected override HookType Type => HookType.WH_KEYBOARD_LL;
 
-        internal KeyboardHook(IntPtr hModule) 
-            : base(hModule)
+        protected override void ProcessRawInput(WindowsMessages msg, IntPtr lParam)
         {
-        }
-
-        protected override async Task Process(WindowsMessages msg, IntPtr lParam)
-        {            
             var data = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(lParam);
 
-            await _processor.ExecuteAsync(new ValueWrapper()
-            {
-                Message = msg,
-                InputStruct = data,
-                Output = new KeyboardEvent()
-            });
+            RawInputProcessed?.Invoke(_processor.Process(msg, data));
         }
     }
 }

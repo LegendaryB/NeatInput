@@ -1,7 +1,7 @@
-﻿using NeatInput.Windows.Hooking;
+﻿using NeatInput.Windows.Events;
+using NeatInput.Windows.Hooking;
 
 using System;
-using System.Diagnostics;
 using System.Threading;
 
 namespace NeatInput.Windows
@@ -11,28 +11,50 @@ namespace NeatInput.Windows
         private readonly KeyboardHook keyboardHook;
         private readonly MouseHook mouseHook;
 
-        public InputSource(
-            IKeyboardEventReceiver<KeyboardEvent> keyboardReceiver = null,
-            IMouseEventReceiver<MouseEvent> mouseReceiver = null)
+        private readonly WeakReference<IKeyboardEventReceiver> keyboardEventReceiverRef;
+        private readonly WeakReference<IMouseEventReceiver> mouseEventReceiverRef;
+
+        public InputSource(IKeyboardEventReceiver keyboardEventReceiver = null, IMouseEventReceiver mouseEventReceiver = null)
         {
-            if (keyboardReceiver == null && mouseReceiver == null)
+            if (keyboardEventReceiver == null && mouseEventReceiver == null)
                 throw new InvalidOperationException();
+            
+            if (keyboardEventReceiver != null)
+            {
+                keyboardEventReceiverRef = new WeakReference<IKeyboardEventReceiver>(keyboardEventReceiver);
+                keyboardHook = new KeyboardHook();
+                keyboardHook.RawInputProcessed += OnRawKeyboardInputProcessed;
+            }
 
-            var hModule = Process.GetCurrentProcess()
-                .MainModule
-                .BaseAddress;
-
-            if (keyboardReceiver != null)
-                keyboardHook = new KeyboardHook(hModule);
-
-            if (mouseReceiver != null)
-                mouseHook = new MouseHook(hModule);
+            if (mouseEventReceiver != null)
+            {
+                mouseEventReceiverRef = new WeakReference<IMouseEventReceiver>(mouseEventReceiver);
+                mouseHook = new MouseHook();
+                mouseHook.RawInputProcessed += OnRawMouseInputProcessed;
+            }
         }
 
         public void Listen()
         {
             ExecuteInNewThread(keyboardHook);
             ExecuteInNewThread(mouseHook);
+        }
+
+        private void OnRawKeyboardInputProcessed(KeyboardEvent @event)
+        {
+            Console.WriteLine(@event.Key + " | " + @event.State);
+            //if (!keyboardEventReceiverRef.TryGetTarget(out var receiver))
+            //    return;
+
+            //await receiver.HandleEvent(@event);
+        }
+
+        private void OnRawMouseInputProcessed(MouseEvent @event)
+        {
+            if (!mouseEventReceiverRef.TryGetTarget(out var receiver))
+                return;
+
+            receiver.HandleEvent(@event);
         }
 
         private void ExecuteInNewThread<THook>(THook hook)
@@ -52,6 +74,9 @@ namespace NeatInput.Windows
 
         public void Dispose()
         {
+            keyboardHook.RawInputProcessed -= OnRawKeyboardInputProcessed;
+            mouseHook.RawInputProcessed -= OnRawMouseInputProcessed;
+
             keyboardHook?.Dispose();
             mouseHook?.Dispose();
         }
