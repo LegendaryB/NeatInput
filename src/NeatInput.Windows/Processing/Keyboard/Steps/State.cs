@@ -1,12 +1,14 @@
 ﻿using NeatInput.Windows.Processing.Keyboard.Enums;
 using NeatInput.Windows.Win32.Enums;
+using NeatInput.Windows.Win32.Structs;
+using NeatInput.Windows.Events;
 
 using System.Linq;
 using System.Collections.Generic;
 
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {
-    internal class State : IProcessingStep
+    internal class State : IProcessingStep<KBDLLHOOKSTRUCT, KeyboardEvent>
     {
         private readonly Dictionary<KeyStates, List<WindowsMessages>> _stateMessagesMap;
 
@@ -18,11 +20,11 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
             RegisterUpStateMessages();
         }
 
-        public ValueWrapper Process(ValueWrapper item)
+        public ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> Process(
+            ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> valueTransformation)
         {
-            item.Output.State = GetState(item.Message);
-
-            return item;
+            valueTransformation.Output.State = GetState(valueTransformation.Message);
+            return valueTransformation;
         }
 
         private KeyStates GetState(WindowsMessages msg)

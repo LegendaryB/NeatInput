@@ -5,7 +5,6 @@ using NeatInput.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace NeatInput.Windows.Hooking
 {
@@ -21,7 +20,7 @@ namespace NeatInput.Windows.Hooking
         {
             var data = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(lParam);
 
-            RawInputProcessed?.Invoke(_processor.Process(msg, data));
+            RawInputProcessed?.Invoke(_processor.Transform(msg, data));
         }
     }
 }
