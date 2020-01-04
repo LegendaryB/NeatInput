@@ -21,8 +21,10 @@ A .NET standard project which aims to make keyboard and mouse input monitoring e
 This is version 2.0 of the library. I decided to increase the version of the library directly from 1.0.4 to 2.0.0 because it brings
 breaking changes. The old NeatInput NuGet package is obsolete and not supported anymore.
 
-All the class names and methods have changed. I will move the old documentation how to use the library to the wiki. The new documentation
-will also be in the wiki.
+The entire api of the library has changed so you need to make some adjustments when upgrading to 2. 
+
+## Documentation
+The documentation can be found in the wiki.
 
 ## Contributing
 
