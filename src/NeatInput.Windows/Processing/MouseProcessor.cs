@@ -10,9 +10,10 @@ namespace NeatInput.Windows.Processing
         {
             ProcessingSteps.Add(new Key());
             ProcessingSteps.Add(new State());
-            ProcessingSteps.Add(new Position());
-            ProcessingSteps.Add(new Wheel());
+            ProcessingSteps.Add(new Position());            
             ProcessingSteps.Add(new Simulated());
+            ProcessingSteps.Add(new Wheel());
+            ProcessingSteps.Add(new XButton());
         }
     }
 }
