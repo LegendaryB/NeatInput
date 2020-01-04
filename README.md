@@ -5,8 +5,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-grammas-recipe.svg)](https://forthebadge.com)
 
 [![GitHub license](https://img.shields.io/github/license/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/blob/master/LICENSE.md)
-[![Nuget Windows](https://img.shields.io/nuget/v/NeatInput.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
-[![Nuget Linux](https://img.shields.io/nuget/v/NeatInput.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Linux/)
+[![Nuget Windows](https://img.shields.io/nuget/v/NeatInput.Windows.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
+[![Nuget Linux](https://img.shields.io/nuget/v/NeatInput.Linux.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Linux/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
 [![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
 
