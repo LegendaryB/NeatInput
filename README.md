@@ -9,66 +9,20 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
 [![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
 
-A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux. (Currently only windows)
+A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux.
 
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
 
-## Getting started
+## Important
+* Currently only windows is supported.
 
-### Monitoring mouse and keyboard input
-To monitor mouse and keyboard input you need to attach to the OnInputReceived event handler:
+### Switching from version < 2
+This is version 2.0 of the library. I decided to increase the version of the library directly from 1.0.4 to 2.0.0 because it brings
+breaking changes. The old NeatInput NuGet package is obsolete and not supported anymore.
 
-```csharp
-private static void Main()
-{
-    var inputProvider = new InputProvider();
-    inputProvider.InputReceived += OnInputReceived;
-
-    Console.ReadLine();
-}
-
-private void OnInputReceived(Input input)
-{
-    Console.WriteLine($"Key: {input.Key} | State: {input.State}");
-}
-```
-
-### Monitoring mouse input
-To monitor mouse input you need to attach to the OnMouseInputReceived event handler:
-
-```csharp
-private static void Main()
-{
-    var inputProvider = new InputProvider();
-    inputProvider.MouseInputReceived += OnMouseInputReceived;
-
-    Console.ReadLine();
-}
-
-private void OnMouseInputReceived(MouseInput input)
-{
-    Console.WriteLine($"Key: {input.Key} | State: {input.State} | X: {input.X} | Y: {input.Y}");
-}
-```
-
-### Monitoring keyboard input
-To monitor keyboard input you need to attach to the OnKeyboardInputReceived event handler:
-
-```csharp
-private static void Main()
-{
-    var inputProvider = new InputProvider();
-    inputProvider.KeyboardInputReceived += OnKeyboardInputReceived;
-
-    Console.ReadLine();
-}
-
-private void OnKeyboardInputReceived(KeyboardInput input)
-{
-    Console.WriteLine($"Key: {input.Key} | State: {input.State}");
-}
-```
+All the class names and methods have changed. I will move the old documentation how to use the library to the wiki. The new documentation
+will also be in the wiki.
 
 ## Contributing
 
