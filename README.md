@@ -5,12 +5,11 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-grammas-recipe.svg)](https://forthebadge.com)
 
 [![GitHub license](https://img.shields.io/github/license/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/blob/master/LICENSE.md)
-[![Nuget Windows](https://img.shields.io/nuget/v/NeatInput.Windows.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
-[![Nuget Linux](https://img.shields.io/nuget/v/NeatInput.Linux.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Linux/)
+[![Nuget](https://img.shields.io/nuget/v/NeatInput.Windows.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
 [![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
 
-Useful and clean .NET Standard library to monitor keyboard and mouse input on Windows.
+A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux. (Currently only windows)
 
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
