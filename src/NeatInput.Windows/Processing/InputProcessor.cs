@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Win32.Enums;
+﻿using NeatInput.Windows.Events;
+using NeatInput.Windows.Win32.Enums;
 
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace NeatInput.Windows.Processing
 {
     internal abstract class InputProcessor<TInput, TOutput>
         where TInput : struct
-        where TOutput : class, new()
+        where TOutput : InputEvent, new()
     {
         protected List<IProcessingStep<TInput, TOutput>> ProcessingSteps = 
             new List<IProcessingStep<TInput, TOutput>>();

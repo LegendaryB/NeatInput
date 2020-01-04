@@ -1,6 +1,6 @@
 ﻿namespace NeatInput.Windows.Events
 {
-    public class MouseEvent
+    public class MouseEvent : InputEvent
     {
     }
 }
