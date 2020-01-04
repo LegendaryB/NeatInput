@@ -12,7 +12,7 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
             if (valueTransformation.Output.Key != MouseKeys.XBUTTON1)
                 return valueTransformation;
 
-            if (Helper.HIWORD(valueTransformation.Input.mouseData) == 0x2)
+            if (Helper.HIWORD(valueTransformation.Input.mouseData) == 2)
                 valueTransformation.Output.Key = MouseKeys.XBUTTON2;
 
             return valueTransformation;
