@@ -1,20 +1,14 @@
 ﻿using NeatInput.Windows.Events;
-using NeatInput.Windows.Win32.Enums;
+using NeatInput.Windows.Processing.Mouse.Steps;
 using NeatInput.Windows.Win32.Structs;
-
-using System.Collections.Generic;
 
 namespace NeatInput.Windows.Processing
 {
-    internal class MouseProcessor
+    internal class MouseProcessor : InputProcessor<MSLLHOOKSTRUCT, MouseEvent>
     {
-        //private List<Mouse.IProcessingStep> _processingSteps;
-
-        //internal MouseProcessor()
-        //{
-        //    _processingSteps = new List<Mouse.IProcessingStep>
-        //    {
-        //    };
-        //}
+        internal MouseProcessor()
+        {
+            ProcessingSteps.Add(new Key());
+        }
     }
 }

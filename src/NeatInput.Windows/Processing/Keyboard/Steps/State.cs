@@ -38,8 +38,8 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
         {
             var messages = new List<WindowsMessages>
             {
-               WindowsMessages.KEYDOWN,
-               WindowsMessages.SYSKEYDOWN
+               WindowsMessages.WM_KEYDOWN,
+               WindowsMessages.WM_SYSKEYDOWN
             };
 
             _stateMessagesMap.Add(KeyStates.Down, messages);
@@ -49,8 +49,8 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
         {
             var messages = new List<WindowsMessages>
             {
-               WindowsMessages.KEYUP,
-               WindowsMessages.SYSKEYUP
+               WindowsMessages.WM_KEYUP,
+               WindowsMessages.WM_SYSKEYUP
             };
 
             _stateMessagesMap.Add(KeyStates.Up, messages);

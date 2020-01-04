@@ -12,13 +12,15 @@ namespace NeatInput.Windows.Hooking
     {
         internal event Action<MouseEvent> RawInputProcessed;
 
-        private readonly MouseProcessor _processor;
-
         protected override HookType Type => HookType.WH_MOUSE_LL;
 
-        protected override void ProcessRawInput(WindowsMessages msg, IntPtr lParam)
-        { 
-            var data = Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam);
+        protected override void ProcessRawInput(WindowsMessages message, IntPtr lParam)
+        {
+            var data = RawInputProcessor.Mouse.Transform(
+                message,
+                Marshal.PtrToStructure<MSLLHOOKSTRUCT>(lParam));
+
+            RawInputProcessed?.Invoke(data);
         }
     }
 }

@@ -6,7 +6,6 @@ using NeatInput.Windows.Win32.Structs;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace NeatInput.Windows.Hooking
 {

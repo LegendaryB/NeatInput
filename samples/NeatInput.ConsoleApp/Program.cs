@@ -5,11 +5,16 @@ using System;
 
 namespace NeatInput.ConsoleApp
 {
-    class Test : IKeyboardEventReceiver
+    class Test : IKeyboardEventReceiver, IMouseEventReceiver
     {
         public void Receive(KeyboardEvent @event)
         {
             Console.WriteLine(@event.Key + " | " + @event.State);
+        }
+
+        public void Receive(MouseEvent @event)
+        {
+            Console.WriteLine(@event.Key);
         }
     }
 
@@ -17,7 +22,9 @@ namespace NeatInput.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var input = new InputSource(new Test(), null);
+            var test = new Test();
+
+            var input = new InputSource(test, test);
             input.Listen();
 
             Console.ReadLine();
