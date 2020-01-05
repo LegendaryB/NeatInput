@@ -18,8 +18,6 @@ namespace NeatInput.Windows
         private readonly WeakReference<IKeyboardEventReceiver> keyboardEventReceiverRef;
         private readonly WeakReference<IMouseEventReceiver> mouseEventReceiverRef;
 
-        /// <summary>
-        /// </summary>
         /// <param name="keyboardEventReceiver">A instance of <see cref="IKeyboardEventReceiver"/> which receives keyboard events.</param>
         /// <param name="mouseEventReceiver">A instance of <see cref="IMouseEventReceiver"/> which receives mouse events.</param>
         public InputSource(
