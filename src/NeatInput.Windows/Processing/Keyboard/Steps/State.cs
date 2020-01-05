@@ -1,6 +1,4 @@
 ﻿using NeatInput.Windows.Processing.Keyboard.Enums;
-using NeatInput.Windows.Win32.Enums;
-using NeatInput.Windows.Win32.Structs;
 using NeatInput.Windows.Events;
 
 using System.Linq;

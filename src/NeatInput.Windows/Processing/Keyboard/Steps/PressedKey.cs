@@ -1,6 +1,5 @@
 ﻿using NeatInput.Windows.Events;
 using NeatInput.Windows.Processing.Keyboard.Enums;
-using NeatInput.Windows.Win32.Structs;
 
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {
@@ -9,7 +8,7 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
         public ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> Process(
             ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> valueTransformation)
         {
-            valueTransformation.Output.Key = (KeyCodes)valueTransformation.Input.vkCode;
+            valueTransformation.Output.Key = (Keys)valueTransformation.Input.vkCode;
             return valueTransformation;
         }
     }

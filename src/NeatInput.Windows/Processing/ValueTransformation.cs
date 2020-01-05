@@ -1,6 +1,4 @@
-﻿using NeatInput.Windows.Win32.Enums;
-
-namespace NeatInput.Windows.Processing
+﻿namespace NeatInput.Windows.Processing
 {
     internal class ValueTransformation<TInput, TOutput>
         where TInput : struct

@@ -1,5 +1,4 @@
 ﻿using NeatInput.Windows.Events;
-using NeatInput.Windows.Win32.Enums;
 
 using System.Collections.Generic;
 
