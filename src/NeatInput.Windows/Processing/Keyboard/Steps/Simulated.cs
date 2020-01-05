@@ -1,6 +1,4 @@
 ﻿using NeatInput.Windows.Events;
-using NeatInput.Windows.Win32.Enums.Flags;
-using NeatInput.Windows.Win32.Structs;
 
 namespace NeatInput.Windows.Processing.Keyboard.Steps
 {

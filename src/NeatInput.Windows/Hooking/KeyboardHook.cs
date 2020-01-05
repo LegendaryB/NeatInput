@@ -1,7 +1,5 @@
 ﻿using NeatInput.Windows.Events;
 using NeatInput.Windows.Processing;
-using NeatInput.Windows.Win32.Enums;
-using NeatInput.Windows.Win32.Structs;
 
 using System;
 using System.Runtime.InteropServices;

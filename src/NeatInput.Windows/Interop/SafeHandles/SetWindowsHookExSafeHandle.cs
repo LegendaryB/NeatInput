@@ -2,20 +2,17 @@
 
 using System.Security.Permissions;
 
-namespace NeatInput.Windows.Win32.SafeHandles
+[SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]
+[SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
+public class SetWindowsHookExSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
 {
-    [SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]
-    [SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
-    public class SetWindowsHookExSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
+    private SetWindowsHookExSafeHandle()
+        : base(true)
     {
-        private SetWindowsHookExSafeHandle()
-            : base(true)
-        {
-        }
+    }
 
-        protected override bool ReleaseHandle()
-        {
-            return User32.UnhookWindowsHookEx(handle);
-        }
+    protected override bool ReleaseHandle()
+    {
+        return Interop.User32.UnhookWindowsHookEx(handle);
     }
 }

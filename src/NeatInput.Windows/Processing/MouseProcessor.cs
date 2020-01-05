@@ -1,6 +1,5 @@
 ﻿using NeatInput.Windows.Events;
 using NeatInput.Windows.Processing.Mouse.Steps;
-using NeatInput.Windows.Win32.Structs;
 
 namespace NeatInput.Windows.Processing
 {
