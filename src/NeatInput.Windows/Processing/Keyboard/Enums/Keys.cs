@@ -1,8 +1,11 @@
-﻿namespace NeatInput.Windows.Processing.Keyboard.Enums
+﻿using System;
+
+namespace NeatInput.Windows.Processing.Keyboard.Enums
 {
     /// <summary>
     /// From: https://github.com/dotnet/winforms/blob/master/src/System.Windows.Forms/src/System/Windows/Forms/Keys.cs
     /// </summary>
+    [Flags]
     public enum Keys
     {
         /// <summary>
