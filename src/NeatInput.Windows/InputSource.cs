@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace NeatInput.Windows
 {
-    public class InputSource : IDisposable
+    public class InputSource : IInputSource
     {
         private readonly KeyboardHook keyboardHook;
         private readonly MouseHook mouseHook;
