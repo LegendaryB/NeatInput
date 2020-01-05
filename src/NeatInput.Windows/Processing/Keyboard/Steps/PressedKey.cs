@@ -9,7 +9,7 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
         public ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> Process(
             ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> valueTransformation)
         {
-            valueTransformation.Output.Key = (KeyCodes)valueTransformation.Input.vkCode;
+            valueTransformation.Output.Key = (Keys)valueTransformation.Input.vkCode;
             return valueTransformation;
         }
     }
