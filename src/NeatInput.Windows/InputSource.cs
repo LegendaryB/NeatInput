@@ -6,6 +6,10 @@ using System.Threading;
 
 namespace NeatInput.Windows
 {
+    /// <summary>
+    /// This is the core class which manages the mouse and keyboard hook internally and populates the results
+    /// back to the user provided receivers.
+    /// </summary>
     public class InputSource : IInputSource
     {
         private readonly KeyboardHook keyboardHook;
@@ -14,6 +18,10 @@ namespace NeatInput.Windows
         private readonly WeakReference<IKeyboardEventReceiver> keyboardEventReceiverRef;
         private readonly WeakReference<IMouseEventReceiver> mouseEventReceiverRef;
 
+        /// <summary>
+        /// </summary>
+        /// <param name="keyboardEventReceiver">A instance of <see cref="IKeyboardEventReceiver"/> which receives keyboard events.</param>
+        /// <param name="mouseEventReceiver">A instance of <see cref="IMouseEventReceiver"/> which receives mouse events.</param>
         public InputSource(
             IKeyboardEventReceiver keyboardEventReceiver = null, 
             IMouseEventReceiver mouseEventReceiver = null)
@@ -36,6 +44,9 @@ namespace NeatInput.Windows
             }
         }
 
+        /// <summary>
+        /// This method sets the mouse and/or the keyboard hook into place and starts listening for input events.
+        /// </summary>
         public void Listen()
         {
             ExecuteInNewThread(keyboardHook);
