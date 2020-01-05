@@ -45,7 +45,7 @@ namespace NeatInput.Windows
         }
 
         /// <summary>
-        /// This method installs the mouse and/or the keyboard hook and starts listening for input events.
+        /// This method sets the mouse and/or the keyboard hook into place and starts listening for input events.
         /// </summary>
         public void Listen()
         {
