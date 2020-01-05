@@ -8,7 +8,8 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
         public ValueTransformation<MSLLHOOKSTRUCT, MouseEvent> Process(
             ValueTransformation<MSLLHOOKSTRUCT, MouseEvent> valueTransformation)
         {
-            valueTransformation.Output.Position = valueTransformation.Input.pt;
+            valueTransformation.Output.X = valueTransformation.Input.pt.X;
+            valueTransformation.Output.Y = valueTransformation.Input.pt.Y;
             return valueTransformation;
         }
     }

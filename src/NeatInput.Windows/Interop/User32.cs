@@ -7,25 +7,25 @@ using System.Runtime.InteropServices;
 
 namespace NeatInput.Windows.Win32
 {
-    public static class User32
+    internal static class User32
     {
         [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern bool GetMessage(
+        internal static extern bool GetMessage(
             ref MSG message, 
             IntPtr hWnd, 
             uint wMsgFilterMin, 
             uint wMsgFilterMax);
 
         [DllImport("user32.dll")]
-        public static extern bool TranslateMessage(
+        internal static extern bool TranslateMessage(
             [In] ref MSG lpMsg);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr DispatchMessage(
+        internal static extern IntPtr DispatchMessage(
             [In] ref MSG lpmsg);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern SetWindowsHookExSafeHandle SetWindowsHookEx(
+        internal static extern SetWindowsHookExSafeHandle SetWindowsHookEx(
             HookType idHook,
             IntPtr lpfn,
             IntPtr hMod,
@@ -33,10 +33,10 @@ namespace NeatInput.Windows.Win32
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool UnhookWindowsHookEx(IntPtr hhk);
+        internal static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern IntPtr CallNextHookEx(
+        internal static extern IntPtr CallNextHookEx(
             SetWindowsHookExSafeHandle hhk,
             int nCode,
             IntPtr wParam,
