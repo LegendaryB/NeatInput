@@ -9,6 +9,11 @@ namespace NeatInput.Windows
     public interface IInputSource : IDisposable
     {
         /// <summary>
+        /// Controls if the affected hook is unset when the correspondending receiver died.
+        /// </summary>
+        bool UnsetHookOnReceiverDead { get; set; }
+
+        /// <summary>
         /// This method sets the mouse and/or the keyboard hook into place and starts listening for input events.
         /// </summary>
         void Listen();
