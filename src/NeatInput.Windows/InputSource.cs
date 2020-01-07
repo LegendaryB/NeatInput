@@ -52,8 +52,17 @@ namespace NeatInput.Windows
         /// </summary>
         public void Listen()
         {
-            SetHook(keyboardHook);
-            SetHook(mouseHook);
+            var thread = new Thread(() =>
+            {
+                keyboardHook.SetHook();
+                mouseHook.SetHook();
+
+                MessageLoop.Run();
+            });
+
+            thread.IsBackground = true;
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
 
         private void OnRawKeyboardInputProcessed(KeyboardEvent @event)
@@ -78,21 +87,6 @@ namespace NeatInput.Windows
             receiver.Receive(@event);
         }
 
-        private void SetHook<THook>(THook hook)
-            where THook :Hook
-        {
-            if (hook == null)
-                return;
-
-            var thread = new Thread(() => hook.SetHook())
-            {
-                IsBackground = true,
-                Priority = ThreadPriority.Highest
-            };
-
-            thread.Start();
-        }
-
         private void UnsetKeyboardHook()
         {
             if (keyboardHook == null)
@@ -115,6 +109,8 @@ namespace NeatInput.Windows
         {
             UnsetKeyboardHook();
             UnsetMouseHook();
+
+            MessageLoop.Stop();
         }
 
         ~InputSource() => Dispose();

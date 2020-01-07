@@ -45,14 +45,6 @@ namespace NeatInput.Windows.Hooking
             var lpfnPtr = Marshal.GetFunctionPointerForDelegate(lpfn);
 
             hhk = Interop.User32.SetWindowsHookEx(Type, lpfnPtr, _hModule, 0);
-
-            MSG msg = new MSG();
-
-            while(Interop.User32.GetMessage(ref msg, IntPtr.Zero, 0, 0) && !disposing)
-            {
-                Interop.User32.TranslateMessage(ref msg);
-                Interop.User32.DispatchMessage(ref msg);
-            }
         }
 
         public void Dispose()
