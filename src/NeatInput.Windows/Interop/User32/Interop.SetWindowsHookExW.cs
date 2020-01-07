@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NeatInput.Windows.Interop.Handles;
+
+using System;
 using System.Runtime.InteropServices;
 
 internal static partial class Interop
