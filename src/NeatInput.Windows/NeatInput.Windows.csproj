@@ -22,4 +22,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interop\Ole32\" />
+  </ItemGroup>
+
 </Project>

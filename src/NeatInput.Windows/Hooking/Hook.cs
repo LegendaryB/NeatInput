@@ -1,4 +1,6 @@
-﻿using System;
+﻿using static Interop.User32;
+
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -6,10 +8,10 @@ namespace NeatInput.Windows.Hooking
 {
     internal abstract class Hook : IDisposable
     {
-        protected abstract HookType Type { get; }
+        protected abstract WH Type { get; }
 
         private delegate IntPtr InputHookProcedure(
-            int nCode,
+            HC nCode,
             IntPtr wParam,
             IntPtr lParam);
 
@@ -24,17 +26,17 @@ namespace NeatInput.Windows.Hooking
                 .BaseAddress;
         }
 
-        protected abstract void ProcessRawInput(WindowsMessages msg, IntPtr lParam);
+        protected abstract void ProcessRawInput(WindowMessage msg, IntPtr lParam);
 
         protected IntPtr OnReceived(
-            int nCode,
+            HC nCode,
             IntPtr wParam,
             IntPtr lParam)
         {
             if (nCode >= 0 && wParam != default && lParam != default)
-                ProcessRawInput((WindowsMessages)wParam, lParam);
+                ProcessRawInput((WindowMessage)wParam, lParam);
 
-            return Interop.User32.CallNextHookEx(hhk, nCode, wParam, lParam);
+            return CallNextHookEx(hhk, nCode, wParam, lParam);
         }
 
         internal void SetHook()
@@ -42,7 +44,7 @@ namespace NeatInput.Windows.Hooking
             lpfn = OnReceived;
             var lpfnPtr = Marshal.GetFunctionPointerForDelegate(lpfn);
 
-            hhk = Interop.User32.SetWindowsHookEx(Type, lpfnPtr, _hModule, 0);
+            hhk = SetWindowsHookEx(Type, lpfnPtr, _hModule, 0);
         }
 
         public void Dispose()

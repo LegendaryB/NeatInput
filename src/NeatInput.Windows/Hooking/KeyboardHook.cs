@@ -10,9 +10,9 @@ namespace NeatInput.Windows.Hooking
     {
         internal event Action<KeyboardEvent> RawInputProcessed;
 
-        protected override HookType Type => HookType.WH_KEYBOARD_LL;
+        protected override WH Type => WH.WH_KEYBOARD_LL;
 
-        protected override void ProcessRawInput(WindowsMessages message, IntPtr lParam)
+        protected override void ProcessRawInput(WindowMessage message, IntPtr lParam)
         {
             var data = RawInputProcessor.Keyboard.Transform(
                 message,

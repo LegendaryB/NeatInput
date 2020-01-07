@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32.SafeHandles;
-
 using System.Security.Permissions;
 
 [SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]

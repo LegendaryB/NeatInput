@@ -11,7 +11,7 @@ namespace NeatInput.Windows.Processing
         protected List<IProcessingStep<TInput, TOutput>> ProcessingSteps = 
             new List<IProcessingStep<TInput, TOutput>>();
 
-        internal TOutput Transform(WindowsMessages message, TInput input)
+        internal TOutput Transform(WindowMessage message, TInput input)
         {
             var valueTransformation = new ValueTransformation<TInput, TOutput>()
             {

@@ -1,4 +1,4 @@
-﻿internal enum WindowsMessages : uint
+﻿internal enum WindowMessage : uint
 {
     WM_KEYDOWN = 0x100,
     WM_SYSKEYDOWN = 0x104,

@@ -4,7 +4,7 @@
         where TInput : struct
         where TOutput : class
     {
-        internal WindowsMessages Message { get; set; }
+        internal WindowMessage Message { get; set; }
         internal TInput Input { get; set; }
         internal TOutput Output { get; set; }
     }
