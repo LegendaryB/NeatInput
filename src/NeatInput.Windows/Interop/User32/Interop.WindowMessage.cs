@@ -2,11 +2,9 @@
 {
     internal static partial class User32
     {
-        internal const uint WM_KEYFIRST = (uint)WindowMessage.WM_KEYFIRST;
-        internal const uint WM_MOUSEFIRST = (uint)WindowMessage.WM_MOUSEFIRST;
-
         internal enum WindowMessage : uint
         {
+            WM_NULL = 0x000,
             WM_KEYFIRST = 0x100,
             WM_MOUSEFIRST = 0x200,
             WM_KEYDOWN = 0x100,

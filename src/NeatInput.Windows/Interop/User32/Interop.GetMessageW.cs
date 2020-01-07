@@ -8,8 +8,8 @@ internal static partial class Interop
         [DllImport(Libraries.User32, ExactSpelling = true)]
         internal static extern bool GetMessageW(
             ref MSG message,
-            IntPtr hWnd,
-            uint wMsgFilterMin,
-            uint wMsgFilterMax);
+            IntPtr hWnd = default,
+            WindowMessage wMsgFilterMin = 0,
+            WindowMessage wMsgFilterMax = 0);
     }
 }

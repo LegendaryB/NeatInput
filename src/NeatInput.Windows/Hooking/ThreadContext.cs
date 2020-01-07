@@ -11,11 +11,22 @@ namespace NeatInput.Windows.Hooking
         internal static void MessageLoop()
         {
             MSG msg = new MSG();
+            continueLoop = true;
 
-            while (GetMessageW(ref msg, IntPtr.Zero, WM_KEYFIRST, WM_MOUSEFIRST) && !continueLoop)
+            while (continueLoop)
             {
-                TranslateMessage(ref msg);
-                DispatchMessageW(ref msg);
+                if (PeekMessageW(ref msg))
+                {
+                    if (!GetMessageW(ref msg))
+                        continue;
+
+                    TranslateMessage(ref msg);
+                    DispatchMessageW(ref msg);
+                }
+                else
+                {
+                    WaitMessage();
+                }
             }
         }
 
