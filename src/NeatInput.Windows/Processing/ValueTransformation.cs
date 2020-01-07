@@ -1,4 +1,6 @@
-﻿namespace NeatInput.Windows.Processing
+﻿using static Interop.User32;
+
+namespace NeatInput.Windows.Processing
 {
     internal class ValueTransformation<TInput, TOutput>
         where TInput : struct

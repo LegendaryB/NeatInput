@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Processing.Keyboard.Enums;
+﻿using static Interop.User32;
+using NeatInput.Windows.Processing.Keyboard.Enums;
 using NeatInput.Windows.Events;
 
 using System.Linq;

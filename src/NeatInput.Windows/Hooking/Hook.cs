@@ -45,7 +45,7 @@ namespace NeatInput.Windows.Hooking
             lpfn = OnReceived;
             var lpfnPtr = Marshal.GetFunctionPointerForDelegate(lpfn);
 
-            hhk = SetWindowsHookEx(Type, lpfnPtr, _hModule, 0);
+            hhk = SetWindowsHookExW(Type, lpfnPtr, _hModule, 0);
         }
 
         public void Dispose()

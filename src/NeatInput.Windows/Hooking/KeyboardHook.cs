@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Events;
+﻿using static Interop.User32;
+using NeatInput.Windows.Events;
 using NeatInput.Windows.Processing;
 
 using System;

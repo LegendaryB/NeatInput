@@ -57,7 +57,7 @@ namespace NeatInput.Windows
                 keyboardHook.SetHook();
                 mouseHook.SetHook();
 
-                MessageLoop.Run();
+                ThreadContext.MessageLoop();
             });
 
             thread.IsBackground = true;
@@ -110,7 +110,7 @@ namespace NeatInput.Windows
             UnsetKeyboardHook();
             UnsetMouseHook();
 
-            MessageLoop.Stop();
+            ThreadContext.Stop();
         }
 
         ~InputSource() => Dispose();
