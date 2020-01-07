@@ -47,7 +47,6 @@ namespace NeatInput.Windows.Hooking
 
         public void Dispose()
         {
-            disposing = true;
             hhk.Dispose();
         }
 
