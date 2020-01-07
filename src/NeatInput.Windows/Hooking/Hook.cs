@@ -17,8 +17,6 @@ namespace NeatInput.Windows.Hooking
         private InputHookProcedure lpfn;
         private SetWindowsHookExSafeHandle hhk;
 
-        private bool disposing;
-
         internal Hook()
         {
             _hModule = Process.GetCurrentProcess()
