@@ -7,7 +7,7 @@ internal static partial class Interop
 {
     internal static partial class User32
     {
-        public enum HC : int
+        internal enum HC : int
         {
             ACTION = 0,
             GETNEXT = 1,

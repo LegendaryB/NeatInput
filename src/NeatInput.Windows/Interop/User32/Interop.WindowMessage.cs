@@ -4,14 +4,15 @@
     {
         internal enum WindowMessage : uint
         {
-            WM_NULL = 0x000,
-            WM_KEYFIRST = 0x100,
-            WM_MOUSEFIRST = 0x200,
+            WM_NULL = 0x000,            
+            
+            WM_KEYFIRST = WM_KEYDOWN,
             WM_KEYDOWN = 0x100,
             WM_SYSKEYDOWN = 0x104,
             WM_KEYUP = 0x101,
             WM_SYSKEYUP = 0x105,
 
+            WM_MOUSEFIRST = 0x200,
             WM_LBUTTONDOWN = 0x0201,
             WM_NCLBUTTONDOWN = 0x00A1,
             WM_LBUTTONUP = 0x0202,
