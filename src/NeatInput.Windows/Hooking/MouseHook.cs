@@ -12,7 +12,7 @@ namespace NeatInput.Windows.Hooking
     {
         internal event Action<MouseEvent> RawInputProcessed;
 
-        protected override WH Type => WH.WH_MOUSE_LL;
+        protected override WH Type => WH.MOUSE_LL;
 
         protected override void ProcessRawInput(WindowMessage message, IntPtr lParam)
         {

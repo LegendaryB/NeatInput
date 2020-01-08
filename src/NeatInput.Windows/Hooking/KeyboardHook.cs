@@ -11,7 +11,7 @@ namespace NeatInput.Windows.Hooking
     {
         internal event Action<KeyboardEvent> RawInputProcessed;
 
-        protected override WH Type => WH.WH_KEYBOARD_LL;
+        protected override WH Type => WH.KEYBOARD_LL;
 
         protected override void ProcessRawInput(WindowMessage message, IntPtr lParam)
         {

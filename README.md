@@ -25,6 +25,9 @@ The entire API of the library has changed so you need to make some adjustments w
 ## Documentation
 The documentation can be found in the [wiki](https://github.com/LegendaryB/NeatInput/wiki).
 
+## Acknowledgements
+* Microsoft - Many of the mostly internal NeatInput.Interop namespace is from the open source [windows forms repository](https://github.com/dotnet/winforms).
+
 ## Contributing
 
 __Contributions are always welcome!__  
