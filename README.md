@@ -15,17 +15,8 @@ A .NET standard project which aims to make keyboard and mouse input monitoring e
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
 
-## Important
-* Currently only windows is supported.
-
-### Switching from version < 2
-This is version 2.0 of the library. I decided to increase the version of the library directly from 1.0.4 to 2.0.0 because it brings
-breaking changes. The old NeatInput NuGet package is obsolete and not supported anymore.
-
-The entire api of the library has changed so you need to make some adjustments when upgrading to 2. 
-
 ## Documentation
-The documentation can be found in the [wiki](https://github.com/LegendaryB/NeatInput/wiki).
+All of the documentation can be found in the repository [wiki](https://github.com/LegendaryB/NeatInput/wiki).
 
 ## Contributing
 

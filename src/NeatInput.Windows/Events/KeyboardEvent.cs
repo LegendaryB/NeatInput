@@ -4,7 +4,14 @@ namespace NeatInput.Windows.Events
 {
     public class KeyboardEvent : InputEvent
     {
-        public KeyCodes Key { get; internal set; }
+        /// <summary>
+        /// The key which caused the event. 
+        /// </summary>
+        public Keys Key { get; internal set; }
+
+        /// <summary>
+        /// The state of the key which caused the event.
+        /// </summary>
         public KeyStates State { get; internal set; }
     }
 }
