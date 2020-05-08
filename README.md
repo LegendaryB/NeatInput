@@ -15,7 +15,7 @@ A .NET standard project which aims to make keyboard and mouse input monitoring e
 </div><br>
 
 ## Documentation
-The documentation can be found in the [wiki](https://github.com/LegendaryB/NeatInput/wiki).
+All of the documentation can be found in the repository [wiki](https://github.com/LegendaryB/NeatInput/wiki).
 
 ## Contributing
 
