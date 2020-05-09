@@ -8,22 +8,15 @@
 [![Nuget](https://img.shields.io/nuget/v/NeatInput.Windows.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
 [![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/alphadaniel)
 
 A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux.
 
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
 
-## Important
-* Currently only windows is supported.
-
-### Switching from version < 2
-This is version 2.0 of the library. I decided to increase the version of the library directly from 1.0.4 to 2 because these changes mean breaking changes. The old NeatInput NuGet package is from now on obsolete and not supported anymore.
-
-The entire API of the library has changed so you need to make some adjustments when upgrading to 2. 
-
 ## Documentation
-The documentation can be found in the [wiki](https://github.com/LegendaryB/NeatInput/wiki).
+All of the documentation can be found in the repository [wiki](https://github.com/LegendaryB/NeatInput/wiki).
 
 ## Acknowledgements
 * Microsoft - Many of the mostly internal NeatInput.Interop namespace is from the open source [windows forms repository](https://github.com/dotnet/winforms).
