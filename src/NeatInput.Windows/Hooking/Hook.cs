@@ -1,5 +1,4 @@
-﻿using NeatInput.Windows.Interop.Handles;
-using static Interop.User32;
+﻿using static Interop.User32;
 
 using System;
 using System.Diagnostics;
