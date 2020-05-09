@@ -10,7 +10,7 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
             if (valueTransformation.Input.flags == MSLLHOOKSTRUCTFlags.LLMHF_INJECTED || 
                 valueTransformation.Input.flags == MSLLHOOKSTRUCTFlags.LLMHF_LOWER_IL_INJECTED)
             {
-                valueTransformation.Output.HasBeenSimulated = true;
+                valueTransformation.Output.IsHumanInput = true;
             }
 
             return valueTransformation;

@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Processing.Mouse.Enums;
+﻿using NeatInput.Events;
+using NeatInput.Windows.Processing.Mouse.Enums;
 
 namespace NeatInput.Windows.Events
 {

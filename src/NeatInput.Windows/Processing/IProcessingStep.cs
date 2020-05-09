@@ -1,4 +1,4 @@
-﻿using NeatInput.Windows.Events;
+﻿using NeatInput.Events;
 
 namespace NeatInput.Windows.Processing
 {

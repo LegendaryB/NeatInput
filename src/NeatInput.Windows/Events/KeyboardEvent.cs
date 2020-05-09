@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Processing.Keyboard.Enums;
+﻿using NeatInput.Events;
+using NeatInput.Windows.Processing.Keyboard.Enums;
 
 namespace NeatInput.Windows.Events
 {

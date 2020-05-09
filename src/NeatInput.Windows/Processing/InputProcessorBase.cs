@@ -1,5 +1,6 @@
-﻿using static Interop.User32;
-using NeatInput.Windows.Events;
+﻿using NeatInput.Events;
+
+using static Interop.User32;
 
 using System.Collections.Generic;
 

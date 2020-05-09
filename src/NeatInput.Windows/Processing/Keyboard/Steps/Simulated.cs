@@ -7,7 +7,7 @@ namespace NeatInput.Windows.Processing.Keyboard.Steps
         public ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> Process(
             ValueTransformation<KBDLLHOOKSTRUCT, KeyboardEvent> valueTransformation)
         {
-            valueTransformation.Output.HasBeenSimulated = valueTransformation.Input.flags == KBDLLHOOKSTRUCTFlags.LLKHF_INJECTED;
+            valueTransformation.Output.IsHumanInput = valueTransformation.Input.flags == KBDLLHOOKSTRUCTFlags.LLKHF_INJECTED;
             return valueTransformation;
         }
     }

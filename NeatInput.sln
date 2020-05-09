@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.ConsoleApp", "sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows", "src\NeatInput.Windows\NeatInput.Windows.csproj", "{41D2C0F3-B1D5-48CB-8311-776E32437C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Linux", "src\NeatInput.Linux\NeatInput.Linux.csproj", "{39675C30-10D2-411A-A0BD-35FA06B17018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Linux", "src\NeatInput.Linux\NeatInput.Linux.csproj", "{39675C30-10D2-411A-A0BD-35FA06B17018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput", "src\NeatInput\NeatInput.csproj", "{5D73DF03-0C72-4092-AB23-8A8C8CD2155F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{39675C30-10D2-411A-A0BD-35FA06B17018}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39675C30-10D2-411A-A0BD-35FA06B17018}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39675C30-10D2-411A-A0BD-35FA06B17018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D73DF03-0C72-4092-AB23-8A8C8CD2155F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D73DF03-0C72-4092-AB23-8A8C8CD2155F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D73DF03-0C72-4092-AB23-8A8C8CD2155F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D73DF03-0C72-4092-AB23-8A8C8CD2155F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
