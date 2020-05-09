@@ -1,4 +1,6 @@
-﻿using System;
+﻿using static Interop.SafeHandles;
+
+using System;
 using System.Runtime.InteropServices;
 
 internal static partial class Interop

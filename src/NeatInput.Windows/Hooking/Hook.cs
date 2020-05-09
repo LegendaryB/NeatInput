@@ -1,4 +1,5 @@
 ﻿using static Interop.User32;
+using static Interop.SafeHandles;
 
 using System;
 using System.Diagnostics;
