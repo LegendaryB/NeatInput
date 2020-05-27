@@ -10,7 +10,7 @@ namespace NeatInput.Windows
     /// This is the core class which manages the mouse and keyboard hook internally and populates the results
     /// back to the user provided receivers.
     /// </summary>
-    public class InputSource : IInputSource
+    public sealed class InputSource : IInputSource
     {
         private readonly KeyboardHook _keyboardHook;
         private readonly MouseHook _mouseHook;
