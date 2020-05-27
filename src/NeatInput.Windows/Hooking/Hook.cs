@@ -50,7 +50,7 @@ namespace NeatInput.Windows.Hooking
 
         public void Dispose()
         {
-            hhk.Dispose();
+            hhk?.Dispose();
         }
 
         ~Hook() => Dispose();

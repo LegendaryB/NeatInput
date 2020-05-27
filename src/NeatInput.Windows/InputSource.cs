@@ -54,8 +54,8 @@ namespace NeatInput.Windows
         {
             var thread = new Thread(() =>
             {
-                keyboardHook.SetHook();
-                mouseHook.SetHook();
+                keyboardHook?.SetHook();
+                mouseHook?.SetHook();
 
                 ThreadContext.MessageLoop();
             });
