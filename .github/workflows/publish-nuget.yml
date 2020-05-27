@@ -5,15 +5,23 @@ on:
     - master
 jobs:
   publish:
-    name: Publish to NuGet
+    name: Publish NuGet packages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Publish NeatInput.Windows
+      - name: Push NeatInput.Windows package
         uses: rohith/publish-nuget@v2.3.0
         with: 
           PROJECT_FILE_PATH: src/NeatInput.Windows/NeatInput.Windows.csproj
           TAG_COMMIT: false
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           PACKAGE_NAME: NeatInput.Windows
+
+      - name: Push NeatInput.Linux package
+        uses: rohith/publish-nuget@v2.3.0
+        with: 
+          PROJECT_FILE_PATH: src/NeatInput.Linux/NeatInput.Linux.csproj
+          TAG_COMMIT: false
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          PACKAGE_NAME: NeatInput.Linux
