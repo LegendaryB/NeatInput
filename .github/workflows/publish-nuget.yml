@@ -14,7 +14,7 @@ jobs:
         uses: rohith/publish-nuget@v2.5.2
         with: 
           PROJECT_FILE_PATH: src/NeatInput.Windows/NeatInput.Windows.csproj
-          TAG_COMMIT: false
+          TAG_FORMAT: v*
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           PACKAGE_NAME: NeatInput.Windows
 
@@ -22,6 +22,6 @@ jobs:
         uses: rohith/publish-nuget@v2.5.2
         with: 
           PROJECT_FILE_PATH: src/NeatInput.Linux/NeatInput.Linux.csproj
-          TAG_COMMIT: false
+          TAG_FORMAT: v*
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           PACKAGE_NAME: NeatInput.Linux
