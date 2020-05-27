@@ -1,18 +1,23 @@
 ﻿using Microsoft.Win32.SafeHandles;
-
 using System.Security.Permissions;
 
-[SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]
-[SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
-public class SetWindowsHookExSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
+internal static partial class Interop
 {
-    private SetWindowsHookExSafeHandle()
-        : base(true)
+    internal static partial class SafeHandles
     {
-    }
+        [SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode = true)]
+        [SecurityPermission(SecurityAction.Demand, UnmanagedCode = true)]
+        public class SetWindowsHookExSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
+        {
+            private SetWindowsHookExSafeHandle()
+                : base(true)
+            {
+            }
 
-    protected override bool ReleaseHandle()
-    {
-        return Interop.User32.UnhookWindowsHookEx(handle);
+            protected override bool ReleaseHandle()
+            {
+                return User32.UnhookWindowsHookEx(handle);
+            }
+        }
     }
 }

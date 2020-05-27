@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1804B845-8B89-492A-BF86-1ADD22C5D714}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
+		.github\workflows\publish-nuget.yml = .github\workflows\publish-nuget.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -13,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.ConsoleApp", "sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Windows", "src\NeatInput.Windows\NeatInput.Windows.csproj", "{41D2C0F3-B1D5-48CB-8311-776E32437C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatInput.Linux", "src\NeatInput.Linux\NeatInput.Linux.csproj", "{39675C30-10D2-411A-A0BD-35FA06B17018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeatInput.Linux", "src\NeatInput.Linux\NeatInput.Linux.csproj", "{39675C30-10D2-411A-A0BD-35FA06B17018}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

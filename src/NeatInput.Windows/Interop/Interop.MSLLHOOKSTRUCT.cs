@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 [Flags]
 internal enum MSLLHOOKSTRUCTFlags : uint
@@ -9,7 +10,7 @@ internal enum MSLLHOOKSTRUCTFlags : uint
 
 internal struct MSLLHOOKSTRUCT
 {
-    internal POINT pt;
+    internal Point pt;
     internal uint mouseData;
     internal MSLLHOOKSTRUCTFlags flags;
     internal uint time;

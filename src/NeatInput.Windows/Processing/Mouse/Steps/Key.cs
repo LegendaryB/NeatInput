@@ -1,4 +1,5 @@
-﻿using NeatInput.Windows.Events;
+﻿using static Interop.User32;
+using NeatInput.Windows.Events;
 using NeatInput.Windows.Processing.Mouse.Enums;
 
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 {
     internal class Key : IProcessingStep<MSLLHOOKSTRUCT, MouseEvent>
     {
-        private readonly Dictionary<MouseKeys, List<WindowsMessages>> _map =
-            new Dictionary<MouseKeys, List<WindowsMessages>>();
+        private readonly Dictionary<MouseKeys, List<WindowMessage>> _map =
+            new Dictionary<MouseKeys, List<WindowMessage>>();
 
         internal Key()
         {
@@ -28,7 +29,7 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
             return valueTransformation;
         }
 
-        private MouseKeys GetKey(WindowsMessages msg)
+        private MouseKeys GetKey(WindowMessage msg)
         {
             return _map
                 .FirstOrDefault(kvp => kvp.Value.Contains(msg))
@@ -37,12 +38,12 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 
         private void RegisterLeftButtonMessages()
         {
-            var messages = new List<WindowsMessages>
+            var messages = new List<WindowMessage>
             {
-                WindowsMessages.WM_LBUTTONDOWN,
-                WindowsMessages.WM_LBUTTONUP,
-                WindowsMessages.WM_NCLBUTTONDOWN,
-                WindowsMessages.WM_NCLBUTTONUP
+                WindowMessage.WM_LBUTTONDOWN,
+                WindowMessage.WM_LBUTTONUP,
+                WindowMessage.WM_NCLBUTTONDOWN,
+                WindowMessage.WM_NCLBUTTONUP
             };
 
             _map.Add(MouseKeys.LBUTTON, messages);
@@ -50,12 +51,12 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 
         private void RegisterRightButtonMessages()
         {
-            var messages = new List<WindowsMessages>
+            var messages = new List<WindowMessage>
             {
-                WindowsMessages.WM_RBUTTONDOWN,
-                WindowsMessages.WM_RBUTTONUP,
-                WindowsMessages.WM_NCRBUTTONDOWN,
-                WindowsMessages.WM_NCRBUTTONUP
+                WindowMessage.WM_RBUTTONDOWN,
+                WindowMessage.WM_RBUTTONUP,
+                WindowMessage.WM_NCRBUTTONDOWN,
+                WindowMessage.WM_NCRBUTTONUP
             };
 
             _map.Add(MouseKeys.RBUTTON, messages);
@@ -63,12 +64,12 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 
         private void RegisterMiddleButtonMessages()
         {
-            var messages = new List<WindowsMessages>
+            var messages = new List<WindowMessage>
             {
-                WindowsMessages.WM_MBUTTONDOWN,
-                WindowsMessages.WM_MBUTTONUP,
-                WindowsMessages.WM_NCMBUTTONDOWN,
-                WindowsMessages.WM_NCMBUTTONUP
+                WindowMessage.WM_MBUTTONDOWN,
+                WindowMessage.WM_MBUTTONUP,
+                WindowMessage.WM_NCMBUTTONDOWN,
+                WindowMessage.WM_NCMBUTTONUP
             };
 
             _map.Add(MouseKeys.MBUTTON, messages);
@@ -76,12 +77,12 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 
         private void RegisterXButtonMessages()
         {
-            var messages = new List<WindowsMessages>
+            var messages = new List<WindowMessage>
             {
-                WindowsMessages.WM_XBUTTONDOWN,
-                WindowsMessages.WM_XBUTTONUP,
-                WindowsMessages.WM_NCXBUTTONDOWN,
-                WindowsMessages.WM_NCXBUTTONUP
+                WindowMessage.WM_XBUTTONDOWN,
+                WindowMessage.WM_XBUTTONUP,
+                WindowMessage.WM_NCXBUTTONDOWN,
+                WindowMessage.WM_NCXBUTTONUP
             };
 
             _map.Add(MouseKeys.XBUTTON1, messages);
@@ -89,10 +90,10 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 
         private void RegisterWheelMessages()
         {
-            var messages = new List<WindowsMessages>
+            var messages = new List<WindowMessage>
             {
-                WindowsMessages.WM_MOUSEWHEEL,
-                WindowsMessages.WM_MOUSEHWHEEL
+                WindowMessage.WM_MOUSEWHEEL,
+                WindowMessage.WM_MOUSEHWHEEL
             };
 
             _map.Add(MouseKeys.WHEEL, messages);
@@ -100,10 +101,10 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
 
         private void RegisterScanningDeviceMessages()
         {
-            var messages = new List<WindowsMessages>
+            var messages = new List<WindowMessage>
             {
-                WindowsMessages.WM_MOUSEMOVE,
-                WindowsMessages.WM_NCSMOUSEMOVE
+                WindowMessage.WM_MOUSEMOVE,
+                WindowMessage.WM_NCSMOUSEMOVE
             };
 
             _map.Add(MouseKeys.SCANDEVICE, messages);

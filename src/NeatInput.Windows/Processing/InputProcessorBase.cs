@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NeatInput.Windows.Processing
 {
-    internal abstract class InputProcessor<TInput, TOutput>
+    internal abstract class InputProcessorBase<TInput, TOutput>
         where TInput : struct
         where TOutput : InputEvent, new()
     {
