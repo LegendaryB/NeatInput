@@ -45,8 +45,8 @@ namespace NeatInput.Windows
             _mouseEventReceiver = new WeakReference<IMouseEventReceiver>(
                 mouseEventReceiver);
 
-            _keyboardHook = SetKeyboardHook();
-            _mouseHook = SetMouseHook();
+            _keyboardHook = SetupKeyboardHook(OnRawKeyboardInputProcessed);
+            _mouseHook = SetupMouseHook(OnRawMouseInputProcessed);
         }
 
         /// <param name="eventReceiver">A instance of <see cref="IKeyboardEventReceiver"/> which receives keyboard events.</param>
@@ -60,7 +60,7 @@ namespace NeatInput.Windows
             _keyboardEventReceiver = new WeakReference<IKeyboardEventReceiver>(
                 eventReceiver);
 
-            _keyboardHook = SetKeyboardHook();
+            _keyboardHook = SetupKeyboardHook(OnRawKeyboardInputProcessed);
         }
 
         /// <param name="eventReceiver">A instance of <see cref="IMouseEventReceiver"/> which receives mouse events.</param>
@@ -74,7 +74,7 @@ namespace NeatInput.Windows
             _mouseEventReceiver = new WeakReference<IMouseEventReceiver>(
                 eventReceiver);
 
-            _mouseHook = SetMouseHook();
+            _mouseHook = SetupMouseHook(OnRawMouseInputProcessed);
         }
 
         /// <summary>
@@ -117,18 +117,18 @@ namespace NeatInput.Windows
             receiver.Receive(@event);
         }
 
-        private KeyboardHook SetKeyboardHook()
+        private static KeyboardHook SetupKeyboardHook(Action<KeyboardEvent> callback)
         {
             var khook = new KeyboardHook();
-            khook.RawInputProcessed += OnRawKeyboardInputProcessed;
+            khook.RawInputProcessed += callback;
 
             return khook;
         }
 
-        private MouseHook SetMouseHook()
+        private static MouseHook SetupMouseHook(Action<MouseEvent> callback)
         {
             var mhook = new MouseHook();
-            mhook.RawInputProcessed += OnRawMouseInputProcessed;
+            mhook.RawInputProcessed += callback;
 
             return mhook;
         }
