@@ -18,7 +18,9 @@ namespace NeatInput.Windows.Hooking
                 if (PeekMessageW(ref msg))
                 {
                     if (!GetMessageW(ref msg))
+                    {
                         continue;
+                    }
 
                     TranslateMessage(ref msg);
                     DispatchMessageW(ref msg);

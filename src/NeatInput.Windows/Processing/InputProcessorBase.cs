@@ -22,7 +22,9 @@ namespace NeatInput.Windows.Processing
             };
 
             foreach (var step in ProcessingSteps)
+            {
                 valueTransformation = step.Process(valueTransformation);
+            }
 
             return valueTransformation.Output;
         }

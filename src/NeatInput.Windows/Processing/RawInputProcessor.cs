@@ -2,7 +2,7 @@
 {
     internal static class RawInputProcessor
     {
-        internal static KeyboardProcessor Keyboard = new KeyboardProcessor();
-        internal static MouseProcessor Mouse = new MouseProcessor();
+        internal static readonly KeyboardProcessor Keyboard = new KeyboardProcessor();
+        internal static readonly MouseProcessor Mouse = new MouseProcessor();
     }
 }

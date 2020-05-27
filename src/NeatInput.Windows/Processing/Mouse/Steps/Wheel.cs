@@ -9,7 +9,9 @@ namespace NeatInput.Windows.Processing.Mouse.Steps
             ValueTransformation<MSLLHOOKSTRUCT, MouseEvent> valueTransformation)
         {
             if (valueTransformation.Output.Key != MouseKeys.WHEEL)
+            {
                 return valueTransformation;
+            }
 
             if (Helper.HIWORD(valueTransformation.Input.mouseData) > 0)
             {
