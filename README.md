@@ -19,7 +19,7 @@ A .NET standard project which aims to make keyboard and mouse input monitoring e
 All of the documentation can be found in the repository [wiki](https://github.com/LegendaryB/NeatInput/wiki).
 
 ## Acknowledgements
-* Microsoft - Many of the mostly internal NeatInput.Interop namespace is from the open source [windows forms repository](https://github.com/dotnet/winforms).
+* Microsoft - Some parts of the internal namespace NeatInput.Interop is from the open source [windows forms repository](https://github.com/dotnet/winforms).
 
 ## Contributing
 
