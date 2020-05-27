@@ -35,7 +35,9 @@ namespace NeatInput.Windows.Hooking
             IntPtr lParam)
         {
             if (nCode >= 0 && wParam != default && lParam != default)
+            {
                 ProcessRawInput((WindowMessage)wParam, lParam);
+            }
 
             return CallNextHookEx(hhk, nCode, wParam, lParam);
         }
