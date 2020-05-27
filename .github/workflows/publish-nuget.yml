@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Push NeatInput.Windows package
-        uses: rohith/publish-nuget@v2.3.0
+        uses: rohith/publish-nuget@v2.5.2
         with: 
           PROJECT_FILE_PATH: src/NeatInput.Windows/NeatInput.Windows.csproj
           TAG_COMMIT: false
@@ -19,7 +19,7 @@ jobs:
           PACKAGE_NAME: NeatInput.Windows
 
       - name: Push NeatInput.Linux package
-        uses: rohith/publish-nuget@v2.3.0
+        uses: rohith/publish-nuget@v2.5.2
         with: 
           PROJECT_FILE_PATH: src/NeatInput.Linux/NeatInput.Linux.csproj
           TAG_COMMIT: false
