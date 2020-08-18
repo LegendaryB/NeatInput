@@ -1,6 +1,7 @@
 <h1 align="center">NeatInput</h1>
 <div align="center">
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9632b2b664a74515a19caab1507625be)](https://app.codacy.com/manual/LegendaryB/NeatInput?utm_source=github.com&utm_medium=referral&utm_content=LegendaryB/NeatInput&utm_campaign=Badge_Grade_Dashboard)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-grammas-recipe.svg)](https://forthebadge.com)
 
