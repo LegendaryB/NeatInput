@@ -6,8 +6,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/blob/master/LICENSE.md)
 [![Nuget](https://img.shields.io/nuget/v/NeatInput.Windows.svg?style=flat-square)](https://www.nuget.org/packages/NeatInput.Windows/)
-[![GitHub last commit](https://img.shields.io/github/last-commit/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput)
-[![GitHub issues](https://img.shields.io/github/issues/LegendaryB/NeatInput.svg?longCache=true&style=flat-square)](https://github.com/LegendaryB/NeatInput/issues)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e13b674a3d5b4236b78846821f85150d)](https://www.codacy.com/manual/LegendaryB/NeatInput?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LegendaryB/NeatInput&amp;utm_campaign=Badge_Grade)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/alphadaniel)
 
 A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux.
