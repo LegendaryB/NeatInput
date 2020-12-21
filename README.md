@@ -9,7 +9,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e13b674a3d5b4236b78846821f85150d)](https://www.codacy.com/manual/LegendaryB/NeatInput?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LegendaryB/NeatInput&amp;utm_campaign=Badge_Grade)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/alphadaniel)
 
-A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and Linux.
+A .NET standard project which aims to make keyboard and mouse input monitoring easy on Windows and eventually Linux.
 
 <sub>Built with ❤︎ by Daniel Belz</sub>
 </div><br>
